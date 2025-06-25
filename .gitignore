@@ -1,0 +1,10 @@
+# Entorn virtual
+env/
+venv/
+
+# Fitxers Python compilats
+__pycache__/
+*.py[cod]
+
+# Fitxers de configuració d'entorns
+*.env
