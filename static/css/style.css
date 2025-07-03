@@ -1,9 +1,16 @@
 body {
     font-family: sans-serif;
-    background: #f2f2f2;
+    /* background: #f2f2f2; */
+    font-size: 16px; /* mida base */
     color: #333;
     text-align: center;
     padding: 2rem;
+
+  background-color: #fdfdfd;
+  background-image: 
+    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 h1 {
@@ -18,11 +25,11 @@ p {
 }
 
 button {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    padding: 0.7rem 1.2rem;
     margin: 0.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
@@ -30,6 +37,25 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 800px) {
+  .buttons {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+
+.buttons button:hover {
+  animation: jelly 0.4s ease;
 }
 
 .insta-container {
@@ -72,6 +98,12 @@ button:hover {
     }
 }
 
+.source-code-pro {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
 
 
 .titol-typewriter {
@@ -83,6 +115,24 @@ button:hover {
     white-space: nowrap;
     overflow: hidden;
 }
+
+
+
+/* Ajust per pantalles mitjanes (tauletes) */
+@media (max-width: 768px) {
+  .titol-typewriter {
+    font-size: 2.2rem;
+  }
+}
+
+/* Ajust per pantalles petites (mòbils) */
+@media (max-width: 480px) {
+  .titol-typewriter {
+    font-size: 1.6rem;
+  }
+}
+
+
 .titol-typewriter:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
@@ -180,4 +230,90 @@ button:hover {
     opacity: 1;
   }
 
+}
+.side-menu {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  font-family: "Source Code Pro", monospace;
+  background-color: rgba(255, 255, 255);
+  opacity: 0.6;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  margin: 8px 0;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.side-menu a:hover {
+  color: seagreen;
+}
+
+@keyframes jelly {
+  0%   { transform: scale(1,1); }
+  25%  { transform: scale(1.1, 0.9); }
+  50%  { transform: scale(0.9, 1.1); }
+  75%  { transform: scale(1.05, 0.95); }
+  100% { transform: scale(1,1); }
+}
+
+.side-menu a:hover {
+  color: seagreen;
+  animation: jelly 0.4s ease-in-out;
+  display: inline-block; /* necessari per animació transform */
+}
+
+.side-menu:hover {
+  background-color: rgba(250, 211, 248, 0.9);
+  opacity: 0.9;
+}
+
+.side-menu a.active {
+  color: seagreen;
+  animation: jelly 0.4s ease-in-out;
+  display: inline-block; /* necessari per animació transform */
+}
+
+#h2estiu:hover{
+  color:orange;
+}
+
+ul, ol {
+  max-width: 600px; /* o la mida que vulguis */
+  margin: 0 auto;   /* centra el bloc */
+  font-size: 1.1rem; /* o un tamany llegible */
+  line-height: 1.5;  /* millora l’espaiat vertical */
+  padding-left: 1.2rem; /* per separar les vinyetes del text */
+  word-wrap: break-word; /* que faci salt de línia dins paraules llargues */
+}
+
+ol {
+  text-align: justify;
+  padding-left: 20px;
+}
+
+.justificat {
+  text-align: justify;
+}
+
+#curs_juliol {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.1em; /* 10% més gran que la mida base (16px * 1.1 = 17.6px) */
+  color:orange;
 }
