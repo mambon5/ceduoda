@@ -25,3 +25,8 @@ function onScroll() {
 }
 
 window.addEventListener('scroll', onScroll);
+
+function toggleMenu() {
+  const menu = document.querySelector('.side-menu');
+  menu.classList.toggle('visible');
+}

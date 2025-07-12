@@ -317,3 +317,44 @@ ol {
   font-size: 1.1em; /* 10% més gran que la mida base (16px * 1.1 = 17.6px) */
   color:orange;
 }
+
+/* Botó toggle per mòbil */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  z-index: 1100;
+  background-color: #efd3d3;
+  border: none;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: none; /* per defecte amagat */
+}
+
+/* Menú lateral per defecte */
+.side-menu {
+  transition: transform 0.3s ease;
+}
+
+/* Quan el menú està ocult */
+.side-menu.hidden {
+  transform: translateX(-150%);
+}
+
+/* Mostrar el toggle només en pantalles petites */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .side-menu {
+    transform: translateX(-150%);
+  }
+
+  .side-menu.visible {
+    transform: translateX(0);
+  }
+}

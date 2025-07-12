@@ -7,13 +7,32 @@
 #     │   └── style.css
 #     └── images/
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import json
+import os
 
 app = Flask(__name__)
 
+def load_translation(lang_code):
+    try:
+        with open(f"translations/{lang_code}.json", encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return load_translation("ca")  # Default fallback
+
 @app.route("/")
-def home():
-    return render_template("index.html")
+def redirect_home():
+    # Opcional: redirigir segons idioma del navegador
+    user_lang = request.accept_languages.best_match(['ca', 'es', 'en']) or 'ca'
+    return redirect(f"/{user_lang}")
+
+@app.route("/<lang_code>")
+def home(lang_code):
+    if lang_code not in ['ca', 'es', 'en']:
+        lang_code = 'ca'
+
+    content = load_translation(lang_code)
+    return render_template("index.html", lang=lang_code, content=content)
 
 if __name__ == "__main__":
     app.run(debug=True)
