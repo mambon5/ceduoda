@@ -7,7 +7,7 @@
 #     │   └── style.css
 #     └── images/
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import json
 import os
 
@@ -15,10 +15,15 @@ app = Flask(__name__)
 
 def load_translation(lang_code):
     try:
-        with open(f"translations/{lang_code}.json", encoding='utf-8') as f:
+        # Aquí carregues la traducció real (ex: fitxer JSON, diccionari, etc.)
+        with open(f"static/translations/{lang_code}.json", "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
-        return load_translation("ca")  # Default fallback
+        if lang_code != "ca":
+            return load_translation("ca")  # Fallback només si no és "ca"
+        else:
+            raise  # Si també falta el "ca", llença l'error original
+
 
 @app.route("/")
 def redirect_home():
