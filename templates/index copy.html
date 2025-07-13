@@ -29,8 +29,8 @@
 <a href="https://g.co/kgs/guiGFC3" target="_blank" style="text-decoration: none;">
     <header style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 5px 0; background-color: transparent;">
     <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 40px;">
-    <h1 style="font-size: 1.2rem; font-weight: 600; margin: 0; font-family: 'Arial Black', Gadget, sans-serif; color: #2c3e50;">{{ content.header_name }}</h1>
-    <i class="bi bi-geo-alt-fill"></i> {{ content.header_address }}
+    <h1 style="font-size: 1.2rem; font-weight: 600; margin: 0; font-family: 'Arial Black', Gadget, sans-serif; color: #2c3e50;">Centre d'Estudis Duoda</h1>
+    <i class="bi bi-geo-alt-fill"></i> Carrer Duoda 21, 08020 Barcelona
     </header>
 </a>
 
@@ -38,13 +38,13 @@
 
 <nav class="side-menu">
   <ul>
-    <li><a href="#intro">{{ content.menu_home }}</a></li>
-    <li><a href="#reforç">{{ content.menu_reforç }}</a></li>
-    <li><a href="#estiu">{{ content.menu_estiu }}</a></li>
-    <li><a href="#amplia">{{ content.menu_amplia }}</a></li>
-    <li><a href="#equip">{{ content.menu_equip }}</a></li>
-    <li><a href="#contacte">{{ content.menu_contacte }}</a></li>
-    <li><a href="#follow">{{ content.menu_follow }}</a></li>
+    <li><a href="#intro">Inici</a></li>
+    <li><a href="#reforç">Reforç</a></li>
+    <li><a href="#estiu">Estiu</a></li>
+    <li><a href="#amplia">Ampliació</a></li>
+    <li><a href="#equip">Equip</a></li>
+    <li><a href="#contacte">Contacte</a></li>
+    <li><a href="#follow">Segueix-nos</a></li>
   </ul>
 </nav>
 
@@ -55,23 +55,22 @@
 
 
 
-    <p>{{ content.intro_p1 }}</p>
-    <p>{{ content.intro_p2 }}</p>
-    <p>{{ content.intro_p3 }}</p>
-
+    <p>Classes per a una millor ensenyança. Ens enfoquem en l'alumne, perquè creiem que el més important no és només aprovar, sinó aprendre de veritat.</p>
+    <p>Qüestionem el sistema educatiu formal i apostem per una educació alumne-cèntrica. El teu èxit comença aquí.</p>
+    <p>Tant per a joves com per a grans!</p>
      <div class="buttons">
-        <button onclick="openModal('matematiques-modal')">{{ translations.subjects.mates.title }}</button>
-        <button onclick="openModal('catala-modal')">{{ translations.subjects.catala.title }}</button>
-        <button onclick="openModal('castella-modal')">{{ translations.subjects.castella.title }}</button>
-        <button onclick="openModal('angles-modal')">{{ translations.subjects.angles.title }}</button>
-        <button onclick="openModal('biologia-modal')">{{ translations.subjects.biologia.title }}</button>
-        <button onclick="openModal('historia-modal')">{{ translations.subjects.historia.title }}</button>
-        <button onclick="openModal('python-modal')">{{ translations.subjects.python.title }}</button>
-        <button onclick="openModal('cpp-modal')">{{ translations.subjects.cpp.title }}<button>
-        <button onclick="openModal('trading-modal')">{{ translations.subjects.trading.title }}</button>
-        <button onclick="openModal('estadistica-modal')">{{ translations.subjects.estadistica.title }}</button>
-        <button onclick="openModal('probabilitat-modal')">{{ translations.subjects.probabilitat.title }}</button>
-        <button onclick="openModal('apps-modal')">{{ translations.subjects.apps.title }}</button>
+        <button onclick="openModal('matematiques-modal')">Matemàtiques</button>
+        <button onclick="openModal('catala-modal')">Català</button>
+        <button onclick="openModal('castella-modal')">Castellà</button>
+        <button onclick="openModal('angles-modal')">Anglès</button>
+        <button onclick="openModal('biologia-modal')">Biologia</button>
+        <button onclick="openModal('historia-modal')">Història</button>
+        <button onclick="openModal('python-modal')">Python</button>
+        <button onclick="openModal('cpp-modal')">C++</button>
+        <button onclick="openModal('trading-modal')">Trading</button>
+        <button onclick="openModal('estadistica-modal')">Estadística</button>
+        <button onclick="openModal('probabilitat-modal')">Probabilitat</button>
+        <button onclick="openModal('apps-modal')">Desenvolupament de apps</button>
     </div>
 
     <!-- modals ocults fins que es cliquen-->
@@ -79,8 +78,8 @@
         <div id="matematiques-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('matematiques-modal')">&times;</span>
-            <h3>{{ translations.subjects.mates.title }} <i class="bi bi-calculator" style="font-size: 2rem; color: darkblue; margin-left: 1rem;"></i></h3>
-            <p>{{ translations.subjects.mates.desc }}</p>
+            <h3>Matemàtiques <i class="bi bi-calculator" style="font-size: 2rem; color: darkblue; margin-left: 1rem;"></i></h3>
+            <p>Reforç i ampliació de conceptes matemàtics per a tots els nivells, des de l’aritmètica fins al càlcul.</p>
         </div>
         </div>
 
