@@ -60,18 +60,18 @@
     <p>{{ content.intro_p3 }}</p>
 
      <div class="buttons">
-        <button onclick="openModal('matematiques-modal')">{{ translations.subjects.mates.title }}</button>
-        <button onclick="openModal('catala-modal')">{{ translations.subjects.catala.title }}</button>
-        <button onclick="openModal('castella-modal')">{{ translations.subjects.castella.title }}</button>
-        <button onclick="openModal('angles-modal')">{{ translations.subjects.angles.title }}</button>
-        <button onclick="openModal('biologia-modal')">{{ translations.subjects.biologia.title }}</button>
-        <button onclick="openModal('historia-modal')">{{ translations.subjects.historia.title }}</button>
-        <button onclick="openModal('python-modal')">{{ translations.subjects.python.title }}</button>
-        <button onclick="openModal('cpp-modal')">{{ translations.subjects.cpp.title }}<button>
-        <button onclick="openModal('trading-modal')">{{ translations.subjects.trading.title }}</button>
-        <button onclick="openModal('estadistica-modal')">{{ translations.subjects.estadistica.title }}</button>
-        <button onclick="openModal('probabilitat-modal')">{{ translations.subjects.probabilitat.title }}</button>
-        <button onclick="openModal('apps-modal')">{{ translations.subjects.apps.title }}</button>
+        <button onclick="openModal('matematiques-modal')">{{ content.subjects.mates.title }}</button>
+        <button onclick="openModal('catala-modal')">{{ content.subjects.catala.title }}</button>
+        <button onclick="openModal('castella-modal')">{{ content.subjects.castella.title }}</button>
+        <button onclick="openModal('angles-modal')">{{ content.subjects.angles.title }}</button>
+        <button onclick="openModal('biologia-modal')">{{ content.subjects.biologia.title }}</button>
+        <button onclick="openModal('historia-modal')">{{ content.subjects.historia.title }}</button>
+        <button onclick="openModal('python-modal')">{{ content.subjects.python.title }}</button>
+        <button onclick="openModal('cpp-modal')">{{ content.subjects.cpp.title }}</button>
+        <button onclick="openModal('trading-modal')">{{ content.subjects.trading.title }}</button>
+        <button onclick="openModal('estadistica-modal')">{{ content.subjects.estadistica.title }}</button>
+        <button onclick="openModal('probabilitat-modal')">{{ content.subjects.probabilitat.title }}</button>
+        <button onclick="openModal('apps-modal')">{{ content.subjects.apps.title }}</button>
     </div>
 
     <!-- modals ocults fins que es cliquen-->
@@ -79,8 +79,8 @@
         <div id="matematiques-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('matematiques-modal')">&times;</span>
-            <h3>{{ translations.subjects.mates.title }} <i class="bi bi-calculator" style="font-size: 2rem; color: darkblue; margin-left: 1rem;"></i></h3>
-            <p>{{ translations.subjects.mates.desc }}</p>
+            <h3>{{ content.subjects.mates.title }} <i class="bi bi-calculator" style="font-size: 2rem; color: darkblue; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.mates.desc }}</p>
         </div>
         </div>
 
@@ -88,8 +88,8 @@
         <div id="catala-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('catala-modal')">&times;</span>
-            <h3>Català <i class="bi bi-book" style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
-            <p>Aprèn i perfecciona la llengua catalana amb activitats, gramàtica i literatura adaptada.</p>
+            <h3>{{ content.subjects.catala.title }} <i class="bi bi-book" style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
+            <p> {{ content.subjects.catala.desc }}</p>
         </div>
         </div>
 
@@ -97,8 +97,8 @@
         <div id="castella-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('castella-modal')">&times;</span>
-            <h3>Castellà <i class="bi bi-file-text" style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
-            <p>Millora el teu castellà amb classes enfocades a gramàtica, expressió i comprensió escrita i oral.</p>
+            <h3>{{ content.subjects.castella.title }} <i class="bi bi-file-text" style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.castella.desc }}</p>
         </div>
         </div>
 
@@ -106,8 +106,8 @@
         <div id="angles-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('angles-modal')">&times;</span>
-            <h3>Anglès <i class="bi bi-globe" style="font-size: 2rem; color: navy; margin-left: 1rem;"></i></h3>
-            <p>Classes d’anglès per a tots els nivells, amb èmfasi en conversa, gramàtica i vocabulari.</p>
+            <h3>{{ content.subjects.angles.title }} <i class="bi bi-globe" style="font-size: 2rem; color: navy; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.angles.desc }}</p>
         </div>
         </div>
 
@@ -115,8 +115,8 @@
         <div id="biologia-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('biologia-modal')">&times;</span>
-            <h3>Biologia <i class="bi bi-bug" style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
-            <p>Explora el món viu amb classes sobre anatomia, ecologia, genètica i més.</p>
+            <h3>{{ content.subjects.biologia.title }} <i class="bi bi-bug" style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.biologia.desc }}</p>
         </div>
         </div>
 
@@ -124,8 +124,8 @@
         <div id="historia-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('historia-modal')">&times;</span>
-            <h3>Història <i class="bi bi-bank" style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
-            <p>Aprèn la història del país on vius, com s'ha format, les guerres i lluites polítiques que han portat a ser qui som, i tenir l'estat actual de les coses...</p>
+            <h3>{{ content.subjects.historia.title }} <i class="bi bi-bank" style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.historia.desc }}</p>
         </div>
         </div>
 
@@ -133,8 +133,8 @@
         <div id="python-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('python-modal')">&times;</span>
-            <h3>Python <i class="bi bi-code-slash" style="font-size: 2rem; color: darkorange; margin-left: 1rem;"></i></h3>
-            <p>Aprèn a programar amb Python, des dels fonaments fins a projectes avançats.</p>
+            <h3>{{ content.subjects.python.title }} <i class="bi bi-code-slash" style="font-size: 2rem; color: darkorange; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.python.desc }}</p>
         </div>
         </div>
 
@@ -142,8 +142,8 @@
         <div id="cpp-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('cpp-modal')">&times;</span>
-            <h3>C++ <i class="bi bi-code" style="font-size: 2rem; color: darkcyan; margin-left: 1rem;"></i></h3>
-            <p>Domina la programació en C++ per a desenvolupament de software i projectes complexos.</p>
+            <h3>{{ content.subjects.cpp.title }} <i class="bi bi-code" style="font-size: 2rem; color: darkcyan; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.cpp.desc }}</p>
         </div>
         </div>
 
@@ -151,7 +151,8 @@
         <div id="trading-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('trading-modal')">&times;</span>
-<h3>Trading <i class="bi bi-graph-up-arrow rotate-icon" style="font-size: 2rem; color: seagreen; margin-left: 1rem;"></i></h3>            <p>Conceptes bàsics de mercats, anàlisi tècnica i eines per començar a invertir amb criteri.</p>
+        <h3>{{ content.subjects.trading.title }} <i class="bi bi-graph-up-arrow rotate-icon" style="font-size: 2rem; color: seagreen; margin-left: 1rem;"></i></h3>            
+        <p>{{ content.subjects.trading.desc }}</p>
         </div>
         </div>
 
@@ -159,8 +160,8 @@
         <div id="estadistica-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('estadistica-modal')">&times;</span>
-            <h3>Estadística <i class="bi bi-bar-chart" style="font-size: 2rem; color: purple; margin-left: 1rem;"></i></h3>
-            <p>Aprèn a interpretar dades i crear models estadístics per a la presa de decisions.</p>
+            <h3>{{ content.subjects.estadistica.title }} <i class="bi bi-bar-chart" style="font-size: 2rem; color: purple; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.estadistica.desc }}</p>
         </div>
         </div>
 
@@ -168,8 +169,8 @@
         <div id="probabilitat-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('probabilitat-modal')">&times;</span>
-            <h3>Probabilitat <i class="bi bi-dice-3" style="font-size: 2rem; color: darkviolet; margin-left: 1rem;"></i></h3>
-            <p>Estudia els fenòmens d’atzar i com modelar-los matemàticament.</p>
+            <h3>{{ content.subjects.probabilitat.title }} <i class="bi bi-dice-3" style="font-size: 2rem; color: darkviolet; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.probabilitat.desc }}</p>
         </div>
         </div>
 
@@ -177,196 +178,121 @@
         <div id="apps-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('apps-modal')">&times;</span>
-            <h3>Desenvolupament de apps <i class="bi bi-phone" style="font-size: 2rem; color: teal; margin-left: 1rem;"></i></h3>
-            <p>Aprèn a crear aplicacions mòbils i web des de zero, amb eines modernes i pràctiques.</p>
+            <h3>{{ content.subjects.apps.title }} <i class="bi bi-phone" style="font-size: 2rem; color: teal; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.apps.desc }}</p>
         </div>
         </div>
 
     </section>
     <!-- 🔹 Nova secció: Reforç -->
     <section id="reforç">
-    <h2 class="w3-center w3-padding-32">Classes de Reforç</h2>
-    <p>Reforcem el coneixement actual de l'alumne i l'ampliem per facilitar la seva experiència en el curs escolar vinent</p>
-    <p>El nostre mètode de treball es centra en els següents passos:</p>
+    <h2 class="w3-center w3-padding-32">{{ content.reforç.title }}</h2>
+    <p>{{ content.reforç.p1 }}</p>
+    <p>{{ content.reforç.p2 }}</p>
     <ol>
-        <li>Fer una prova ràpida amb diferents exercicis per veure on falla més l'alumne</li>
-        <li>Agafar exàmens passats de l'alumne i observar on fa més errors</li>
-        <li>Crear un programa a mida, que es centra amb exercicis i problemes relacionats amb la dificultat de l'alumne</li>
-        <li>Veure si l'alumne pot ara resoldre les dificultats concretes que s'havien observat inicialment, mitjançant exercicis estretament relacionats amb la dificultat de l'alumne.</li>
-        <li>Si no es resol satisfactoriament la dificultat de l'alumne, es torna al pas 3, però amb un exercicis d'un enfoc diferent. 
-            Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encara de diferents formes en matemàtiques. 
-            D'una banda podríem posar fraccions senzilles de denominador primer: \[ \frac{1}{2} + \frac{2}{3}. \] Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara
-            \[\frac{5}{12} - \frac{7}{18}. \] Si l'alumne no se'n surt en caps dels casos, podríem obtar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no 
-            entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau.
-        </li>
+        <li>{{ content.reforç.steps[0] }}</li>
+        <li>{{ content.reforç.steps[1] }}</li>
+        <li>{{ content.reforç.steps[2] }}</li>
+        <li>{{ content.reforç.steps[3] }}</li>
+        <li>{{ content.reforç.steps[4] }}</li>
     </ol>
-    <p><b>Públic Objectiu: </b> General.</p>
+    <p><b>{{ content.reforç.target.nom }}: </b> {{ content.reforç.target.valor }}</p>
     </section>
+    <!-- estiu -->
     <section id="estiu" class="justificat">
-        <h2 id="h2estiu" class="w3-center w3-padding-32">Cursos d'estiu <i class="bi bi-brightness-high" style="color: orange;"></i></h2>
-    <p>Reforcem el coneixement actual de l'alumne i l'ampliem per facilitar la seva experiència en el curs escolar vinent</p>
-    <p>Formem grups de 4 alumnes i els fem treballar en equips per resoldre problemes concrets en diferents assignatures. Exemples podrien ser: Usar el teorema de Tales per calcular l'altura d'un edifici
-        usant la seva sombra, resoldre el següent sistema d'equacions: \[ 3x + 2y = 12 \]  \[ -x+y = -3 \], problemes de dibuixar gràfiques de funcions, com la funció \[ f(x) = e^{x²} \] o 
-        calcular el límit de la funció \[ \lim_{x\rightarrow 0}x\sin(x),  \] i sobretot molts problemes que forcin la estudiant a entendre un text i transformar-lo a una equació matemàtica, que és el que més costa 
-        en tots els nivells i edats (incloent la nostra).
-
+        <h2 id="h2estiu" class="w3-center w3-padding-32">{{ content.estiu.title }} <i class="bi bi-brightness-high" style="color: orange;"></i></h2>
+    <p>{{ content.estiu.p1 }}</p>
+    <p>{{ content.estiu.p2 }}
     </p>
-    <p>La informació principal referent al curs d'estiu és la següent:</p>
+    <p>{{ content.estiu.p3 }}</p>
     <ul class="justificat" id="curs_juliol">
-        <li>Durant les <b>4 primeres setmanes </b>de Juliol</li>
-        <li>Asignatures que es poden solicitar: <b> Mates, Català, Castellà, Física, Química, Història, Programació</b></li>
-        <li><b> Dimarts, Dimecres i Dijous</b></li>
-        <li>horari: de <b> 4pm a 6:30pm</b></li>
-        <li>cost aproximat (varia cada any): <b> 300€</b></li>
-        <li>total d'hores: <b> 30h</b></li>
+        <li>{{ content.estiu.info[0] }}</li>
+        <li>{{ content.estiu.info[1] }}</li>
+        <li>{{ content.estiu.info[2] }}</li>
+        <li>{{ content.estiu.info[3] }}</li>
+        <li>{{ content.estiu.info[4] }}</li>
+        <li>{{ content.estiu.info[5] }}</li>
     </ul>
-    <p><b>Públic Objectiu: </b> General.</p>
+    <p><b>{{ content.estiu.target.nom }}: </b> {{ content.estiu.target.valor }}</p>
     </section>
-    <section id="amplia" class="justificat">
-    <h2 class="w3-center w3-padding-32">Classes d'ampliació</h2>
-    <p>Extenem els coneixements de l'alumne en qualssevol de les matèries llistades a la nostra web, que inclouen:
-    </p>
+
+    <!-- ampliació -->
+<section id="amplia" class="justificat">
+    <h2 class="w3-center w3-padding-32">{{ content.ampliacio.title }}</h2>
+
+    <p>{{ content.ampliacio.p1 }}</p>
     <ol>
-        <li>Matemàtiques</li>
-        <li>Anglès</li>
-        <li>Català</li>
-        <li>Castellà</li>
-        <li>Programació i desenvolupament de webapps</li>
-        <li>Història</li>
-        <li>Proves Cangur</li>
-        <li>Olimpíades matemàtiques</li>
+        {% for assignatura in content.ampliacio.assignatures %}
+        <li>{{ assignatura }}</li>
+        {% endfor %}
     </ol>
+
     <br>
-    <p>En aquestes classes posem exercicis i problemes exigents, i que es complementen d'explicacions teòriques que l'estudiant desconeix, perquè no li han explicat (encara) a classe.
+
+    <p>{{ content.ampliacio.p2 }}</p>
+    <p>{{ content.ampliacio.p3 }}</p>
+
+    <p>
+        <b>{{ content.ampliacio.target.nom }}:</b> {{ content.ampliacio.target.valor }}
     </p>
-    <p>Classes dissenyades per a estudiants i pares més exigents que es volen avançar al seu nivell, o preparar aspectes professionals i acadèmics per encarar el mercat laboral amb millors expectatives.
-    </p>
-    <p><b>Públic objectiu:</b>Estudiants escolars i d'universitat. Treballadors que volen ampliar destresses, persones que volen aprendre a programar</p>
+
     <ol>
-        <li>Fer una prova ràpida amb diferents exercicis per veure on falla més l'alumne</li>
-        <li>Agafar exàmens passats de l'alumne i observar on fa més errors</li>
-        <li>Crear un programa a mida, que es centra amb exercicis i problemes relacionats amb la dificultat de l'alumne</li>
-        <li>Veure si l'alumne pot ara resoldre les dificultats concretes que s'havien observat inicialment, mitjançant exercicis estretament relacionats amb la dificultat de l'alumne.</li>
-        <li>Si no es resol satisfactoriament la dificultat de l'alumne, es torna al pas 3, però amb un exercicis d'un enfoc diferent. 
-            Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encara de diferents formes en matemàtiques. 
-            D'una banda podríem posar fraccions senzilles de denominador primer: \[ \frac{1}{2} + \frac{2}{3}. \] Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara
-            \[\frac{5}{12} - \frac{7}{18}. \] Si l'alumne no se'n surt en caps dels casos, podríem obtar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no 
-            entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau.
-        </li>
+        {% for step in content.ampliacio.steps %}
+        <li>{{ step | safe }}</li>
+        {% endfor %}
     </ol>
-    </section>
+</section>
+
+
+    <!-- equip -->
     <section id="equip">
     <!-- 🔹 Nova secció: Equip -->
     <h2 class="w3-center w3-padding-32">Equip</h2>
 
-    <div class="w3-row-padding w3-padding-16">
-        <!-- Romà Masana -->
-        <div class="w3-half">
+    
+
+        {% for profe in content.equip.membres %}        
+        <!-- {{ profe.nom }} -->
+        <div class="w3-half w3-row-padding w3-padding-16" >
             <div class="w3-row">
                 <div class="w3-quarter">
-                    <img src="static/images/roma.jpg" alt="Romà Masana" class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
-                    <img src="static/images/roma.jpg" alt="Romà Masana" class="w3-circle w3-hover-opacity w3-hide-large w3-hide-medium" style="width:40%">
+                    <img src="{{ profe.imatge }}" alt="{{ profe.nom }}" class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
+                    <img src="{{ profe.imatge }}" alt="{{ profe.nom }}" class="w3-circle w3-hover-opacity w3-hide-large w3-hide-medium" style="width:40%">
                 </div>
+            
                 <div class="w3-threequarter">
-                    <h3>Romà Masana</h3>
-                    <p class="w3-text-aqua">Director i profe</p>
+                    <h3>{{ profe.nom }}</h3>
+                    <p class="w3-text-aqua">{{ profe.rol }}</p>
                     <ul>
-                        <li>Graduat en Matemàtiques</li>
-                        <li>Especialista en programació</li>
-                        <li>Experiència docent de més de 10 anys</li>
-                        <li>Passió per la innovació educativa</li>
-                        <li><a href="https://www.linkedin.com/in/rom%C3%A0-masana-61459411b" target="_blank">LinkedIn</a></li>
+                        {% for item in profe.descripcio %}
+                        <li>{{ item | safe }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Sergi Valero -->
-        <div class="w3-half">
-            <div class="w3-row">
-                <div class="w3-quarter">
-                    <img src="static/images/sergi.png" alt="Sergi Valero" class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
-                    <img src="static/images/sergi.png" alt="Sergi Valero" class="w3-circle w3-hover-opacity w3-hide-large w3-hide-medium" style="width:40%">
-                </div>
-                <div class="w3-threequarter">
-                    <h3>Sergi Valero</h3>
-                    <p class="w3-text-aqua">Director i profe</p>
-                    <ul>
-                        <li>Graduat en Història</li>
-                        <li>Especialista en humanitats i llengues</li>
-                        <li>Experiència en formació personalitzada</li>
-                        <li>Apassionat per l’aprenentatge autodidacte</li>
-                        <li><a href="#" target="_blank">LinkedIn</a></li> <!-- Enllaç fictici -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-     <div class="w3-row-padding w3-padding-16">
-
-        <!-- Elena Parejo -->
-        <div class="w3-half">
-            <div class="w3-row">
-                <div class="w3-quarter">
-                    <img src="static/images/elenap.jpeg" alt="Elena Parejo" class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
-                    <img src="static/images/elenap.jpeg" alt="Elena Parejo" class="w3-circle w3-hover-opacity w3-hide-large w3-hide-medium" style="width:40%">
-                </div>
-                <div class="w3-threequarter">
-                    <h3>Elena Pareja</h3>
-                    <p class="w3-text-aqua">Profe de Bio</p>
-                    <ul>
-                        <li>PhD en el IRB de Barcelona</li>
-                        <li>Especialista en bioinformàtica</li>
-                        <li>Vasta experiència formant estudiants</li>
-                        <li>Investigadora en AI i medicaments nous</li>
-                        <li><a href="https://www.linkedin.com/in/elena-pareja-lorente-864745194/" target="_blank">LinkedIn</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-         <!-- Marc Sitges -->
-        <div class="w3-half">
-            <div class="w3-row">
-                <div class="w3-quarter">
-                    <img src="static/images/marcs.jpg" alt="Marc Sitges" class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
-                    <img src="static/images/marcs.jpg" alt="Marc Sitges" class="w3-circle w3-hover-opacity w3-hide-large w3-hide-medium" style="width:40%">
-                </div>
-                <div class="w3-threequarter">
-                    <h3>Marc Sitges</h3>
-                    <p class="w3-text-aqua">Profe d'anglès</p>
-                    <ul>
-                        <li>Graduat en Història</li>
-                        <li>Gran trajectòria adaptant les classes a cada alumne.</li>
-                        <li>Expert en comunicació, cultura i llenguatge</li>
-                        <li>Entusiasta del coneixement lliure</li>
-                        <li><a href="#" target="_blank">LinkedIn</a></li> <!-- Enllaç fictici -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         
-    </div>
-
+        {% endfor %}
+        
+    
     </section>
+    
+
     <section id="contacte">
 
-    <section style="text-align: center; margin-top: 40px; font-family: sans-serif;">
-    <h2 class="w3-center" style="margin-bottom: 10px;">Contacte</h2>
-    <p >
-        <i class="bi bi-telephone-fill" style="margin-right: 6px;"></i>
-        <a href="tel:+34611648478" style="text-decoration: none; color: #333;">611 648 478</a>
-    </p>
-    <p >
-        <i class="bi bi-envelope-fill" style="margin-right: 6px;"></i>
-        <a href="mailto:ceduoda@gmail.com" style="text-decoration: none; color: #333;">ceduoda@gmail.com</a>
-    </p>
+        <section style="text-align: center; margin-top: 40px; font-family: sans-serif;">
+        <h2 class="w3-center" style="margin-bottom: 10px;">Contacte</h2>
+        <p >
+            <i class="bi bi-telephone-fill" style="margin-right: 6px;"></i>
+            <a href="tel:+34611648478" style="text-decoration: none; color: #333;">611 648 478</a>
+        </p>
+        <p >
+            <i class="bi bi-envelope-fill" style="margin-right: 6px;"></i>
+            <a href="mailto:ceduoda@gmail.com" style="text-decoration: none; color: #333;">ceduoda@gmail.com</a>
+        </p>
+        </section>
     </section>
 
-
-    </section>
     <section id="follow">
     <h2>Segueix-nos a Instagram</h2>
     <div class="insta-container">
@@ -383,6 +309,7 @@
         </div>
 
     </section>
+
     <script async src="//www.instagram.com/embed.js"></script>
     
     <!-- Script del teu efecte de màquina d'escriure -->
