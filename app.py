@@ -16,7 +16,7 @@ app = Flask(__name__)
 def load_translation(lang_code):
     try:
         # Aquí carregues la traducció real (ex: fitxer JSON, diccionari, etc.)
-        with open(f"static/translations/{lang_code}.json", "r", encoding="utf-8") as f:
+        with open(f"/var/www/ceduoda/static/translations/{lang_code}.json", "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
         if lang_code != "ca":
