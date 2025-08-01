@@ -1,5 +1,220 @@
 {
-  "title": "CE Duoda - Creative education",
+  "title": "CE Duoda - Creative Education",
   "description": "Educational center in Barcelona with creative activities for children.",
-  "welcome": "Welcome to CE Duoda!"
+  "welcome": "Welcome to CE Duoda!",
+
+  "header_name": "Duoda Study Center",
+  "header_address": "Carrer Duoda 21, 08020 Barcelona",
+
+  "menu_home": "Home",
+  "menu_reforç": "Support",
+  "menu_estiu": "Summer",
+  "menu_amplia": "Extension",
+  "menu_equip": "Team",
+  "menu_contacte": "Contact",
+  "menu_follow": "Follow us",
+
+  "intro_title": "Welcome to CE Duoda!",
+  "intro_p1": "Classes for better learning. We focus on the student, because we believe the most important thing is not just to pass, but to truly learn.",
+  "intro_p2": "We question the formal education system and advocate for student-centered education. Your success starts here.",
+  "intro_p3": "For both young and old!",
+
+  "subjects": {
+    "mates": {
+      "title": "Mathematics",
+      "desc": "Support and expansion of mathematical concepts for all levels, from arithmetic to calculus."
+    },
+    "catala": {
+      "title": "Catalan",
+      "desc": "Learn and perfect the Catalan language with activities, grammar, and adapted literature."
+    },
+    "castella": {
+      "title": "Spanish",
+      "desc": "Improve your Spanish with classes focused on grammar, expression, and written and oral comprehension."
+    },
+    "angles": {
+      "title": "English",
+      "desc": "English classes for all levels, with emphasis on conversation, grammar, and vocabulary."
+    },
+    "biologia": {
+      "title": "Biology",
+      "desc": "Explore the living world with classes on anatomy, ecology, genetics, and more."
+    },
+    "historia": {
+      "title": "History",
+      "desc": "Learn the history of the country you live in—how it was formed, the wars and political struggles that shaped it, and the current state of things."
+    },
+    "python": {
+      "title": "Python",
+      "desc": "Learn to program with Python, from basics to advanced projects."
+    },
+    "cpp": {
+      "title": "C++",
+      "desc": "Master C++ programming for software development and complex projects."
+    },
+    "trading": {
+      "title": "Trading",
+      "desc": "Basic concepts of markets, technical analysis, and tools to start investing wisely."
+    },
+    "estadistica": {
+      "title": "Statistics",
+      "desc": "Learn to interpret data and create statistical models for decision-making."
+    },
+    "probabilitat": {
+      "title": "Probability",
+      "desc": "Study random phenomena and how to model them mathematically."
+    },
+    "apps": {
+      "title": "App Development",
+      "desc": "Learn to build mobile and web apps from scratch, using modern and practical tools."
+    }
+  },
+  "reforç": {
+  "title": "Support Classes",
+  "p1": "We reinforce the student’s current knowledge and expand it to ease their experience in the upcoming school year.",
+  "p2": "Our working method is based on the following steps:",
+  "steps": [
+    "Conduct a quick test with various exercises to detect the student’s main difficulties.",
+    "Review the student’s past exams to identify common mistakes.",
+    "Create a tailored program focused on exercises and problems related to the student's challenges.",
+    "Check whether the student can now solve the initially identified difficulties using exercises closely related to those topics.",
+    "If the difficulties are not resolved satisfactorily, return to step 3, but with exercises using a different approach. For example, if the difficulty is adding algebraic fractions, we can approach this in several ways. First, try simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If progress is made, move to fractions requiring the least common multiple: \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If there’s still difficulty, use visual aids, like pie charts. The goal is to reframe the problem, not treat the student as incapable."
+  ],
+  "target": {
+    "nom": "Target Audience",
+    "valor": "General"
+  }
+},
+
+"estiu": {
+  "title": "Summer Courses ☀️",
+  "p1": "We reinforce the student’s current knowledge and expand it to ease their experience in the upcoming school year.",
+  "p2": "We form groups of 4 students and have them work in teams to solve specific problems in different subjects. Examples include: using Thales’ theorem to calculate the height of a building using its shadow, solving this system of equations: \\[ 3x + 2y = 12 \\], \\[ -x + y = -3 \\], drawing function graphs like \\[ f(x) = e^{x²} \\], or calculating a limit such as \\[ \\lim_{x\\rightarrow 0}x\\sin(x) \\], with many problems designed to require reading comprehension and conversion into a mathematical equation—often the hardest skill at any level (even for us!).",
+  "p3": "Key information about the summer course:",
+  "info": [
+    "During the first 4 weeks of July",
+    "Subjects available: Math, Catalan, Spanish, Physics, Chemistry, History, Programming",
+    "Tuesdays, Wednesdays, and Thursdays",
+    "Schedule: 4:00pm to 6:30pm",
+    "Approximate cost (may vary yearly): 300€",
+    "Total hours: 30h"
+  ],
+  "target": {
+    "nom": "Target Audience",
+    "valor": "General"
+  }
+},
+
+"ampliacio": {
+  "title": "Extension Classes",
+  "p1": "We expand the student’s knowledge in any of the subjects listed on our website, including:",
+  "assignatures": [
+    "Mathematics",
+    "English",
+    "Catalan",
+    "Spanish",
+    "Programming and Web App Development",
+    "History",
+    "Kangaroo Math Contests",
+    "Math Olympiads"
+  ],
+  "p2": "In these classes, we offer challenging exercises and problems, complemented by theoretical explanations the student hasn't yet encountered in school.",
+  "p3": "Designed for more demanding students and parents who want to get ahead of their level or prepare for academic and professional challenges to improve their career prospects.",
+  "target": {
+    "nom": "Target Audience",
+    "valor": "School and university students. Workers looking to expand their skills. People who want to learn programming."
+  },
+  "steps": [
+    "Conduct a quick test with various exercises to detect the student’s main difficulties.",
+    "Review the student’s past exams to identify common mistakes.",
+    "Create a tailored program focused on exercises and problems related to the student's challenges.",
+    "Check whether the student can now solve the initially identified difficulties using exercises closely related to those topics.",
+    "If the difficulties are not resolved satisfactorily, return to step 3, but with exercises using a different approach. For example, if the difficulty is adding algebraic fractions, we can approach this in several ways. First, try simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If progress is made, move to fractions requiring the least common multiple: \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If there’s still difficulty, use visual aids, like pie charts. The goal is to reframe the problem, not treat the student as incapable."
+  ]
+},
+"equip": {
+  "title": "Team",
+  "membres": [
+    {
+      "nom": "Romà Masana",
+      "rol": "Director and Teacher",
+      "imatge": "static/images/roma.jpg",
+      "descripcio": [
+        "Degree in Mathematics",
+        "Specialist in Programming",
+        "Over 10 years of teaching experience",
+        "Passionate about educational innovation"
+      ],
+      "linkedin": "https://www.linkedin.com/in/rom%C3%A0-masana-61459411b"
+    },
+    {
+      "nom": "Sergi Valero",
+      "rol": "Director and Teacher",
+      "imatge": "static/images/sergi.png",
+      "descripcio": [
+        "Degree in History",
+        "Specialist in Humanities and Languages",
+        "Experience in personalized learning",
+        "Passionate about self-directed learning"
+      ],
+      "linkedin": "#"
+    },
+    {
+      "nom": "Elena Pareja",
+      "rol": "Biology Teacher",
+      "imatge": "static/images/elenap.jpeg",
+      "descripcio": [
+        "PhD from IRB Barcelona",
+        "Specialist in Bioinformatics",
+        "Extensive experience mentoring students",
+        "Researcher in AI and new drugs"
+      ],
+      "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
+    },
+    {
+      "nom": "Marc Sitges",
+      "rol": "English Teacher",
+      "imatge": "static/images/marcs.jpg",
+      "descripcio": [
+        "Degree in History",
+        "Extensive experience tailoring lessons to each student",
+        "Expert in communication, culture, and language",
+        "Enthusiast of open knowledge"
+      ],
+      "linkedin": "#"
+    }
+  ]
+},
+
+"contacte": {
+  "titol": "Contact",
+  "telefon": {
+    "text": "611 648 478",
+    "href": "tel:+34611648478",
+    "icona": "bi bi-telephone-fill"
+  },
+  "email": {
+    "text": "ceduoda@gmail.com",
+    "href": "mailto:ceduoda@gmail.com",
+    "icona": "bi bi-envelope-fill"
+  }
+},
+
+"follow": {
+  "titol": "Follow us on Instagram",
+  "instagram": {
+    "url": "https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&utm_campaign=loading",
+    "embed": true
+  },
+  "footer": {
+    "logo": "static/images/logo_9.png",
+    "nom": "Duoda Study Center",
+    "adreça": {
+      "text": "Carrer Duoda 21, 08020 Barcelona",
+      "href": "https://www.google.com/maps/place/Carrer+Duoda,+21,+08020+Barcelona",
+      "icona": "bi bi-geo-alt-fill"
+    }
+  }
+}
+
 }
