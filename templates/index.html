@@ -253,10 +253,10 @@
 
         {% for profe in content.equip.membres %}        
          {% if loop.index0 % 2 == 0 %}
-        <div class="w3-row">
+        <div class="w3-row-padding w3-padding-16">
         {% endif %}
+        <div class="w3-half">
         <!-- {{ profe.nom }} -->
-        <div class="w3-half w3-row-padding w3-padding-16" >
             <div class="w3-row">
                 <div class="w3-quarter">
                     <img src="{{ profe.imatge }}" alt="{{ profe.nom }}" class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
@@ -274,6 +274,9 @@
                 </div>
             </div>
         </div>
+        {% if loop.index0 % 2 == 1 %}
+        </div>
+        {% endif %}
         
         {% endfor %}
         
