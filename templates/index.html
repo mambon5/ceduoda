@@ -252,6 +252,9 @@
     
 
         {% for profe in content.equip.membres %}        
+         {% if loop.index0 % 2 == 0 %}
+        <div class="w3-row">
+        {% endif %}
         <!-- {{ profe.nom }} -->
         <div class="w3-half w3-row-padding w3-padding-16" >
             <div class="w3-row">
