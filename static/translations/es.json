@@ -1,5 +1,214 @@
 {
   "title": "CE Duoda - Educación creativa",
   "description": "Centro educativo en Barcelona con actividades creativas para niños.",
-  "welcome": "¡Bienvenidos a CE Duoda!"
+  "welcome": "¡Bienvenidos a CE Duoda!",
+  "header_name": "Centro de Estudios Duoda",
+  "header_address": "Calle Duoda 21, 08020 Barcelona",
+  "menu_home": "Inicio",
+  "menu_reforç": "Refuerzo",
+  "menu_estiu": "Verano",
+  "menu_amplia": "Ampliación",
+  "menu_equip": "Equipo",
+  "menu_contacte": "Contacto",
+  "menu_follow": "Síguenos",
+  "intro_title": "¡Bienvenidos a CE Duoda!",
+  "intro_p1": "Clases para un mejor aprendizaje. Nos enfocamos en el alumno, porque creemos que lo más importante no es solo aprobar, sino aprender de verdad.",
+  "intro_p2": "Cuestionamos el sistema educativo formal y apostamos por una educación centrada en el alumno. Tu éxito empieza aquí.",
+  "intro_p3": "¡Tanto para jóvenes como para adultos!",
+
+  "subjects": {
+    "mates": {
+      "title": "Matemáticas",
+      "desc": "Refuerzo y ampliación de conceptos matemáticos para todos los niveles, desde aritmética hasta cálculo."
+    },
+    "catala": {
+      "title": "Catalán",
+      "desc": "Aprende y perfecciona el catalán con actividades, gramática y literatura adaptada."
+    },
+    "castella": {
+      "title": "Castellano",
+      "desc": "Mejora tu castellano con clases enfocadas en gramática, expresión y comprensión escrita y oral."
+    },
+    "angles": {
+      "title": "Inglés",
+      "desc": "Clases de inglés para todos los niveles, con énfasis en conversación, gramática y vocabulario."
+    },
+    "biologia": {
+      "title": "Biología",
+      "desc": "Explora el mundo vivo con clases sobre anatomía, ecología, genética y más."
+    },
+    "historia": {
+      "title": "Historia",
+      "desc": "Aprende la historia del país donde vives, cómo se ha formado, las guerras y luchas políticas que nos han llevado hasta el estado actual de las cosas..."
+    },
+    "python": {
+      "title": "Python",
+      "desc": "Aprende a programar con Python, desde fundamentos hasta proyectos avanzados."
+    },
+    "cpp": {
+      "title": "C++",
+      "desc": "Domina la programación en C++ para el desarrollo de software y proyectos complejos."
+    },
+    "trading": {
+      "title": "Trading",
+      "desc": "Conceptos básicos de mercados, análisis técnico y herramientas para empezar a invertir con criterio."
+    },
+    "estadistica": {
+      "title": "Estadística",
+      "desc": "Aprende a interpretar datos y crear modelos estadísticos para la toma de decisiones."
+    },
+    "probabilitat": {
+      "title": "Probabilidad",
+      "desc": "Estudia los fenómenos aleatorios y cómo modelarlos matemáticamente."
+    },
+    "apps": {
+      "title": "Desarrollo de apps",
+      "desc": "Aprende a crear aplicaciones móviles y web desde cero, con herramientas modernas y prácticas."
+    }
+  },
+    "reforç": {
+    "title": "Clases de Refuerzo",
+    "p1": "Reforzamos el conocimiento actual del alumno y lo ampliamos para facilitar su experiencia en el próximo curso escolar.",
+    "p2": "Nuestro método de trabajo se centra en los siguientes pasos:",
+    "steps": [
+      "Hacer una prueba rápida con diferentes ejercicios para detectar las principales dificultades del alumno.",
+      "Revisar exámenes pasados del alumno y observar los errores más comunes.",
+      "Crear un programa personalizado, enfocado en ejercicios y problemas relacionados con sus dificultades.",
+      "Ver si el alumno puede ahora resolver dichas dificultades mediante ejercicios muy específicos.",
+      "Si no se resuelve satisfactoriamente, se vuelve al paso 3 pero con un enfoque diferente. Por ejemplo, si la dificultad es la suma de fracciones algebraicas, se puede abordar de diferentes formas. Primero con fracciones simples como \\[ \\frac{1}{2} + \\frac{2}{3} \\], luego con otras que requieren MCM, como \\[ \\frac{5}{12} - \\frac{7}{18} \\], y si sigue sin entender, se puede recurrir a dibujos de un pastel. El objetivo no es tratar al alumno de torpe, sino reformular el problema hasta que lo entienda."
+    ],
+    "target": {
+      "nom": "Público Objetivo",
+      "valor": "General"
+    }
+  },
+    "estiu": {
+    "title": "Cursos de verano ☀️",
+    "p1": "Reforzamos el conocimiento actual del alumno y lo ampliamos para facilitar su experiencia en el próximo curso escolar.",
+    "p2": "Formamos grupos de 4 alumnos que trabajan en equipo para resolver problemas concretos en diferentes asignaturas. Ejemplos: usar el teorema de Tales para calcular la altura de un edificio usando su sombra, resolver sistemas de ecuaciones, graficar funciones como \\[ f(x) = e^{x²} \\] o calcular \\[ \\lim_{x\\rightarrow 0}x\\sin(x) \\]. Muchos ejercicios requieren transformar texto en ecuaciones matemáticas: lo que más cuesta.",
+    "p3": "Información clave del curso de verano:",
+    "info": [
+      "Durante las primeras 4 semanas de julio",
+      "Asignaturas disponibles: Mates, Catalán, Castellano, Física, Química, Historia, Programación",
+      "Martes, miércoles y jueves",
+      "Horario: de 16:00 a 18:30",
+      "Precio aproximado (varía cada año): 300€",
+      "Total de horas: 30h"
+    ],
+    "target": {
+      "nom": "Público Objetivo",
+      "valor": "General"
+    }
+  },
+    "ampliacio": {
+    "title": "Clases de ampliación",
+    "p1": "Ampliamos los conocimientos del alumno en cualquiera de las materias listadas en nuestra web, incluyendo:",
+    "assignatures": [
+      "Matemáticas",
+      "Inglés",
+      "Catalán",
+      "Castellano",
+      "Programación y desarrollo de webapps",
+      "Historia",
+      "Pruebas Canguro",
+      "Olimpíadas matemáticas"
+    ],
+    "p2": "En estas clases trabajamos con ejercicios exigentes y explicaciones teóricas que el estudiante aún no ha visto en clase.",
+    "p3": "Clases diseñadas para estudiantes y familias exigentes que quieren adelantarse a su nivel o prepararse para el futuro académico o laboral.",
+    "target": {
+      "nom": "Público Objetivo",
+      "valor": "Estudiantes de escuela o universidad. Trabajadores que quieren ampliar habilidades, personas que quieren aprender a programar."
+    },
+    "steps": [
+      "Hacer una prueba rápida con diferentes ejercicios para detectar las principales dificultades del alumno.",
+      "Revisar exámenes pasados del alumno y observar los errores más comunes.",
+      "Crear un programa personalizado, enfocado en ejercicios y problemas relacionados con sus dificultades.",
+      "Ver si el alumno puede ahora resolver dichas dificultades mediante ejercicios muy específicos.",
+      "Si no se resuelve satisfactoriamente, se vuelve al paso 3 pero con un enfoque diferente. Por ejemplo, si la dificultad es la suma de fracciones algebraicas, se puede abordar de diferentes formas. Primero con fracciones simples como \\[ \\frac{1}{2} + \\frac{2}{3} \\], luego con otras que requieren MCM, como \\[ \\frac{5}{12} - \\frac{7}{18} \\], y si sigue sin entender, se puede recurrir a dibujos de un pastel. El objetivo no es tratar al alumno de torpe, sino reformular el problema hasta que lo entienda."
+    ]
+  },
+    "equip": {
+    "title": "Equipo",
+    "membres": [
+      {
+        "nom": "Romà Masana",
+        "rol": "Director y profe",
+        "imatge": "static/images/roma.jpg",
+        "descripcio": [
+          "Graduado en Matemáticas",
+          "Especialista en programación",
+          "Más de 10 años de experiencia docente",
+          "Pasión por la innovación educativa"
+        ],
+        "linkedin": "https://www.linkedin.com/in/rom%C3%A0-masana-61459411b"
+      },
+      {
+        "nom": "Sergi Valero",
+        "rol": "Director y profe",
+        "imatge": "static/images/sergi.png",
+        "descripcio": [
+          "Graduado en Historia",
+          "Especialista en humanidades y lenguas",
+          "Experiencia en formación personalizada",
+          "Apasionado por el aprendizaje autodidacta"
+        ],
+        "linkedin": "#"
+      },
+      {
+        "nom": "Elena Pareja",
+        "rol": "Profe de Bio",
+        "imatge": "static/images/elenap.jpeg",
+        "descripcio": [
+          "PhD en el IRB de Barcelona",
+          "Especialista en bioinformática",
+          "Amplia experiencia formando estudiantes",
+          "Investigadora en IA y nuevos medicamentos"
+        ],
+        "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
+      },
+      {
+        "nom": "Marc Sitges",
+        "rol": "Profe de inglés",
+        "imatge": "static/images/marcs.jpg",
+        "descripcio": [
+          "Graduado en Historia",
+          "Gran trayectoria adaptando clases al alumno",
+          "Experto en comunicación, cultura y lenguaje",
+          "Entusiasta del conocimiento libre"
+        ],
+        "linkedin": "#"
+      }
+    ]
+  },
+    "contacte": {
+    "titol": "Contacto",
+    "telefon": {
+      "text": "611 648 478",
+      "href": "tel:+34611648478",
+      "icona": "bi bi-telephone-fill"
+    },
+    "email": {
+      "text": "ceduoda@gmail.com",
+      "href": "mailto:ceduoda@gmail.com",
+      "icona": "bi bi-envelope-fill"
+    }
+  },
+    "follow": {
+    "titol": "Síguenos en Instagram",
+    "instagram": {
+      "url": "https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&utm_campaign=loading",
+      "embed": true
+    },
+    "footer": {
+      "logo": "static/images/logo_9.png",
+      "nom": "Centro de estudios Duoda",
+      "adreça": {
+        "text": "Calle Duoda 21, 08020 Barcelona",
+        "href": "https://www.google.com/maps/place/Carrer+Duoda,+21,+08020+Barcelona",
+        "icona": "bi bi-geo-alt-fill"
+      }
+    }
+  }
+
+
 }
