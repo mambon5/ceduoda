@@ -101,7 +101,7 @@ button:hover {
 .source-code-pro {
   font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+  font-weight: weight;
   font-style: normal;
 }
 
@@ -236,7 +236,7 @@ button:hover {
   top: 10%;
   left: 10%;
   font-family: "Source Code Pro", monospace;
-  background-color: rgba(255, 255, 255);
+  background-color: rgb(120, 144, 128);
   opacity: 0.9;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -252,17 +252,19 @@ button:hover {
 
 .side-menu li {
   margin: 8px 0;
+    font-size: 20px;
+
 }
 
 .side-menu a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .side-menu a:hover {
-  color: seagreen;
+  color: rgb(188, 233, 207);
 }
 
 @keyframes jelly {
@@ -274,18 +276,18 @@ button:hover {
 }
 
 .side-menu a:hover {
-  color: seagreen;
+  color: rgb(188, 233, 207);
   animation: jelly 0.4s ease-in-out;
   display: inline-block; /* necessari per animació transform */
 }
 
 .side-menu:hover {
-  background-color: rgba(250, 211, 248, 0.9);
+  background-color: rgba(114, 58, 112, 0.9);
   opacity: 0.9;
 }
 
 .side-menu a.active {
-  color: seagreen;
+  color: rgb(188, 233, 207);
   animation: jelly 0.4s ease-in-out;
   display: inline-block; /* necessari per animació transform */
 }
