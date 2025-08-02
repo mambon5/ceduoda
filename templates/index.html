@@ -10,8 +10,10 @@
     <link rel="alternate" hreflang="es" href="https://nescolam.com/es" />
     <link rel="alternate" hreflang="en" href="https://nescolam.com/en" />
     
+    
     <title>{{ content.title }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="/static/css/w3.css">
     <link rel="stylesheet" href="/static/css/style.css">
@@ -47,9 +49,15 @@
     <li><a href="#follow">{{ content.menu_follow }}</a></li>
   </ul>
   <div class="language-switcher">
-  <a href="/ca" class="lang-btn">CAT</a>
-  <a href="/es" class="lang-btn">ESP</a>
-  <a href="/en" class="lang-btn">EN</a>
+<a href="javascript:void(0);" onclick="switchLang('ca')" class="{% if lang == 'ca' %}active{% endif %}">
+  <span class="fi fi-es-ct"></span>
+</a>
+<a href="javascript:void(0);" onclick="switchLang('es')" class="{% if lang == 'es' %}active{% endif %}">
+  <span class="fi fi-es"></span>
+</a>
+<a href="javascript:void(0);" onclick="switchLang('en')" class="{% if lang == 'en' %}active{% endif %}">
+  <span class="fi fi-us"></span>
+</a>
 </div>
 </nav>
 
@@ -348,5 +356,6 @@
     <script src="/static/js/modals.js"></script>
     <script src="/static/js/selecc_nav_segons_actiu.js"></script>
     <script src="/static/js/descripcions_estiu.js"></script>
+    <script src="/static/js/canvi_idioma.js"></script>
 </body>
 </html>
