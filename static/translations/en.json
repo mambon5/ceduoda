@@ -5,24 +5,26 @@
 
   "header_name": "Duoda Study Center",
   "header_address": "Carrer Duoda 21, 08020 Barcelona",
+   "typewritting_title" : "We teach everything!",
 
   "menu_home": "Home",
-  "menu_reforç": "Support",
+  "menu_reforç": "Tutoring",
   "menu_estiu": "Summer",
-  "menu_amplia": "Extension",
+  "menu_amplia": "Advanced",
   "menu_equip": "Team",
   "menu_contacte": "Contact",
   "menu_follow": "Follow us",
 
   "intro_title": "Welcome to CE Duoda!",
-  "intro_p1": "Classes for better learning. We focus on the student, because we believe the most important thing is not just to pass, but to truly learn.",
-  "intro_p2": "We question the formal education system and advocate for student-centered education. Your success starts here.",
-  "intro_p3": "For both young and old!",
+  "intro_p1": "We focus on the student because we believe true learning is what really matters.",
+  "intro_p2": "We question the formal education system and support student-centered learning. Your success starts here.",
+  "intro_p3": "For both kids and adults!",
+
 
   "subjects": {
     "mates": {
       "title": "Mathematics",
-      "desc": "Support and expansion of mathematical concepts for all levels, from arithmetic to calculus."
+      "desc": "Review and expansion of mathematical concepts for all levels, from arithmetic to calculus."
     },
     "catala": {
       "title": "Catalan",
@@ -70,15 +72,15 @@
     }
   },
   "reforç": {
-  "title": "Support Classes",
-  "p1": "We reinforce the student’s current knowledge and expand it to ease their experience in the upcoming school year.",
-  "p2": "Our working method is based on the following steps:",
+  "title": "Tutoring Classes",
+  "p1": "We reinforce the student’s current knowledge and expand it to ease their experience in the upcoming school year",
+  "p2": "Our method:",
   "steps": [
-    "Conduct a quick test with various exercises to detect the student’s main difficulties.",
-    "Review the student’s past exams to identify common mistakes.",
-    "Create a tailored program focused on exercises and problems related to the student's challenges.",
-    "Check whether the student can now solve the initially identified difficulties using exercises closely related to those topics.",
-    "If the difficulties are not resolved satisfactorily, return to step 3, but with exercises using a different approach. For example, if the difficulty is adding algebraic fractions, we can approach this in several ways. First, try simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If progress is made, move to fractions requiring the least common multiple: \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If there’s still difficulty, use visual aids, like pie charts. The goal is to reframe the problem, not treat the student as incapable."
+    "Give an initial test to identify the student's main difficulties",
+    "Create a tailored program focused on exercises and problems that match the student's specific challenges",
+    "After about 6 classes, we check if the student is now able to solve the initial difficulties identified",
+    "If the student still struggles, we return to step 3, but with exercises from a different approach. For instance, if the student struggles with adding algebraic fractions, we can tackle it in several ways. First, we might use simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If the student progresses, we can move to more complex ones requiring LCM, like \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If they still can’t solve them, we might go back to the first example but use a visual approach like a cake diagram. The goal when a student doesn’t understand something is to reframe the question, not treat the student as slow.",
+    "This method applies to all subjects: Catalan, Mathematics, Biology, etc."
   ],
   "target": {
     "nom": "Target Audience",
@@ -88,9 +90,9 @@
 
 "estiu": {
   "title": "Summer Courses ☀️",
-  "p1": "We reinforce the student’s current knowledge and expand it to ease their experience in the upcoming school year.",
-  "p2": "We form groups of 4 students and have them work in teams to solve specific problems in different subjects. Examples include: using Thales’ theorem to calculate the height of a building using its shadow, solving this system of equations: \\[ 3x + 2y = 12 \\], \\[ -x + y = -3 \\], drawing function graphs like \\[ f(x) = e^{x²} \\], or calculating a limit such as \\[ \\lim_{x\\rightarrow 0}x\\sin(x) \\], with many problems designed to require reading comprehension and conversion into a mathematical equation—often the hardest skill at any level (even for us!).",
-  "p3": "Key information about the summer course:",
+  "p1": "We take more time to work on interesting problems and subjects that may not be as tightly linked to the academic curriculum as in tutoring classes.",
+"p2": "The goal is to spark the student’s interest and their joy for learning.",
+
   "info": [
     "During the first 4 weeks of July",
     "Subjects available: Math, Catalan, Spanish, Physics, Chemistry, History, Programming",
@@ -106,7 +108,7 @@
 },
 
 "ampliacio": {
-  "title": "Extension Classes",
+  "title": "Advanced Classes",
   "p1": "We expand the student’s knowledge in any of the subjects listed on our website, including:",
   "assignatures": [
     "Mathematics",
@@ -118,11 +120,11 @@
     "Kangaroo Math Contests",
     "Math Olympiads"
   ],
-  "p2": "In these classes, we offer challenging exercises and problems, complemented by theoretical explanations the student hasn't yet encountered in school.",
+  "p2": "At any stage ranging from 4 years old up to the first years of university. In these classes, we offer challenging exercises and problems, complemented by theoretical explanations the student hasn't yet encountered in school.",
   "p3": "Designed for more demanding students and parents who want to get ahead of their level or prepare for academic and professional challenges to improve their career prospects.",
   "target": {
     "nom": "Target Audience",
-    "valor": "School and university students. Workers looking to expand their skills. People who want to learn programming."
+    "valor": "General"
   },
   "steps": [
     "Conduct a quick test with various exercises to detect the student’s main difficulties.",

@@ -39,22 +39,16 @@
 <nav class="side-menu">
   <ul>
     <li><a href="#intro">{{ content.menu_home }}</a></li>
-    <li><a href="#reforç">{{ content.menu_reforç }}  <i class="bi bi-lightning-charge" style="color: rgb(250, 255, 177);"></i></a></li>
+    <li><a href="#reforç">{{ content.menu_reforç }}</a></li>
     <li><a href="#estiu">{{ content.menu_estiu }}</a></li>
-    <li><a href="#amplia">{{ content.menu_amplia }} <i class="bi bi-layers" style="color: rgb(208, 222, 255);"></i> </h2></a></li>
+    <li><a href="#amplia">{{ content.menu_amplia }}</a></li>
     <li><a href="#equip">{{ content.menu_equip }}</a></li>
     <li><a href="#contacte">{{ content.menu_contacte }}</a></li>
     <li><a href="#follow">{{ content.menu_follow }}</a></li>
   </ul>
-  <div class="language-switcher">
-  <a href="/ca" class="lang-btn">CAT</a>
-  <a href="/es" class="lang-btn">ESP</a>
-  <a href="/en" class="lang-btn">EN</a>
-</div>
 </nav>
 
-     <section id="intro"></section >
-     <p id="hidden_typewriter_title" style="visibility: hidden;">{{ content.typewritting_title }}</p>
+     <section id="intro"></section>
     <h1 class="titol-typewriter"><span id="typewriter"></span><span class="cursor">|</span></h1>
 
 
@@ -62,7 +56,7 @@
 
 
     <p>{{ content.intro_p1 }}</p>
-    <!-- <p>{{ content.intro_p2 }}</p> -->
+    <p>{{ content.intro_p2 }}</p>
     <p>{{ content.intro_p3 }}</p>
 
      <div class="buttons">
@@ -192,35 +186,25 @@
     </section>
     <!-- 🔹 Nova secció: Reforç -->
     <section id="reforç">
-    <h2 class="w3-center w3-padding-32">{{ content.reforç.title }} <i class="bi bi-lightning-charge" style="color: orange;"></i></h2>
-    <p >{{ content.reforç.p1 }}</p>
-    <p class="descripcio">{{ content.reforç.p2 }}</p>
-    <ol class="descripcio">
+    <h2 class="w3-center w3-padding-32">{{ content.reforç.title }}</h2>
+    <p>{{ content.reforç.p1 }}</p>
+    <p>{{ content.reforç.p2 }}</p>
+    <ol>
         <li>{{ content.reforç.steps[0] }}</li>
         <li>{{ content.reforç.steps[1] }}</li>
         <li>{{ content.reforç.steps[2] }}</li>
         <li>{{ content.reforç.steps[3] }}</li>
         <li>{{ content.reforç.steps[4] }}</li>
     </ol>
-    <br>
     <p><b>{{ content.reforç.target.nom }}: </b> {{ content.reforç.target.valor }}</p>
     </section>
     <!-- estiu -->
     <section id="estiu" class="justificat">
-        <h2 id="h2estiu" class="w3-center w3-padding-32">{{ content.estiu.title }} </h2>
-    <p >{{ content.estiu.p1 }}</p>
-    <p class="estiu">{{ content.estiu.p2 }}
+        <h2 id="h2estiu" class="w3-center w3-padding-32">{{ content.estiu.title }} <i class="bi bi-brightness-high" style="color: orange;"></i></h2>
+    <p>{{ content.estiu.p1 }}</p>
+    <p>{{ content.estiu.p2 }}
     </p>
-    <div class="exemples-accordion">
-     {% for ex in content.estiu.exemples %}
-         <details class="">
-        <summary class="examples"><strong>{{ ex.titol }}</strong></summary>
-        <p>{{ ex.descripcio | safe }}</p>
-        </details>
-     {% endfor %}
-     </div>
-     <p class="estiu">{{ content.estiu.p3 }}</p>
-    
+    <p>{{ content.estiu.p3 }}</p>
     <ul class="justificat" id="curs_juliol">
         <li>{{ content.estiu.info[0] }}</li>
         <li>{{ content.estiu.info[1] }}</li>
@@ -229,16 +213,15 @@
         <li>{{ content.estiu.info[4] }}</li>
         <li>{{ content.estiu.info[5] }}</li>
     </ul>
-    <br>
     <p><b>{{ content.estiu.target.nom }}: </b> {{ content.estiu.target.valor }}</p>
     </section>
 
     <!-- ampliació -->
 <section id="amplia" class="justificat">
-    <h2 class="w3-center w3-padding-32">{{ content.ampliacio.title }} <i class="bi bi-layers" style="color:rgb(23, 76, 189)"></i> </h2>
+    <h2 class="w3-center w3-padding-32">{{ content.ampliacio.title }}</h2>
 
     <p>{{ content.ampliacio.p1 }}</p>
-    <ol class="descripcio">
+    <ol>
         {% for assignatura in content.ampliacio.assignatures %}
         <li>{{ assignatura }}</li>
         {% endfor %}
@@ -246,15 +229,14 @@
 
     <br>
 
-    <p class="descripcio">{{ content.ampliacio.p2 }}</p>
-    <p class="descripcio">{{ content.ampliacio.p3 }}</p>
+    <p>{{ content.ampliacio.p2 }}</p>
+    <p>{{ content.ampliacio.p3 }}</p>
 
-    
-    <p >
+    <p>
         <b>{{ content.ampliacio.target.nom }}:</b> {{ content.ampliacio.target.valor }}
     </p>
 
-    <ol class="descripcio">
+    <ol>
         {% for step in content.ampliacio.steps %}
         <li>{{ step | safe }}</li>
         {% endfor %}
@@ -311,11 +293,6 @@
             <a href="tel:+34611648478" style="text-decoration: none; color: #333;">611 648 478</a>
         </p>
         <p >
-            <i class="bi bi-telephone-fill" style="margin-right: 6px;"></i>
-            <a href="tel:+34640669010" style="text-decoration: none; color: #333;">640 669 010</a>
-        </p>
-        
-        <p >
             <i class="bi bi-envelope-fill" style="margin-right: 6px;"></i>
             <a href="mailto:ceduoda@gmail.com" style="text-decoration: none; color: #333;">ceduoda@gmail.com</a>
         </p>
@@ -346,6 +323,5 @@
     <script src="/static/js/typewriting.js"></script>
     <script src="/static/js/modals.js"></script>
     <script src="/static/js/selecc_nav_segons_actiu.js"></script>
-    <script src="/static/js/descripcions_estiu.js"></script>
 </body>
 </html>

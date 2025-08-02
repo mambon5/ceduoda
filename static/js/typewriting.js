@@ -1,4 +1,4 @@
-const text = "Classes de tot!";
+const text = document.getElementById("hidden_typewriter_title").innerHTML;
 const typewriter = document.getElementById("typewriter");
 const cursor = document.querySelector(".cursor");
 
