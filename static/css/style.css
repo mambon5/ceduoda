@@ -299,7 +299,6 @@ button:hover {
 .examples:hover, .examples.active {
   color: seagreen;
   animation: jelly 0.4s ease-in-out;
-  display: inline-block; /* necessari per animació transform */
 }
 
 .exemples-accordion details {
