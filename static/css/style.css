@@ -35,6 +35,10 @@ button {
     cursor: pointer;
 }
 
+.descripcio {
+  color:#5a0c7b
+}
+
 button:hover {
     background-color: #45a049;
 }
@@ -275,7 +279,7 @@ button:hover {
   100% { transform: scale(1,1); }
 }
 
-.side-menu a:hover {
+.side-menu a:hover  {
   color: rgb(188, 233, 207);
   animation: jelly 0.4s ease-in-out;
   display: inline-block; /* necessari per animació transform */
@@ -292,9 +296,28 @@ button:hover {
   display: inline-block; /* necessari per animació transform */
 }
 
-#h2estiu:hover{
+.examples:hover, .examples.active {
+  color: seagreen;
+  animation: jelly 0.4s ease-in-out;
+  display: inline-block; /* necessari per animació transform */
+}
+
+.exemples-accordion details {
+  margin-bottom: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.exemples-accordion summary {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+#h2estiu:hover, .estiu{
   color:orange;
 }
+
+
 
 ul, ol {
   max-width: 600px; /* o la mida que vulguis */
