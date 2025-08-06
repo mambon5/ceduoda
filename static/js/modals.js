@@ -9,6 +9,10 @@ function openModal(id) {
     void icon.offsetWidth;                  // forçem reflow per reiniciar animació
     icon.classList.add('rotate-icon');     // torna a posar la classe per animar
   }
+
+  // Envia visita a la base de dades
+  const nomPagina = id.replace('-modal', '');  // ex: "matematiques-modal" → "matematiques"
+  enviarVisita(nomPagina);
 }
 
 function closeModal(id) {
