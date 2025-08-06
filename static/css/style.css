@@ -390,3 +390,17 @@ ol {
     transform: translateX(0);
   }
 }
+
+
+.btn-descargar {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn-descargar:hover {
+    background-color: #0056b3;
+}

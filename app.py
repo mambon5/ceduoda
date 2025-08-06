@@ -7,12 +7,13 @@
 #     │   └── style.css
 #     └── images/
 
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, Response
 import json
 import os
 # app.py
 from crea_dades import Visita, Base, engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func
 from datetime import datetime
 
 app = Flask(__name__)
@@ -98,6 +99,33 @@ def veure_visites():
     visites = sessio.query(Visita).order_by(Visita.data_hora.desc()).all()
     sessio.close()
     return render_template("visites.html", visites=visites)
+
+@app.route('/descarrega_visites')
+def descarrega_visites():
+    sessio = Session()
+    visites = sessio.query(Visita).order_by(Visita.data_hora.desc()).all()
+    sessio.close()
+
+    def generar_csv():
+        yield 'data_hora,ip,pagina,idioma,resolucio,referer,durada\n'
+        for visita in visites:
+            fila = f'"{visita.data_hora}","{visita.ip}","{visita.pagina}","{visita.idioma}","{visita.resolucio}","{visita.referer}","{visita.durada}"\n'
+            yield fila
+
+    return Response(generar_csv(), mimetype='text/csv',
+                    headers={"Content-Disposition": "attachment;filename=visites.csv"})
+
+
+@app.route('/estadistiques')
+def estadistiques():
+    sessio = Session()
+    resultats = sessio.query(
+        Visita.pagina,
+        func.count(Visita.id).label('total')
+    ).group_by(Visita.pagina).order_by(func.count(Visita.id).desc()).all()
+    sessio.close()
+
+    return render_template("estadistiques.html", estadistiques=resultats)
 
 
 if __name__ == "__main__":
