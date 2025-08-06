@@ -86,6 +86,10 @@
   "target": {
     "nom" : "Públic Objectiu",
     "valor" : "General"
+  },
+  "modalitat": {
+    "nom": "Modalitat",
+    "valor" : "presencial i online"
   }
   },
 
@@ -131,6 +135,10 @@
   "target": {
     "nom": "Públic Objectiu",
     "valor": "General"
+  },
+  "modalitat": {
+    "nom": "Modalitat",
+    "valor" : "presencial i online"
   }
 },
 

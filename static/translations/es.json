@@ -83,7 +83,11 @@
     "target": {
       "nom": "Público Objetivo",
       "valor": "General"
-    }
+    },
+    "modalitat": {
+    "nom": "Modalidad",
+    "valor" : "presencial y online"
+  }
   },
     "estiu": {
     "title": "Cursos de verano ☀️",
@@ -129,7 +133,11 @@
     "target": {
       "nom": "Público Objetivo",
       "valor": "General"
-    }
+    },
+    "modalitat": {
+    "nom": "Modalidad",
+    "valor" : "presencial y online"
+  }
   },
     "ampliacio": {
     "title": "Clases de ampliación",
