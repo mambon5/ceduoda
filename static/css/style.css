@@ -404,3 +404,16 @@ ol {
 .btn-descargar:hover {
     background-color: #0056b3;
 }
+
+.btn-estadistic {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #8c00ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.btn-estadistic:hover {
+    background-color: #49039e;
+}
