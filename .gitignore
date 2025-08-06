@@ -1,7 +1,7 @@
 # Entorn virtual
 env/
 venv/
-
+config.py
 # Fitxers Python compilats
 __pycache__/
 *.py[cod]
