@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Visites al lloc web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f8f9fa;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: top;
+            word-wrap: break-word;
+            max-width: 200px;
+        }
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        .small-text {
+            font-size: 0.8rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registre de visites</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Data i hora</th>
+                <th>IP</th>
+                <th>Pàgina</th>
+                <th>User Agent</th>
+                <th>Referer</th>
+                <th>Idioma</th>
+                <th>Durada (s)</th>
+                <th>Resolució</th>
+                <th>Geolocalització</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visita in visites %}
+                <tr>
+                    <td>{{ visita.data_hora.strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                    <td>{{ visita.ip }}</td>
+                    <td>{{ visita.pagina }}</td>
+                    <td><div class="small-text">{{ visita.user_agent or '-' }}</div></td>
+                    <td><div class="small-text">{{ visita.referer or '-' }}</div></td>
+                    <td>{{ visita.idioma or '-' }}</td>
+                    <td>{{ visita.durada if visita.durada is not none else '-' }}</td>
+                    <td>{{ visita.resolucio or '-' }}</td>
+                    <td>{{ visita.geolocalitzacio or '-' }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">Cap visita registrada.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

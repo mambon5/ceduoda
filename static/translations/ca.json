@@ -136,6 +136,8 @@
 
 "ampliacio": {
   "title": "Classes d'ampliació",
+  "summary1" : "Més informació",
+  "summary2" : "El nostre mètode",
   "p1": "Extenem els coneixements de l'alumne en qualssevol de les matèries llistades a la nostra web, que inclouen:",
   "assignatures": [
     "Matemàtiques",
@@ -152,6 +154,10 @@
   "target": {
     "nom": "Públic objectiu",
     "valor": "General"
+  },
+  "modalitat": {
+    "nom": "Modalitat",
+    "valor" : "presencial i online"
   },
   "steps": [
     "Fer una prova ràpida amb diferents exercicis per veure on falla més l'alumne",

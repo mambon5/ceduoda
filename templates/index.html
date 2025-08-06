@@ -247,27 +247,42 @@
     <h2 class="w3-center w3-padding-32">{{ content.ampliacio.title }} <i class="bi bi-layers" style="color:rgb(23, 76, 189)"></i> </h2>
 
     <p>{{ content.ampliacio.p1 }}</p>
-    <ol class="descripcio">
+    
+    <br>
+    <div class="exemples-accordion">
+    <details class="">
+        <summary class="examples w3-center"><strong>{{ content.ampliacio.summary1 }}</strong></summary>
+        <ol class="descripcio">
         {% for assignatura in content.ampliacio.assignatures %}
         <li>{{ assignatura }}</li>
         {% endfor %}
     </ol>
 
-    <br>
-
-    <p class="descripcio">{{ content.ampliacio.p2 }}</p>
-    <p class="descripcio">{{ content.ampliacio.p3 }}</p>
+        <p class="descripcio">{{ content.ampliacio.p2 | safe}}</p>
+        <p class="descripcio">{{ content.ampliacio.p3 | safe}}</p>
+        </details>
+</div>
+    
 
     
     <p class="w3-center">
         <b>{{ content.ampliacio.target.nom }}:</b> {{ content.ampliacio.target.valor }}
     </p>
+    <p class="w3-center">
+        <b>{{ content.ampliacio.modalitat.nom }}:</b> {{ content.ampliacio.modalitat.valor }}
+    </p>
 
-    <ol class="descripcio">
-        {% for step in content.ampliacio.steps %}
-        <li>{{ step | safe }}</li>
-        {% endfor %}
-    </ol>
+    <div class="exemples-accordion">
+    <details class="">
+        <summary class="examples w3-center"><strong>{{ content.ampliacio.summary2 }}</strong></summary>
+        
+        <ol class="descripcio">
+            {% for step in content.ampliacio.steps %}
+            <li>{{ step | safe }}</li>
+            {% endfor %}
+        </ol>
+        </details>
+</div>
 </section>
 
 
@@ -357,5 +372,7 @@
     <script src="/static/js/selecc_nav_segons_actiu.js"></script>
     <script src="/static/js/descripcions_estiu.js"></script>
     <script src="/static/js/canvi_idioma.js"></script>
+    <script src="/static/js/registre_clics.js"></script>
+
 </body>
 </html>

@@ -7,11 +7,16 @@
 #     │   └── style.css
 #     └── images/
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import json
 import os
+# app.py
+from crea_dades import Visita, Base, engine
+from sqlalchemy.orm import sessionmaker
+from datetime import datetime
 
 app = Flask(__name__)
+Session = sessionmaker(bind=engine)
 
 def load_translation(lang_code):
     try:
@@ -38,6 +43,62 @@ def home(lang_code):
 
     content = load_translation(lang_code)
     return render_template("index.html", lang=lang_code, content=content)
+
+
+# @app.route('/registre_click', methods=['POST'])
+# def registre_click():
+#     data = request.json
+#     pagina = data.get('pagina', 'desconeguda')
+#     ip = request.remote_addr
+
+#     sessio = Session()
+#     visita = Visita(data_hora=datetime.utcnow(), ip=ip, pagina=pagina)
+#     sessio.add(visita)
+#     sessio.commit()
+#     sessio.close()
+
+#     return jsonify({'status': 'ok'})
+
+@app.route('/registre_click', methods=['POST'])
+def registre_click():
+    data = request.get_json() or {}
+    pagina = data.get('pagina', 'desconeguda')
+    ip = request.remote_addr
+    user_agent = request.headers.get('User-Agent')
+    referer = data.get('referer')
+    idioma = data.get('idioma')
+    durada = data.get('durada')
+    resolucio = data.get('resolucio')
+    
+    # Aquí poso un valor per geolocalització si tens una funció (opcional)
+    # geolocalitzacio = obtenir_geolocalitzacio_des_ip(ip)  # definir després o deixar None
+    geolocalitzacio = None
+
+    sessio = Session()
+    visita = Visita(
+        data_hora=datetime.utcnow(),
+        ip=ip,
+        pagina=pagina,
+        user_agent=user_agent,
+        referer=referer,
+        idioma=idioma,
+        durada=durada,
+        resolucio=resolucio,
+        geolocalitzacio=geolocalitzacio
+    )
+    sessio.add(visita)
+    sessio.commit()
+    sessio.close()
+
+    return jsonify({'status': 'ok'})
+
+@app.route("/visites")
+def veure_visites():
+    sessio = Session()
+    visites = sessio.query(Visita).order_by(Visita.data_hora.desc()).all()
+    sessio.close()
+    return render_template("visites.html", visites=visites)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

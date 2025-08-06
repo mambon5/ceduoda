@@ -150,6 +150,10 @@
       "nom": "Público Objetivo",
       "valor": "General"
     },
+    "modalitat": {
+    "nom": "Modalidad",
+    "valor" : "presencial y online"
+  },
     "steps": [
       "Hacer una prueba rápida con diferentes ejercicios para detectar las principales dificultades del alumno.",
       "Revisar exámenes pasados del alumno y observar los errores más comunes.",
