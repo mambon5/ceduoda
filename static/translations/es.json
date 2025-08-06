@@ -141,6 +141,8 @@
   },
     "ampliacio": {
     "title": "Clases de ampliación",
+    "summary1" : "Más información",
+    "summary2" : "Nuestro método",
     "p1": "Ampliamos los conocimientos del alumno en cualquiera de las materias listadas en nuestra web, incluyendo:",
     "assignatures": [
       "Matemáticas",

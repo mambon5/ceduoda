@@ -117,6 +117,8 @@
 
 "ampliacio": {
   "title": "Advanced Classes",
+  "summary1" : "More info",
+  "summary2" : "Our method",
   "p1": "We expand the student’s knowledge in any of the subjects listed on our website, including:",
   "assignatures": [
     "Mathematics",
