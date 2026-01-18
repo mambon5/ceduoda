@@ -52,26 +52,35 @@
         <thead>
             <tr>
                 <th>Data i hora</th>
-                <th>IP</th>
+                
                 <th>Pàgina</th>
-                <th>Tipus dispositiu</th>
-                <th>Navegador</th>
-                <th>Sistema Operatiu</th>
-                <th>Model dispositiu</th>
-                <th>User Agent</th>
-                <th>Referer</th>
-                <th>Idioma Navegador</th>
+                <th>Hora local</th>
+                <th>Zona horària</th>
+                <th>Scroll màxim (%)</th>
+                <th>Durada (s)</th>
                 <th>Idioma</th>
-                <th>Codi País</th>
                 <th>País Natiu</th>
                 <th>País físic</th>
-                <th>Regió</th>
                 <th>Ciutat</th>
                 <th>Codi postal</th>
+                <th>Mapa</th>
+
+                <th>Tipus dispositiu</th>                
+                <th>Sistema Operatiu</th>
+                <th>Model dispositiu</th>
+
+                <th>Navegador</th>                
+                
+                <th>Idioma Navegador</th>               
+                <th>Codi País</th>
+                
+                <th>Regió</th>
                 <th>ISP</th>
                 <th>Empresa (AS)</th>
-                <th>Mapa</th>
-                <th>Durada (s)</th>
+                
+                <th>Referer</th>
+                <th>User Agent</th>
+                <th>IP</th>
                 <th>Resolució</th>
             </tr>
         </thead>
@@ -79,24 +88,18 @@
             {% for visita in visites %}
                 <tr>
                     <td>{{ visita.data_hora.strftime('%d/%m/%Y %H:%M:%S') }}</td>
-                    <td>{{ visita.ip }}</td>
+
                     <td>{{ visita.pagina }}</td>
-                    <td>{{ visita.tipus_dispositiu or '-' }}</td>
-                    <td>{{ visita.navegador or '-' }}</td>
-                    <td>{{ visita.sistema_operatiu or '-' }}</td>
-                    <td>{{ visita.model_dispositiu or '-' }}</td>
-                    <td><div class="small-text">{{ visita.user_agent or '-' }}</div></td>
-                    <td><div class="small-text">{{ visita.referer or '-' }}</div></td>
+                    <td>{{ visita.hora_local or '-' }}</td>
+                    <td>{{ visita.zona_horaria or '-' }}</td>
+                    <td>{{ visita.scroll_max if visita.scroll_max is not none else '-' }}</td>
+                    <td>{{ visita.durada if visita.durada is not none else '-' }}</td>
                     <td>{{ visita.idioma or '-' }}</td>
-                    <td>{{ visita.idioma_base or '-' }}</td>
-                    <td>{{ visita.codi_pais_natiu or '-' }}</td>
                     <td>{{ visita.pais_natiu or '-' }}</td>
                     <td>{{ visita.pais_fisic or '-' }}</td>
-                    <td>{{ visita.regio or '-' }}</td>
                     <td>{{ visita.ciutat or '-' }}</td>
                     <td>{{ visita.zip or '-' }}</td>
-                    <td>{{ visita.isp or '-' }}</td>
-                    <td>{{ visita.as_name or '-' }}</td>
+
                     <td class="map-link">
                         {% if visita.lat and visita.lon %}
                             <a href="https://www.google.com/maps?q={{ visita.lat }},{{ visita.lon }}" target="_blank">Veure</a>
@@ -104,12 +107,29 @@
                             -
                         {% endif %}
                     </td>
-                    <td>{{ visita.durada if visita.durada is not none else '-' }}</td>
+
+                    <td>{{ visita.tipus_dispositiu or '-' }}</td>
+                    <td>{{ visita.sistema_operatiu or '-' }}</td>
+                    <td>{{ visita.model_dispositiu or '-' }}</td>
+
+                    <td>{{ visita.navegador or '-' }}</td>
+
+                    <td>{{ visita.idioma_base or '-' }}</td>
+                    <td>{{ visita.codi_pais_natiu or '-' }}</td>
+
+                    <td>{{ visita.regio or '-' }}</td>
+                    <td>{{ visita.isp or '-' }}</td>
+                    <td>{{ visita.as_name or '-' }}</td>
+
+                    <td><div class="small-text">{{ visita.referer or '-' }}</div></td>
+                    <td><div class="small-text">{{ visita.user_agent or '-' }}</div></td>
+                    <td>{{ visita.ip }}</td>
                     <td>{{ visita.resolucio or '-' }}</td>
                 </tr>
+
             {% else %}
                 <tr>
-                    <td colspan="22">Cap visita registrada.</td>
+                    <td colspan="25">Cap visita registrada.</td>
                 </tr>
             {% endfor %}
         </tbody>

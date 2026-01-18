@@ -58,19 +58,36 @@ def home(lang_code):
 @app.route('/registre_click', methods=['POST'])
 def registre_click():
 
-    # 🔒 Bloquejar crides externes manuals
-    if request.headers.get("X-Requested-With") != "XMLHttpRequest":
-        return jsonify({"status": "blocked"}), 403
-    
+    if request.is_json:
+        data = request.get_json()
+    else:
+        data = json.loads(request.data.decode('utf-8'))  # <-- per sendBeacon
 
-    data = request.get_json() or {}
+    print("data: ")
+    print(data)
+
+    # 🔒 Bloquejar crides externes manuals
+    # if request.headers.get("X-Requested-With") != "XMLHttpRequest":
+    #     return jsonify({"status": "blocked"}), 403
+    # 🔒 Bloquejar crides externes manuals només si no ve del client
+    # Permetre peticions AJAX i sendBeacon
+    # Permetre AJAX, sendBeacon i JSON
+    if request.content_type not in ["application/json", "text/plain;charset=UTF-8"]:
+        return jsonify({"status": "blocked"}), 403
+
+
+    
+    print("reached here")
+
+
+    # data = request.get_json() or {}
     pagina = data.get('pagina', 'desconeguda')
     ip = request.remote_addr
     user_agent = request.headers.get('User-Agent', '')
     referer = data.get('referer')
     idioma = data.get('idioma')
-    idioma_base=data.get("idioma_base", ""),  # nou camp
-    codi_pais_natiu=data.get("codi_pais_natiu"),
+    idioma_base=data.get("idioma_base", "")  # nou camp
+    codi_pais_natiu=data.get("codi_pais_natiu")
     try:
         pais_natiu = pycountry.countries.get(alpha_2=codi_pais_natiu).name
     except:
@@ -88,6 +105,11 @@ def registre_click():
         tipus = "pc"
     else:
         tipus = "altres"
+    
+    hora_local = data.get("hora_local")
+    zona_horaria = data.get("zona_horaria")
+    scroll_max = data.get("scroll_max")
+
 
 
     sessio = Session()
@@ -111,6 +133,10 @@ def registre_click():
         sistema_operatiu = ua.os.family,
         model_dispositiu = ua.device.family,
 
+        hora_local = hora_local,
+        zona_horaria = zona_horaria,
+        scroll_max = scroll_max
+
     )
 
     # obtenir info geolocalització
@@ -128,8 +154,13 @@ def registre_click():
         visita.as_name = geo["as_name"]
 
     sessio.add(visita)
-    sessio.commit()
-    sessio.close()
+    try:
+        sessio.commit()
+    except Exception as e:
+        sessio.rollback()
+        print("Error guardant visita:", e)
+    finally:
+        sessio.close()
 
     return jsonify({'status': 'ok'})
 

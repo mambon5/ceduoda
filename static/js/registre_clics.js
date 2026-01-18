@@ -1,7 +1,7 @@
 // 1️⃣ Captura del temps d'inici de la sessió
-let temps_inici = Date.now();
-
 let scroll_max = 0;
+let ultima_pagina = "entra_usuari";
+let ultim_temps = Date.now();;
 
 window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
@@ -13,23 +13,34 @@ window.addEventListener("scroll", () => {
     }
 });
 
-
 // 2️⃣ Funció per enviar visites o clics
-function enviarVisita(pagina, durada = null) {
+function enviarVisita(pagina) {
+
+    
+
     let idiomaComplet = navigator.language || navigator.userLanguage || "desconegut";
     let paisNatiu = (idiomaComplet.split('-')[1] || null);
     if (paisNatiu) paisNatiu = paisNatiu.toUpperCase();
 
+    
+    
+    let durada = Math.floor((Date.now() - ultim_temps) / 1000);
+    ultim_temps = Date.now();
+
     const data = {
-        pagina: pagina,
+        pagina: ultima_pagina,
         idioma: idiomaComplet,
         idioma_base: document.body.dataset.lang,
         codi_pais_natiu: paisNatiu,
         resolucio: window.screen.width + "x" + window.screen.height,
         referer: document.referrer || "",
+        hora_local: new Date().toLocaleString(),
+        zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        scroll_max: scroll_max,
+        durada: durada
     };
 
-    if (durada !== null) data.durada = durada;
+    scroll_max = 0;
 
     fetch('/registre_click', {
         method: 'POST',
@@ -39,6 +50,8 @@ function enviarVisita(pagina, durada = null) {
         },
         body: JSON.stringify(data)
     });
+
+    ultima_pagina = pagina; // actualitza ultima pagina visitada
 }
 
 // 3️⃣ Enviem la visita de la pàgina principal al carregar
@@ -68,16 +81,21 @@ document.querySelectorAll('.side-menu a').forEach(el => {
 
 // 5️⃣ Enviem durada al tancar la pàgina amb sendBeacon
 window.addEventListener('beforeunload', () => {
-    let durada = Math.floor((Date.now() - temps_inici) / 1000);
+    let durada = Math.floor((Date.now() - ultim_temps) / 1000);
     let idiomaComplet = navigator.language || navigator.userLanguage || "desconegut";
     let paisNatiu = (idiomaComplet.split('-')[1]?.toUpperCase() || "DESCONEGUT");
 
-    navigator.sendBeacon('/registre_click', JSON.stringify({
-        pagina: 'pag_principal',
+    const data = {
+        pagina: ultima_pagina,
         idioma: idiomaComplet,
         codi_pais_natiu: paisNatiu,
         resolucio: window.screen.width + "x" + window.screen.height,
         referer: document.referrer || "",
-        durada: durada
-    }));
+        durada: durada,
+        scroll_max: scroll_max,
+        hora_local: new Date().toLocaleString(),
+        zona_horaria: Intl.DateTimeFormat().resolvedOptions().timeZone
+    };
+
+    navigator.sendBeacon('/registre_click', JSON.stringify(data));
 });

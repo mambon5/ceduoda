@@ -47,6 +47,13 @@ pagina web del centre d'estudis duoda
     ADD COLUMN sistema_operatiu VARCHAR(30),
     ADD COLUMN model_dispositiu VARCHAR(50);
 
+6. afegir zona horaria i scroll max
+   
+    ALTER TABLE visites 
+    ADD COLUMN hora_local VARCHAR(40),
+    ADD COLUMN zona_horaria VARCHAR(40),
+    ADD COLUMN scroll_max INT;
+
 
 ## Estructura d'arbre
 
