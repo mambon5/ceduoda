@@ -37,6 +37,9 @@
             font-size: 0.8rem;
             color: #555;
         }
+        .map-link {
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
@@ -57,9 +60,15 @@
                 <th>Idioma</th>
                 <th>Codi País</th>
                 <th>País Natiu</th>
+                <th>País físic</th>
+                <th>Regió</th>
+                <th>Ciutat</th>
+                <th>Codi postal</th>
+                <th>ISP</th>
+                <th>Empresa (AS)</th>
+                <th>Mapa</th>
                 <th>Durada (s)</th>
                 <th>Resolució</th>
-                <th>Geolocalització</th>
             </tr>
         </thead>
         <tbody>
@@ -74,13 +83,25 @@
                     <td>{{ visita.idioma_base or '-' }}</td>
                     <td>{{ visita.codi_pais_natiu or '-' }}</td>
                     <td>{{ visita.pais_natiu or '-' }}</td>
+                    <td>{{ visita.pais_fisic or '-' }}</td>
+                    <td>{{ visita.regio or '-' }}</td>
+                    <td>{{ visita.ciutat or '-' }}</td>
+                    <td>{{ visita.zip or '-' }}</td>
+                    <td>{{ visita.isp or '-' }}</td>
+                    <td>{{ visita.as_name or '-' }}</td>
+                    <td class="map-link">
+                        {% if visita.lat and visita.lon %}
+                            <a href="https://www.google.com/maps?q={{ visita.lat }},{{ visita.lon }}" target="_blank">Veure</a>
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
                     <td>{{ visita.durada if visita.durada is not none else '-' }}</td>
                     <td>{{ visita.resolucio or '-' }}</td>
-                    <td>{{ visita.geolocalitzacio or '-' }}</td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="9">Cap visita registrada.</td>
+                    <td colspan="18">Cap visita registrada.</td>
                 </tr>
             {% endfor %}
         </tbody>

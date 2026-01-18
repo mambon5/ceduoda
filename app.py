@@ -20,6 +20,9 @@ from sqlalchemy import func
 from datetime import datetime
 from geo import obtenir_geo
 
+from user_agents import parse
+
+
 app = Flask(__name__)
 Session = sessionmaker(bind=engine)
 
@@ -52,21 +55,6 @@ def home(lang_code):
 
     return render_template("index.html", lang=lang_code, content=content)
 
-
-# @app.route('/registre_click', methods=['POST'])
-# def registre_click():
-#     data = request.json
-#     pagina = data.get('pagina', 'desconeguda')
-#     ip = request.remote_addr
-
-#     sessio = Session()
-#     visita = Visita(data_hora=datetime.utcnow(), ip=ip, pagina=pagina)
-#     sessio.add(visita)
-#     sessio.commit()
-#     sessio.close()
-
-#     return jsonify({'status': 'ok'})
-
 @app.route('/registre_click', methods=['POST'])
 def registre_click():
 
@@ -78,7 +66,7 @@ def registre_click():
     data = request.get_json() or {}
     pagina = data.get('pagina', 'desconeguda')
     ip = request.remote_addr
-    user_agent = request.headers.get('User-Agent')
+    user_agent = request.headers.get('User-Agent', '')
     referer = data.get('referer')
     idioma = data.get('idioma')
     idioma_base=data.get("idioma_base", ""),  # nou camp
@@ -90,10 +78,17 @@ def registre_click():
     durada = data.get('durada')
     resolucio = data.get('resolucio')
     
-    # Aquí poso un valor per geolocalització si tens una funció (opcional)
-    # geolocalitzacio = obtenir_geolocalitzacio_des_ip(ip)  # definir després o deixar None
-        
-    
+    # info del dispositiu que ens visita:    
+    ua = parse(user_agent)
+    if ua.is_mobile:
+        tipus = "mobil"
+    elif ua.is_tablet:
+        tipus = "tablet"
+    elif ua.is_pc:
+        tipus = "pc"
+    else:
+        tipus = "altres"
+
 
     sessio = Session()
     visita = Visita(
@@ -108,9 +103,17 @@ def registre_click():
         pais_natiu=pais_natiu,
         durada=durada,
         resolucio=resolucio,
-        geolocalitzacio=None
+        geolocalitzacio=None,
+
+        #info dispositiu
+        tipus_dispositiu = tipus,
+        navegador = ua.browser.family,
+        sistema_operatiu = ua.os.family,
+        model_dispositiu = ua.device.family,
+
     )
 
+    # obtenir info geolocalització
     geo = obtenir_geo(ip)
     if geo:
         visita.lat = geo["lat"]

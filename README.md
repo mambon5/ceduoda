@@ -39,6 +39,15 @@ pagina web del centre d'estudis duoda
     ALTER TABLE visites ADD org VARCHAR(150) NULL;
     ALTER TABLE visites ADD as_name VARCHAR(150) NULL;
 
+5. Afegir variables sobre el dispositiu que ens visita:
+
+    ALTER TABLE visites 
+    ADD COLUMN tipus_dispositiu VARCHAR(20),
+    ADD COLUMN navegador VARCHAR(30),
+    ADD COLUMN sistema_operatiu VARCHAR(30),
+    ADD COLUMN model_dispositiu VARCHAR(50);
+
+
 ## Estructura d'arbre
 
     rtree -I venv
