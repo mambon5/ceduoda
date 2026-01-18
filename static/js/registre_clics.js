@@ -1,7 +1,7 @@
 function enviarVisita(pagina, durada=null) {
     const data = {
         pagina: pagina,
-        idioma: navigator.language || navigator.userLanguage,
+        idioma: document.body.dataset.lang,
         resolucio: window.screen.width + "x" + window.screen.height,
         referer: document.referrer,
     };

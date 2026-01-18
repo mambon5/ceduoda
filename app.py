@@ -43,6 +43,9 @@ def home(lang_code):
         lang_code = 'ca'
 
     content = load_translation(lang_code)
+    # 👉 afegim idioma dins el diccionari perquè el frontend el pugui llegir
+    content["lang_code"] = lang_code
+    
     return render_template("index.html", lang=lang_code, content=content)
 
 
@@ -67,7 +70,7 @@ def registre_click():
     if request.headers.get("X-Requested-With") != "XMLHttpRequest":
         return jsonify({"status": "blocked"}), 403
     
-    
+
     data = request.get_json() or {}
     pagina = data.get('pagina', 'desconeguda')
     ip = request.remote_addr
