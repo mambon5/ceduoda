@@ -11,7 +11,10 @@ function enviarVisita(pagina, durada=null) {
 
     fetch('/registre_click', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+        },
         body: JSON.stringify(data)
     });
 }
@@ -49,7 +52,7 @@ window.addEventListener('beforeunload', () => {
 
     navigator.sendBeacon('/registre_click', JSON.stringify({
         pagina: 'pag_principal',
-        idioma: navigator.language || navigator.userLanguage,
+        idioma: document.body.dataset.lang,
         resolucio: window.screen.width + "x" + window.screen.height,
         referer: document.referrer,
         durada: durada

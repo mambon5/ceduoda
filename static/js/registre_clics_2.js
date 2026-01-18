@@ -3,6 +3,7 @@ function registraClick(pagina) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'   // 🔒 imprescindible
         },
         body: JSON.stringify({ pagina: pagina })
     });

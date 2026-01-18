@@ -62,6 +62,12 @@ def home(lang_code):
 
 @app.route('/registre_click', methods=['POST'])
 def registre_click():
+
+    # 🔒 Bloquejar crides externes manuals
+    if request.headers.get("X-Requested-With") != "XMLHttpRequest":
+        return jsonify({"status": "blocked"}), 403
+    
+    
     data = request.get_json() or {}
     pagina = data.get('pagina', 'desconeguda')
     ip = request.remote_addr
