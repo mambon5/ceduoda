@@ -1,9 +1,8 @@
-// 1️⃣ Captura del temps d'inici de la sessió
-let temps_inici = Date.now();
-
-// 2️⃣ Funció per enviar visites o clics
-function enviarVisita(pagina, durada = null) {
-    let idiomaComplet = navigator.language || navigator.userLanguage || "desconegut";
+function enviarVisita(pagina, durada=null) {
+        // Obtenim idioma i país natiu
+    let idiomaComplet = navigator.language;   // ex: "es-MX"
+    idiomaComplet = navigator.language || navigator.userLanguage || "desconegut";
+    // Separem la part del país i la posem en majúscules
     let paisNatiu = (idiomaComplet.split('-')[1] || null);
     if (paisNatiu) paisNatiu = paisNatiu.toUpperCase();
 
@@ -11,12 +10,13 @@ function enviarVisita(pagina, durada = null) {
         pagina: pagina,
         idioma: idiomaComplet,
         idioma_base: document.body.dataset.lang,
-        codi_pais_natiu: paisNatiu,
+        pais_natiu: paisNatiu,
         resolucio: window.screen.width + "x" + window.screen.height,
-        referer: document.referrer || "",
+        referer: document.referrer,
     };
-
-    if (durada !== null) data.durada = durada;
+    if (durada !== null) {
+        data.durada = durada;
+    }
 
     fetch('/registre_click', {
         method: 'POST',
@@ -28,43 +28,42 @@ function enviarVisita(pagina, durada = null) {
     });
 }
 
-// 3️⃣ Enviem la visita de la pàgina principal al carregar
+let temps_inici = Date.now();
+
 window.addEventListener('load', () => {
     enviarVisita("pag_principal");
 });
 
-// 4️⃣ Captura de clics a links amb href que comencen per #
+// Capturar clics a links amb href que comencen per #
 document.querySelectorAll('.side-menu a').forEach(el => {
     el.addEventListener('click', e => {
-        e.preventDefault();
+        e.preventDefault(); // Prevenir scroll automàtic o navegació
         const href = el.getAttribute('href') || '';
         if (href.startsWith('#')) {
-            const seccio = href.substring(1);
+            const seccio = href.substring(1); // treure #
             enviarVisita(seccio);
-
+            
+            // Opcional: fer scroll manual a la secció després d'enviar la visita
             const seccioElement = document.getElementById(seccio);
             if (seccioElement) {
                 seccioElement.scrollIntoView({behavior: 'smooth'});
             }
         } else {
+            // Enllaç extern o altre, pots enviar "enllac_extern" o res
             enviarVisita('enllac_extern');
-            window.location.href = href;
+            window.location.href = href; // seguir l'enllaç normal
         }
     });
 });
 
-// 5️⃣ Enviem durada al tancar la pàgina amb sendBeacon
 window.addEventListener('beforeunload', () => {
     let durada = Math.floor((Date.now() - temps_inici) / 1000);
-    let idiomaComplet = navigator.language || navigator.userLanguage || "desconegut";
-    let paisNatiu = (idiomaComplet.split('-')[1]?.toUpperCase() || "DESCONEGUT");
 
     navigator.sendBeacon('/registre_click', JSON.stringify({
         pagina: 'pag_principal',
-        idioma: idiomaComplet,
-        codi_pais_natiu: paisNatiu,
+        idioma: document.body.dataset.lang,
         resolucio: window.screen.width + "x" + window.screen.height,
-        referer: document.referrer || "",
+        referer: document.referrer,
         durada: durada
     }));
 });

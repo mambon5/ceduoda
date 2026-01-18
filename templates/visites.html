@@ -53,7 +53,10 @@
                 <th>Pàgina</th>
                 <th>User Agent</th>
                 <th>Referer</th>
+                <th>Idioma Navegador</th>
                 <th>Idioma</th>
+                <th>Codi País</th>
+                <th>País Natiu</th>
                 <th>Durada (s)</th>
                 <th>Resolució</th>
                 <th>Geolocalització</th>
@@ -68,6 +71,9 @@
                     <td><div class="small-text">{{ visita.user_agent or '-' }}</div></td>
                     <td><div class="small-text">{{ visita.referer or '-' }}</div></td>
                     <td>{{ visita.idioma or '-' }}</td>
+                    <td>{{ visita.idioma_base or '-' }}</td>
+                    <td>{{ visita.codi_pais_natiu or '-' }}</td>
+                    <td>{{ visita.pais_natiu or '-' }}</td>
                     <td>{{ visita.durada if visita.durada is not none else '-' }}</td>
                     <td>{{ visita.resolucio or '-' }}</td>
                     <td>{{ visita.geolocalitzacio or '-' }}</td>

@@ -9,12 +9,16 @@
 
 from flask import Flask, render_template, request, redirect, jsonify, Response
 import json
-import os
+import pycountry
 # app.py
-from crea_dades import Visita, Base, engine
+import csv
+from io import StringIO
+from crea_dades import  engine
+from models import Visita
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import func
 from datetime import datetime
+from geo import obtenir_geo
 
 app = Flask(__name__)
 Session = sessionmaker(bind=engine)
@@ -45,7 +49,7 @@ def home(lang_code):
     content = load_translation(lang_code)
     # 👉 afegim idioma dins el diccionari perquè el frontend el pugui llegir
     content["lang_code"] = lang_code
-    
+
     return render_template("index.html", lang=lang_code, content=content)
 
 
@@ -77,12 +81,19 @@ def registre_click():
     user_agent = request.headers.get('User-Agent')
     referer = data.get('referer')
     idioma = data.get('idioma')
+    idioma_base=data.get("idioma_base", ""),  # nou camp
+    codi_pais_natiu=data.get("codi_pais_natiu"),
+    try:
+        pais_natiu = pycountry.countries.get(alpha_2=codi_pais_natiu).name
+    except:
+        pais_natiu = "Desconegut"
     durada = data.get('durada')
     resolucio = data.get('resolucio')
     
     # Aquí poso un valor per geolocalització si tens una funció (opcional)
     # geolocalitzacio = obtenir_geolocalitzacio_des_ip(ip)  # definir després o deixar None
-    geolocalitzacio = None
+        
+    
 
     sessio = Session()
     visita = Visita(
@@ -92,10 +103,27 @@ def registre_click():
         user_agent=user_agent,
         referer=referer,
         idioma=idioma,
+        idioma_base=idioma_base,
+        codi_pais_natiu=codi_pais_natiu,
+        pais_natiu=pais_natiu,
         durada=durada,
         resolucio=resolucio,
-        geolocalitzacio=geolocalitzacio
+        geolocalitzacio=None
     )
+
+    geo = obtenir_geo(ip)
+    if geo:
+        visita.lat = geo["lat"]
+        visita.lon = geo["lon"]
+        visita.ciutat = geo["city"]
+        visita.regio = geo["regio"]
+        visita.pais_fisic = geo["pais_fisic"]
+        visita.codi_pais_fisic = geo["codi_pais_fisic"]
+        visita.zip = geo["zip"]
+        visita.isp = geo["isp"]
+        visita.org = geo["org"]
+        visita.as_name = geo["as_name"]
+
     sessio.add(visita)
     sessio.commit()
     sessio.close()
@@ -109,21 +137,29 @@ def veure_visites():
     sessio.close()
     return render_template("visites.html", visites=visites)
 
+
 @app.route('/descarrega_visites')
 def descarrega_visites():
     sessio = Session()
     visites = sessio.query(Visita).order_by(Visita.data_hora.desc()).all()
     sessio.close()
 
+    columnes = [c.name for c in Visita.__table__.columns]
+
     def generar_csv():
-        yield 'data_hora,ip,pagina,idioma,resolucio,referer,durada\n'
+        output = StringIO()
+        writer = csv.writer(output, quoting=csv.QUOTE_ALL)
+        writer.writerow(columnes)
+
         for visita in visites:
-            fila = f'"{visita.data_hora}","{visita.ip}","{visita.pagina}","{visita.idioma}","{visita.resolucio}","{visita.referer}","{visita.durada}"\n'
-            yield fila
+            fila = [getattr(visita, col) for col in columnes]
+            writer.writerow(fila)
+            yield output.getvalue()
+            output.seek(0)
+            output.truncate(0)
 
     return Response(generar_csv(), mimetype='text/csv',
                     headers={"Content-Disposition": "attachment;filename=visites.csv"})
-
 
 @app.route('/estadistiques')
 def estadistiques():
