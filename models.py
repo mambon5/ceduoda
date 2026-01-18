@@ -22,7 +22,7 @@ class Visita(Base):
     resolucio = Column(String(20))  # punt 6: resolució pantalla (ex: "1920x1080")
     geolocalitzacio = Column(String(100))  # punt 8: info geolocalització aprox (ex: "Barcelona, Espanya")
 
-    #geolocalitzacio detallada
+    # geolocalitzacio detallada
     lat = Column(String(20))
     lon = Column(String(20))
     ciutat = Column(String(100))
@@ -40,5 +40,8 @@ class Visita(Base):
     sistema_operatiu = Column(String(30))
     model_dispositiu = Column(String(50))
 
+    hora_local = Column(String(40))
+    zona_horaria = Column(String(40))
+    scroll_max = Column(Integer)
 
 

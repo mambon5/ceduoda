@@ -1,6 +1,19 @@
 // 1️⃣ Captura del temps d'inici de la sessió
 let temps_inici = Date.now();
 
+let scroll_max = 0;
+
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = Math.round((scrollTop / docHeight) * 100);
+
+    if (percent > scroll_max) {
+        scroll_max = percent;
+    }
+});
+
+
 // 2️⃣ Funció per enviar visites o clics
 function enviarVisita(pagina, durada = null) {
     let idiomaComplet = navigator.language || navigator.userLanguage || "desconegut";

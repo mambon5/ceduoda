@@ -54,6 +54,10 @@
                 <th>Data i hora</th>
                 <th>IP</th>
                 <th>Pàgina</th>
+                <th>Tipus dispositiu</th>
+                <th>Navegador</th>
+                <th>Sistema Operatiu</th>
+                <th>Model dispositiu</th>
                 <th>User Agent</th>
                 <th>Referer</th>
                 <th>Idioma Navegador</th>
@@ -77,6 +81,10 @@
                     <td>{{ visita.data_hora.strftime('%d/%m/%Y %H:%M:%S') }}</td>
                     <td>{{ visita.ip }}</td>
                     <td>{{ visita.pagina }}</td>
+                    <td>{{ visita.tipus_dispositiu or '-' }}</td>
+                    <td>{{ visita.navegador or '-' }}</td>
+                    <td>{{ visita.sistema_operatiu or '-' }}</td>
+                    <td>{{ visita.model_dispositiu or '-' }}</td>
                     <td><div class="small-text">{{ visita.user_agent or '-' }}</div></td>
                     <td><div class="small-text">{{ visita.referer or '-' }}</div></td>
                     <td>{{ visita.idioma or '-' }}</td>
@@ -101,7 +109,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="18">Cap visita registrada.</td>
+                    <td colspan="22">Cap visita registrada.</td>
                 </tr>
             {% endfor %}
         </tbody>
