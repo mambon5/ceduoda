@@ -15,7 +15,7 @@ class Visita(Base):
     user_agent = Column(Text)       # punt 1: navegador i dispositiu
     referer = Column(Text)          # punt 2: d’on venen
     idioma = Column(String(20))     # punt 3: idioma navegador
-    idioma_base = Column(String(20))     # punt 3: idioma navegador
+    idioma_base = Column(String(20))     # punt 3: idioma simplificat
     pais_natiu = Column(String(50))  # nom del país basat en codi_pais_natiu
     codi_pais_natiu = Column(String(5), nullable=True)  # ex: "MX"
     durada = Column(Integer)        # punt 4: durada visita en segons (nullable = pot ser zero o None)

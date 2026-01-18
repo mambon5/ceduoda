@@ -51,23 +51,26 @@
     <table>
         <thead>
             <tr>
-                <th>Data i hora</th>
+                
                 
                 <th>Pàgina</th>
                 <th>Hora local</th>
-                <th>Zona horària</th>
+                
                 <th>Scroll màxim (%)</th>
                 <th>Durada (s)</th>
                 <th>Idioma</th>
                 <th>País Natiu</th>
                 <th>País físic</th>
-                <th>Ciutat</th>
-                <th>Codi postal</th>
+                <th>Ciutat</th>                
                 <th>Mapa</th>
 
                 <th>Tipus dispositiu</th>                
                 <th>Sistema Operatiu</th>
                 <th>Model dispositiu</th>
+                
+                <th>Data i hora</th>
+                <th>Codi postal</th>
+                <th>Zona horària</th>
 
                 <th>Navegador</th>                
                 
@@ -87,18 +90,18 @@
         <tbody>
             {% for visita in visites %}
                 <tr>
-                    <td>{{ visita.data_hora.strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                    
 
                     <td>{{ visita.pagina }}</td>
                     <td>{{ visita.hora_local or '-' }}</td>
-                    <td>{{ visita.zona_horaria or '-' }}</td>
+                    
                     <td>{{ visita.scroll_max if visita.scroll_max is not none else '-' }}</td>
                     <td>{{ visita.durada if visita.durada is not none else '-' }}</td>
-                    <td>{{ visita.idioma or '-' }}</td>
+                    <td>{{ visita.idioma_base or '-' }}</td>
                     <td>{{ visita.pais_natiu or '-' }}</td>
                     <td>{{ visita.pais_fisic or '-' }}</td>
                     <td>{{ visita.ciutat or '-' }}</td>
-                    <td>{{ visita.zip or '-' }}</td>
+                    
 
                     <td class="map-link">
                         {% if visita.lat and visita.lon %}
@@ -112,9 +115,13 @@
                     <td>{{ visita.sistema_operatiu or '-' }}</td>
                     <td>{{ visita.model_dispositiu or '-' }}</td>
 
+                    <td>{{ visita.data_hora.strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                    <td>{{ visita.zip or '-' }}</td>
+                    <td>{{ visita.zona_horaria or '-' }}</td>
+
                     <td>{{ visita.navegador or '-' }}</td>
 
-                    <td>{{ visita.idioma_base or '-' }}</td>
+                    <td>{{ visita.idioma or '-' }}</td>
                     <td>{{ visita.codi_pais_natiu or '-' }}</td>
 
                     <td>{{ visita.regio or '-' }}</td>

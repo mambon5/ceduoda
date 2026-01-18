@@ -50,13 +50,13 @@
     <li><a href="#follow">{{ content.menu_follow }}</a></li>
   </ul>
   <div class="language-switcher">
-<a href="javascript:void(0);" onclick="switchLang('ca')" class="{% if lang == 'ca' %}active{% endif %}">
+<a href="/ca" data-lang-switch="ca" class="{% if lang == 'ca' %}active{% endif %}">
   <span class="fi fi-es-ct"></span>
 </a>
-<a href="javascript:void(0);" onclick="switchLang('es')" class="{% if lang == 'es' %}active{% endif %}">
+<a href="/es" data-lang-switch="es" class="{% if lang == 'es' %}active{% endif %}">
   <span class="fi fi-es"></span>
 </a>
-<a href="javascript:void(0);" onclick="switchLang('en')" class="{% if lang == 'en' %}active{% endif %}">
+<a href="/en" data-lang-switch="en" class="{% if lang == 'en' %}active{% endif %}">
   <span class="fi fi-us"></span>
 </a>
 </div>
