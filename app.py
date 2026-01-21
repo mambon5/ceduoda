@@ -209,24 +209,9 @@ def descarrega_visites():
 
 @app.route('/estadistiques')
 def estadistiques():
-    sessio = Session()
-    visites = sessio.query(Visita).all()
-    sessio.close()
-
-    # Convertim a llista de dicts per al nostre fitxer
-    visites_dicts = []
-    for v in visites:
-        visites_dicts.append({
-            'pagina': v.pagina,
-            'durada': v.durada,
-            'scroll_max': v.scroll_max
-        })
-
-    # Generem els gràfics
     generar_estadistiques()
-
-    # Renderitza un HTML amb imatges
     return render_template("estadistiques.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

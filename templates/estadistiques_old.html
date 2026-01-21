@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Estadístiques de Visites</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estadístiques de visites per secció</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Pàgina / Secció</th>
+                <th>Nombre de visites</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pagina, total in estadistiques %}
+            <tr>
+                <td>{{ pagina }}</td>
+                <td>{{ total }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="2">No s'han registrat visites.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

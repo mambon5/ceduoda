@@ -2,63 +2,49 @@
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <title>Estadístiques de Visites</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 2rem;
-            background-color: #f8f9fa;
-        }
-
-        h1 {
-            margin-bottom: 1.5rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #343a40;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <title>Estadístiques</title>
 </head>
 <body>
-    <h1>Estadístiques de visites per secció</h1>
+    <h1>Estadístiques del lloc</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Pàgina / Secció</th>
-                <th>Nombre de visites</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for pagina, total in estadistiques %}
-            <tr>
-                <td>{{ pagina }}</td>
-                <td>{{ total }}</td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="2">No s'han registrat visites.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <h2>Visites per pàgina</h2>
+    <img src="{{ url_for('static', filename='estadistiques/visites_per_pagina.png') }}">
+
+    <h2>Temps mitjà per pàgina</h2>
+    <img src="{{ url_for('static', filename='estadistiques/temps_mig_per_pagina.png') }}">
+
+    <h2>Scroll mitjà per pàgina</h2>
+    <img src="{{ url_for('static', filename='estadistiques/scroll_mig_per_pagina.png') }}">
+
+    <h2>Dispositius</h2>
+    <img src="{{ url_for('static', filename='estadistiques/dispositius.png') }}">
+
+    <h2>Idiomes</h2>
+    <img src="{{ url_for('static', filename='estadistiques/idiomes.png') }}">
+
+    <div class="card">
+        <h2>Visites per dia de la setmana</h2>
+        <img src="{{ url_for('static', filename='estadistiques/visites_dia_setmana.png') }}" alt="Dia setmana">
+    </div>
+
+    <div class="card">
+        <h2>Visites per hora del dia</h2>
+        <img src="{{ url_for('static', filename='estadistiques/visites_per_hora.png') }}" alt="Hora del dia">
+    </div>
+
+    <div class="card">
+        <h2>Visites per mes</h2>
+        <img src="{{ url_for('static', filename='estadistiques/visites_per_mes.png') }}" alt="Mes">
+    </div>
+
+    <div class="card">
+        <h2>Evolució setmanal</h2>
+        <img src="{{ url_for('static', filename='estadistiques/evolucio_setmanal.png') }}" alt="Evolució setmanal">
+    </div>
+
+    <div class="card">
+        <h2>Distribució del scroll</h2>
+        <img src="{{ url_for('static', filename='estadistiques/histograma_scroll.png') }}" alt="Scroll">
+    </div>
 </body>
 </html>
