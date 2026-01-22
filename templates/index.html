@@ -76,6 +76,8 @@
 
      <div class="buttons">
         <button onclick="openModal('matematiques-modal')">{{ content.subjects.mates.title }}</button>
+        <button onclick="openModal('fisica-modal')">{{ content.subjects.fisica.title }}</button>
+        <button onclick="openModal('quimica-modal')">{{ content.subjects.quimica.title }}</button>
         <button onclick="openModal('catala-modal')">{{ content.subjects.catala.title }}</button>
         <button onclick="openModal('castella-modal')">{{ content.subjects.castella.title }}</button>
         <button onclick="openModal('angles-modal')">{{ content.subjects.angles.title }}</button>
@@ -96,6 +98,24 @@
             <span class="close" onclick="closeModal('matematiques-modal')">&times;</span>
             <h3>{{ content.subjects.mates.title }} <i class="bi bi-calculator" style="font-size: 2rem; color: darkblue; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.mates.desc }}</p>
+        </div>
+        </div>
+
+        <!-- Física -->
+        <div id="fisica-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('fisica-modal')">&times;</span>
+            <h3>{{ content.subjects.fisica.title }} <i class="bi bi-gear" style="font-size: 2rem; color: steelblue; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.fisica.desc }}</p>
+        </div>
+        </div>
+
+        <!-- Química -->
+        <div id="quimica-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quimica-modal')">&times;</span>
+            <h3>{{ content.subjects.quimica.title }} <i class="bi bi-flask" style="font-size: 2rem; color: darkmagenta; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.quimica.desc }}</p>
         </div>
         </div>
 

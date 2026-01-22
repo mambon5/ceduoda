@@ -66,6 +66,14 @@
     "apps": {
       "title": "Desarrollo de apps",
       "desc": "Aprende a crear aplicaciones móviles y web desde cero, con herramientas modernas y prácticas."
+    },
+    "fisica": {
+      "title": "Física",
+      "desc": "Todo sobre física: desde dinámica y poleas hasta mecánica, electricidad, termodinámica, campo gravitatorio, electromagnetismo y radiación nuclear."
+    },
+    "quimica": {
+      "title": "Química",
+      "desc": "Desde conceptos básicos y teoría atómica hasta estequiometría, formulación inorgánica y orgánica, reacciones de equilibrio, óxido‑reducción, cálculo del pH, energía de Gibbs y termodinámica."
     }
   },
     "reforç": {

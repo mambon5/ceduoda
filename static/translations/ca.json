@@ -25,6 +25,14 @@
       "title": "Matemàtiques",
       "desc": "Reforç i ampliació de conceptes matemàtics per a tots els nivells, des de l’aritmètica fins al càlcul."
     },
+    "fisica": {
+      "title": "Física",
+      "desc": "Tot sobre física: desde dinàmica i politges a mecànica, electricitat, termeodinàmica, camp gravitatòri, electromagnètic i radiació nuclear."
+    },
+    "quimica": {
+      "title": "Química",
+      "desc": "Desde conceptes bàsics, teoria de l'àtom, estequiometria, formulació inorgànica i orgànica, a reaccions d'equilibri, oxidació-reducció, càlcul del pH, energia de Gibbs i termodinàmica."
+    },
     "catala": {
       "title": "Català",
       "desc": "Aprèn i perfecciona la llengua catalana amb activitats, gramàtica i literatura adaptada."
@@ -276,6 +284,6 @@
 
 
 
- 
+
 
 

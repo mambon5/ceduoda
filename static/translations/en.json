@@ -69,6 +69,14 @@
     "apps": {
       "title": "App Development",
       "desc": "Learn to build mobile and web apps from scratch, using modern and practical tools."
+    },
+    "fisica": {
+      "title": "Physics",
+      "desc": "Everything about physics: from dynamics and pulleys to mechanics, electricity, thermodynamics, gravitational fields, electromagnetism and nuclear radiation."
+    },
+    "quimica": {
+      "title": "Chemistry",
+      "desc": "From basic concepts and atomic theory to stoichiometry, inorganic and organic formulation, equilibrium reactions, redox, pH calculation, Gibbs energy and thermodynamics."
     }
   },
   "reforç": {
