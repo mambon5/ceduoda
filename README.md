@@ -24,7 +24,7 @@ pagina web del centre d'estudis duoda
     ALTER TABLE visites ADD COLUMN codi_pais_natiu VARCHAR(5) DEFAULT NULL;
 
 3. Afegir nom del país
-   ALTER TABLE visites ADD COLUMN nom_pais VARCHAR(50) DEFAULT NULL;
+   ALTER TABLE visites ADD COLUMN pais_natiu VARCHAR(50) DEFAULT NULL;
 
 4. Afegir tot de variables sobre l'orígen del tràfic web:
 
