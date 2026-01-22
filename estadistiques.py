@@ -173,18 +173,24 @@ def generar_estadistiques():
     plt.close()
 
     # =========================
-    # 3️⃣ Visites per mes
+    # 3️⃣ Visites per mes (barres horitzontals)
     # =========================
-    mesos = list(range(1, 13))
-    valors = [per_mes[m] for m in mesos]
+    noms_mesos = [
+        "Gener", "Febrer", "Març", "Abril", "Maig", "Juny",
+        "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"
+    ]
 
-    plt.figure()
-    plt.bar(mesos, valors)
+    valors = [per_mes.get(i + 1, 0) for i in range(12)]
+
+    plt.figure(figsize=(8, 5))
+    plt.barh(noms_mesos, valors)
     plt.title("Visites per mes de l'any")
-    plt.xlabel("Mes")
-    plt.ylabel("Visites")
+    plt.xlabel("Visites")
+    plt.ylabel("Mes")
+    plt.tight_layout()
     plt.savefig(f"{OUTPUT_DIR}/visites_per_mes.png")
     plt.close()
+
 
     # =========================
     # 4️⃣ Evolució temporal per setmana
