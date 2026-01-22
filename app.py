@@ -64,8 +64,8 @@ def registre_click():
     else:
         data = json.loads(request.data.decode('utf-8'))  # <-- per sendBeacon
 
-    print("data: ")
-    print(data)
+    # print("data: ")
+    # print(data)
 
     # 🔒 Bloquejar crides externes manuals
     # if request.headers.get("X-Requested-With") != "XMLHttpRequest":
@@ -78,7 +78,7 @@ def registre_click():
 
 
     
-    print("reached here")
+    # print("reached here")
 
 
     # data = request.get_json() or {}

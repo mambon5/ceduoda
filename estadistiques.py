@@ -218,4 +218,4 @@ def generar_estadistiques():
     plt.savefig(f"{OUTPUT_DIR}/histograma_scroll.png")
     plt.close()
 
-    print("📊 Estadístiques generades correctament")
+    # print("📊 Estadístiques generades correctament")
