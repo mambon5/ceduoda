@@ -321,3 +321,9 @@ def generar_estadistiques():
     # 6️⃣ Tipus de dispositiu
     # =========================
     graf_dispositius(dispositius)
+
+    # =========================
+    # 7 evolucio diària
+    # =========================
+
+    graf_visites_per_dia(visites)
