@@ -41,17 +41,39 @@ def graf_visites_per_pagina(sessio):
     plt.savefig(f"{OUTPUT_DIR}/visites_per_pagina.png")
     plt.close()
 
+# def graf_dispositius(dispositius):
+#     if not dispositius:
+#         return
+    
+#     noms = list(dispositius.keys())
+#     valors = list(dispositius.values())
+
+#     plt.figure(figsize=(6, 4))
+#     plt.bar(noms, valors, color="skyblue")
+#     plt.title("Tipus de dispositiu")
+#     plt.ylabel("Visites")
+#     plt.tight_layout()
+#     plt.savefig(f"{OUTPUT_DIR}/dispositius.png")
+#     plt.close()
+
 def graf_dispositius(dispositius):
     if not dispositius:
+        print("No hi ha dades de dispositius")
         return
-    
-    noms = list(dispositius.keys())
-    valors = list(dispositius.values())
 
-    plt.figure(figsize=(6, 4))
-    plt.bar(noms, valors, color="skyblue")
-    plt.title("Tipus de dispositiu")
-    plt.ylabel("Visites")
+    labels = dispositius.keys()
+    sizes = dispositius.values()
+
+    plt.figure(figsize=(6, 6))
+    plt.pie(
+        sizes, 
+        labels=labels, 
+        autopct="%1.1f%%",  # mostra percentatges
+        startangle=90,       # gira perquè el primer sector comenci a dalt
+        colors=["#4CAF50", "#2196F3", "#FFC107", "#9C27B0"],  # opcional, colors
+        wedgeprops={"edgecolor": "k"}  # separa els sectors amb línia negra
+    )
+    plt.title("Visites per tipus de dispositiu")
     plt.tight_layout()
     plt.savefig(f"{OUTPUT_DIR}/dispositius.png")
     plt.close()
