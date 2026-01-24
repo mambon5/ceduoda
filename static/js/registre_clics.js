@@ -1,5 +1,5 @@
 let scroll_max = 0;
-let ultima_pagina = "pag_principal";   // 👈 ja comencem a la principal
+let ultima_pagina = "inici";   // 👈 ja comencem a la principal
 let ultim_temps = Date.now();
 
 window.addEventListener("scroll", () => {
@@ -8,6 +8,12 @@ window.addEventListener("scroll", () => {
     const percent = Math.round((scrollTop / docHeight) * 100);
     if (percent > scroll_max) scroll_max = percent;
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+    enviarVisita(ultima_pagina); // envia "pag_principal"
+    ultima_pagina="pag_principal";
+});
+
 
 function enviarVisita(pagina) {
 

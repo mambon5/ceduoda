@@ -83,6 +83,7 @@ def registre_click():
 
     # data = request.get_json() or {}
     pagina = data.get('pagina', 'desconeguda')
+    if pagina == "inici": return jsonify({'status': 'ok'})  # no guardem visites a la pàgina d'inici
     ip = request.remote_addr
     user_agent = request.headers.get('User-Agent', '')
     referer = data.get('referer')
