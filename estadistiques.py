@@ -37,8 +37,8 @@ def graf_visites_per_pagina(sessio):
     plt.ylabel("Visites")
     plt.tight_layout()
 
-    os.makedirs("static/estadistiques", exist_ok=True)
-    plt.savefig("static/estadistiques/visites_per_pagina.png")
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    plt.savefig(f"{OUTPUT_DIR}/visites_per_pagina.png")
     plt.close()
 
 def graf_temps_mig_per_pagina(sessio):
