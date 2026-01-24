@@ -10,7 +10,7 @@ from sqlalchemy.orm import sessionmaker
 from crea_dades import engine
 from models import Visita
 from sqlalchemy import func
-
+import matplotlib.dates as mdates
 Session = sessionmaker(bind=engine)
 
 OUTPUT_DIR = "/var/www/ceduoda/static/estadistiques"
@@ -76,6 +76,36 @@ def graf_dispositius(dispositius):
     plt.title("Visites per tipus de dispositiu")
     plt.tight_layout()
     plt.savefig(f"{OUTPUT_DIR}/dispositius.png")
+    plt.close()
+
+
+
+
+
+def graf_visites_per_dia(visites):
+    # comptem les visites per data
+    visites_per_dia = defaultdict(int)
+    for v in visites:
+        if v.data_hora:
+            dia = v.data_hora.date()  # només la data, sense hora
+            visites_per_dia[dia] += 1
+
+    dies = sorted(visites_per_dia.keys())
+    valors = [visites_per_dia[d] for d in dies]
+
+    plt.figure(figsize=(12, 6))
+    plt.plot(dies, valors, marker='o', linestyle='-', color='blue')
+    plt.title("Evolució diària de visites")
+    plt.xlabel("Data")
+    plt.ylabel("Nombre de visites")
+    
+    # formatem l'eix X per mostrar dia/mes
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y'))
+    plt.gca().xaxis.set_major_locator(mdates.AutoDateLocator())
+    plt.xticks(rotation=45, ha='right')
+    
+    plt.tight_layout()
+    plt.savefig(f"{OUTPUT_DIR}/evolucio_diaria.png")
     plt.close()
 
 
@@ -230,20 +260,49 @@ def generar_estadistiques():
     plt.close()
 
 
+    # # =========================
+    # # 4️⃣ Evolució temporal per setmana
+    # # =========================
+    # setmanes = sorted(per_setmana.keys())
+    # valors = [per_setmana[s] for s in setmanes]
+
+    # plt.figure(figsize=(10, 4))
+    # plt.plot(setmanes, valors, marker="o")
+    # plt.xticks(rotation=45, ha="right")
+    # plt.title("Evolució de visites per setmana")
+    # plt.ylabel("Visites")
+    # plt.tight_layout()
+    # plt.savefig(f"{OUTPUT_DIR}/evolucio_setmanal.png")
+    # plt.close()
+
     # =========================
     # 4️⃣ Evolució temporal per setmana
     # =========================
-    setmanes = sorted(per_setmana.keys())
+    setmanes = sorted(per_setmana.keys())  # ara són strings "YYYY-Www"
     valors = [per_setmana[s] for s in setmanes]
 
+    # Convertim a data del primer dia de cada setmana (dilluns)
+    dates_dilluns = []
+    for s in setmanes:
+        any_, setmana_ = map(int, s.split("-W"))
+        dilluns = datetime.strptime(f'{any_}-{setmana_}-1', "%Y-%W-%w").date()
+        dates_dilluns.append(dilluns)
+
     plt.figure(figsize=(10, 4))
-    plt.plot(setmanes, valors, marker="o")
-    plt.xticks(rotation=45, ha="right")
+    plt.plot(dates_dilluns, valors, marker="o", linestyle="-", color="blue")
     plt.title("Evolució de visites per setmana")
     plt.ylabel("Visites")
+
+    # formatem l'eix X perquè mostri data
+    import matplotlib.dates as mdates
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%d/%m/%y'))
+    plt.gca().xaxis.set_major_locator(mdates.AutoDateLocator())
+    plt.xticks(rotation=45, ha="right")
+
     plt.tight_layout()
     plt.savefig(f"{OUTPUT_DIR}/evolucio_setmanal.png")
     plt.close()
+
 
     # =========================
     # 5️⃣ Histograma de scroll

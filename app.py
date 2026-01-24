@@ -145,7 +145,7 @@ def registre_click():
     if geo:
         visita.lat = geo["lat"]
         visita.lon = geo["lon"]
-        visita.ciutat = geo["city"]
+        visita.ciutat = geo["ciutat"]
         visita.regio = geo["regio"]
         visita.pais_fisic = geo["pais_fisic"]
         visita.codi_pais_fisic = geo["codi_pais_fisic"]
