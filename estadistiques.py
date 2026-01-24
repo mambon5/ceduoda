@@ -135,6 +135,29 @@ def graf_temps_mig_per_pagina(sessio):
     plt.close()
 
 
+def graf_scroll_mig_per_pagina(visites):
+    # agrupem el scroll per pàgina
+    scroll_per_pagina = defaultdict(list)
+    for v in visites:
+        if v.pagina and v.scroll_max is not None:
+            scroll_per_pagina[v.pagina].append(v.scroll_max)
+    
+    if not scroll_per_pagina:
+        print("No hi ha dades de scroll per pàgina")
+        return
+
+    pagines = list(scroll_per_pagina.keys())
+    valors = [sum(lst)/len(lst) for lst in scroll_per_pagina.values()]  # mitjana per pàgina
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(pagines, valors, color="skyblue")
+    plt.xticks(rotation=45, ha="right")
+    plt.title("Percentatge mitjà de scroll per pàgina")
+    plt.ylabel("Scroll (%)")
+    plt.ylim(0, 100)  # percentatge
+    plt.tight_layout()
+    plt.savefig(f"{OUTPUT_DIR}/scroll_mig_per_pagina.png")
+    plt.close()
 
 
 def generar_estadistiques():
@@ -327,3 +350,9 @@ def generar_estadistiques():
     # =========================
 
     graf_visites_per_dia(visites)
+
+
+    # =========================
+    # 8️⃣ Scroll mitjà per pàgina
+    # =========================
+    graf_scroll_mig_per_pagina(visites)
