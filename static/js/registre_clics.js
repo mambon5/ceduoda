@@ -12,6 +12,7 @@ window.addEventListener("scroll", () => {
 window.addEventListener("DOMContentLoaded", () => {
     enviarVisita(ultima_pagina); // envia "pag_principal"
     ultima_pagina="pag_principal";
+    ultim_temps = Date.now();
 });
 
 
@@ -94,6 +95,7 @@ document.querySelectorAll('.side-menu a').forEach(el => {
 
 // 🔄 Event correcte per tancament
 window.addEventListener("pagehide", () => {
+    console.log("Pagehide disparat! ultima_pagina=", ultima_pagina, "scroll_max=", scroll_max);
 
     let idiomaComplet = navigator.language || "desconegut";
     let paisNatiu = idiomaComplet.split('-')[1]?.toUpperCase() || null;
