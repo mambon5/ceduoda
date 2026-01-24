@@ -13,7 +13,7 @@ from sqlalchemy import func
 
 Session = sessionmaker(bind=engine)
 
-OUTPUT_DIR = "static/estadistiques"
+OUTPUT_DIR = "/var/www/ceduoda/static/estadistiques"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def graf_visites_per_pagina(sessio):
