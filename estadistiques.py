@@ -41,6 +41,22 @@ def graf_visites_per_pagina(sessio):
     plt.savefig(f"{OUTPUT_DIR}/visites_per_pagina.png")
     plt.close()
 
+def graf_dispositius(dispositius):
+    if not dispositius:
+        return
+    
+    noms = list(dispositius.keys())
+    valors = list(dispositius.values())
+
+    plt.figure(figsize=(6, 4))
+    plt.bar(noms, valors, color="skyblue")
+    plt.title("Tipus de dispositiu")
+    plt.ylabel("Visites")
+    plt.tight_layout()
+    plt.savefig(f"{OUTPUT_DIR}/dispositius.png")
+    plt.close()
+
+
 def graf_temps_mig_per_pagina(sessio):
     resultats = (
         sessio.query(
@@ -219,3 +235,8 @@ def generar_estadistiques():
     plt.close()
 
     # print("📊 Estadístiques generades correctament")
+
+    # =========================
+    # 6️⃣ Tipus de dispositiu
+    # =========================
+    graf_dispositius(dispositius)
