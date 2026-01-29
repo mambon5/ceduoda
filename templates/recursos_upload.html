@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pujar recurs</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <style>
+    /* petit toc artístic al formulari de pujada */
+    .upload-hero { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; }
+    .upload-icon {
+      width:64px; height:64px; border-radius:10px;
+      background: linear-gradient(135deg,#00b4d8,#0077b6);
+      display:flex; align-items:center; justify-content:center; color:white;
+      box-shadow:0 8px 20px rgba(0,0,0,0.12); font-size:28px; font-weight:700;
+    }
+    .upload-title { font-family: 'Bitcount Grid Double', sans-serif; margin:0; text-align:center; }
+    .upload-sub { color:#666; font-size:0.9rem; margin-top:4px; text-align:center; }
+
+    /* botó submit amb icona al damunt */
+    .upload-submit {
+      display:inline-flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      padding:10px 14px;
+      border:none;
+      border-radius:6px;
+      color:#fff;
+      background:linear-gradient(135deg,#00b4d8,#0077b6);
+      cursor:pointer;
+      font-weight:600;
+    }
+    .upload-submit .icon {
+      width:36px; height:36px; border-radius:8px;
+      display:flex; align-items:center; justify-content:center; color:#fff;
+      font-size:18px;
+    }
+  </style>
+</head>
+<body class="w3-light-grey">
+  <div class="w3-container w3-margin-top" style="max-width:800px; margin:auto;">
+    <div class="w3-card-4 w3-padding">
+
+      <!-- header artístic -->
+      <div class="upload-hero">
+        <div class="upload-icon" aria-hidden="true"><i class="bi bi-cloud-arrow-up" style="font-size:1.4rem;"></i></div>
+        <div style="flex:1;">
+          <h3 class="upload-title">Pujar recurs didàctic</h3>
+          <div class="upload-sub">Afegeix un PDF, imatge o enllaç. Recorda incloure títol i descripció.</div>
+        </div>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, msg in messages %}
+            <div class="w3-panel w3-pale-{{ 'green' if category == 'success' else 'red' if category == 'danger' else 'yellow' }}">{{ msg }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form method="post" enctype="multipart/form-data" class="w3-container">
+        <label>Títol</label>
+        <input class="w3-input w3-border" name="title" required>
+
+        <label class="w3-margin-top">Descripció</label>
+        <textarea class="w3-input w3-border" name="description"></textarea>
+
+        <label class="w3-margin-top">Enllaç extern (opcional)</label>
+        <input class="w3-input w3-border" name="link" placeholder="https://...">
+
+        <label class="w3-margin-top">O puja un fitxer (png/jpg/pdf)</label>
+        <input class="w3-input" type="file" name="file" accept=".png,.jpg,.jpeg,.pdf">
+
+        <div class="w3-margin-top">
+          <button class="upload-submit" type="submit">
+            <span class="icon"><i class="bi bi-cloud-arrow-up" aria-hidden="true"></i></span>
+            <span>Pujar</span>
+          </button>
+          <a class="w3-button w3-light-grey" href="{{ url_for('recursos.recursos_list') }}">Cancel·lar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

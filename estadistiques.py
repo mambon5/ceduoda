@@ -161,13 +161,56 @@ def graf_scroll_mig_per_pagina(visites):
 
 
 def generar_estadistiques():
+    import os
+    from datetime import datetime
+
     sessio = Session()
     visites = sessio.query(Visita).all()
     sessio.close()
-
     if not visites:
         print("No hi ha dades per generar estadístiques")
         return
+
+    # obtenir l'última visita (timestamp)
+    últim = max((v.data_hora for v in visites if v.data_hora), default=None)
+    if últim is None:
+        print("Cap visita amb data_hora valida")
+        return
+    últim_ts = últim.timestamp()
+
+    # llista d'imatges que la plantilla mostra -> veure [templates/estadistiques.html](templates/estadistiques.html)
+    imatges = [
+        "visites_per_pagina.png",
+        "temps_mig_per_pagina.png",
+        "scroll_mig_per_pagina.png",
+        "dispositius.png",
+        "idiomes.png",
+        "visites_dia_setmana.png",
+        "visites_per_hora.png",
+        "visites_per_mes.png",
+        "evolucio_setmanal.png",
+        "evolucio_diaria.png",
+    ]
+    # prefix amb OUTPUT_DIR definit a aquest fitxer
+    imatges_paths = [os.path.join(OUTPUT_DIR, nom) for nom in imatges]
+
+    # comprovar si cal regenerar alguna imatge
+    need = []
+    for p in imatges_paths:
+        if not os.path.exists(p):
+            need.append(p)
+        else:
+            try:
+                if os.path.getmtime(p) < últim_ts:
+                    need.append(p)
+            except OSError:
+                need.append(p)
+
+    if not need:
+        print("Imatges actualitzades. No cal regenerar res.")
+        return
+    else:
+        print(f"Regenerant {len(need)} imatges obsoletes: {[os.path.basename(p) for p in need]}")
 
     # =========================
     # Estructures de dades

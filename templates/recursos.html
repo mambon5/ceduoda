@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="{{ lang or 'ca' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ content.recursos.title if content and content.recursos is defined else "Recursos" }}</title>
+
+    <!-- reutilitzem els mateixos estils que index.html -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+      /* header artístic per Recursos */
+      .recursos-hero { display:flex; align-items:center; gap:1rem; padding:1rem 0; }
+      .recursos-badge {
+        width:72px; height:72px; border-radius:12px;
+        background: linear-gradient(135deg,#6f42c1,#0d6efd);
+        color:white; display:flex; align-items:center; justify-content:center;
+        font-weight:700; font-size:34px; box-shadow:0 6px 18px rgba(0,0,0,0.12);
+      }
+      .recursos-hero h2 { margin:0; font-family: 'Bitcount Grid Double', sans-serif; letter-spacing:0.6px; text-align:center; }
+      .recursos-sub { color:#666; font-size:0.95rem; margin-top:4px; text-align:center; }
+
+      /* centrar títols de targetes */
+      .w3-card-4 .w3-container h3 { text-align:center; }
+
+      /* botó Pujar: icona a l'esquerra del text */
+      .upload-cta {
+        display:inline-flex;
+        flex-direction:row; /* fila en lloc de columna */
+        align-items:center;
+        justify-content:center;
+        gap:8px; /* espai entre icona i text */
+        padding:8px 12px;
+        border-radius:6px;
+        text-decoration:none;
+      }
+      .upload-cta .icon {
+        width:28px; height:28px; border-radius:6px;
+        background:linear-gradient(135deg,#00b4d8,#0077b6);
+        display:flex; align-items:center; justify-content:center; color:#fff;
+        box-shadow:0 6px 14px rgba(0,0,0,0.12);
+        font-size:14px;
+      }
+      .upload-cta .label { font-weight:600; color:#fff; }
+    </style>
+</head>
+<body class="w3-light-grey">
+  <header class="w3-container w3-white w3-padding">
+    <a href="{{ url_for('home', lang_code=content.lang_code if content and content.lang_code is defined else 'ca') }}" class="w3-button w3-border">
+      <i class="bi bi-house-door-fill" style="margin-right:0.5rem;"></i> Inici
+    </a>
+
+    <div class="recursos-hero">
+      <!-- badge: lletra R estilitzada (fallback si no hi ha icona) -->
+      <div class="recursos-badge" aria-hidden="true">R</div>
+
+      <!-- icona descriptiva + títol -->
+      <div>
+        <h2>{{ content.recursos.title if content and content.recursos is defined else "Recursos didàctics" }}
+          <i class="bi bi-journal-bookmark" style="font-size:1.2rem; color:#0d6efd; margin-left:0.6rem;"></i>
+        </h2>
+        <div class="recursos-sub">Recursos, documents i enllaços per a l'aprenentatge — accessible per tothom; pujar requereix identificació.</div>
+      </div>
+    </div>
+
+    <nav style="float:right;">
+      {% if user.username %}
+        <span class="w3-tag w3-green"> {{ user.username }} </span>
+
+        <!-- botó pujar amb icona a l'esquerra -->
+        <a href="{{ url_for('recursos.recursos_upload') }}" class="w3-button upload-cta" style="background:#28a745; color:white;">
+          <span class="icon"><i class="bi bi-cloud-arrow-up" aria-hidden="true"></i></span><br>
+          <span class="label">Pujar</span>
+        </a>
+
+        <a class="w3-button" href="{{ url_for('recursos.recursos_logout') }}">Logout</a>
+      {% else %}
+        <a class="w3-button" href="{{ url_for('recursos.recursos_login') }}">Identifica't</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main class="w3-container w3-margin-top">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, msg in messages %}
+          <div class="w3-panel w3-pale-{{ 'green' if category == 'success' else 'red' if category == 'danger' else 'yellow' }}">
+            {{ msg }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div class="w3-row-padding">
+      {% for r in recursos %}
+        <div class="w3-third w3-margin-bottom">
+          <div class="w3-card-4">
+            <div class="w3-container w3-white">
+              <h3>{{ r.title }}</h3>
+              <p class="w3-small">{{ r.description }}</p>
+              <p class="w3-tiny">Pujat per: {{ r.uploader.username if r.uploader else 'desconegut' }} · {{ r.uploaded_at.strftime('%Y-%m-%d %H:%M') }}</p>
+            </div>
+            <div class="w3-container w3-center w3-padding">
+              {% if r.file_type == 'img' and r.filename %}
+                <img src="{{ url_for('static', filename='recursos/' ~ r.filename) }}" alt="{{ r.title }}" style="max-width:100%; height:180px; object-fit:cover;">
+              {% elif r.file_type == 'pdf' %}
+                {% if r.url %}
+                  <a class="w3-button w3-blue" href="{{ r.url }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> Veure PDF</a>
+                {% elif r.filename %}
+                  <a class="w3-button w3-blue" href="{{ url_for('static', filename='recursos/' ~ r.filename) }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> Veure PDF</a>
+                {% endif %}
+              {% elif r.file_type == 'link' and r.url %}
+                <a class="w3-button w3-indigo" href="{{ r.url }}" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Obre enllaç</a>
+              {% elif r.filename %}
+                <a class="w3-button w3-grey" href="{{ url_for('static', filename='recursos/' ~ r.filename) }}" target="_blank"><i class="bi bi-download"></i> Descarregar</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <p>No hi ha recursos publicats.</p>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>

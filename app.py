@@ -22,9 +22,16 @@ from geo import obtenir_geo
 
 from user_agents import parse
 from estadistiques import generar_estadistiques
-
+import os
+from flask import Flask
+from recursos import bp as recursos_bp
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY", "canvia_a_una_clau_llarga_i_secreta")
+
+# registrar el blueprint de recursos
+app.register_blueprint(recursos_bp)
+
 Session = sessionmaker(bind=engine)
 
 def load_translation(lang_code):

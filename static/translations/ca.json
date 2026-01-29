@@ -267,12 +267,21 @@
         "icona": "bi bi-geo-alt-fill"
       }
     }
+  },
+
+  "recursos": {
+  "title": "Recursos",
+  "login_title": "Identifica't per pujar recursos",
+  "username": "Usuari",
+  "password": "Contrasenya",
+  "upload_title": "Pujar recurs didàctic",
+  "label_title": "Títol",
+  "label_description": "Descripció",
+  "label_link": "Enllaç extern",
+  "label_file": "Fitxer (png/jpg/pdf)",
+  "btn_upload": "Pujar",
+  "uploader": "Pujat per"
   }
-
-
-
-
-
 }
 
 
