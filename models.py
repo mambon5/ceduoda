@@ -131,4 +131,16 @@ class Recurso(Base):
     last_editor = relationship("User", foreign_keys=[last_editor_id])
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
+class Pissarra(Base):
+    __tablename__ = "pissarres"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    title = Column(String(200), nullable=False)
+    filename = Column(String(300), nullable=False) # fitxer .json on es guarda el canvas
+    uploader_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    uploader = relationship("User", foreign_keys=[uploader_id])
+    last_editor_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    last_editor = relationship("User", foreign_keys=[last_editor_id])
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
 

@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="{{ lang or 'ca' }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editor - {{ board.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        .toolbar {
+            background: #2c3e50;
+            color: white;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .pissarra-canvas-wrapper {
+            flex: 1;
+            background: #ecf0f1;
+            overflow: auto;
+            display: block;
+            /* Canviat de flex per evitar problemes de coordenades en Firefox/Safari */
+            padding: 50px;
+            text-align: center;
+        }
+
+        #canvasGroup {
+            position: relative;
+            display: inline-block;
+            /* Perquè s'ajusti al contingut i es centri amb text-align */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .canvas-container {
+            margin: 0 !important;
+        }
+
+        canvas {
+            border: 1px solid #bdc3c7;
+            background: white;
+            touch-action: none;
+        }
+
+        /* Crucial: evitar que la capa d'interacció de Fabric.js tapi el dibuix */
+        .upper-canvas {
+            background-color: transparent !important;
+            z-index: 5;
+        }
+
+        .lower-canvas {
+            z-index: 1;
+        }
+
+        .tool-btn {
+            background: #34495e;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tool-btn.active {
+            background: #3498db;
+            transform: scale(1.05);
+        }
+
+        .tool-btn:hover {
+            background: #ecf0f1;
+            color: #2c3e50;
+        }
+
+        input[type="color"] {
+            border: none;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            background: none;
+            padding: 0;
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            /* Deixa passar els clics al canvas */
+            display: none;
+            background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(90deg, #ddd 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 3;
+            /* Per sobre dels dibuixos (z-index 1) però sota la capa d'interacció (z-index 5) */
+        }
+
+        .save-btn {
+            background: #27ae60 !important;
+        }
+
+        .save-btn:hover {
+            background: #2ecc71 !important;
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toolbar">
+        <a href="{{ url_for('recursos.pissarra_list') }}" class="tool-btn" title="Enrere"><i
+                class="bi bi-chevron-left"></i></a>
+        <span style="font-weight:bold; margin-right:15px; font-size: 1.1rem;">{{ board.title }}</span>
+
+        <div style="height: 30px; width: 1px; background: #555; margin: 0 5px;"></div>
+
+        <div style="display:flex; gap:5px;">
+            <button class="tool-btn" id="selectBtn" onclick="setTool('select')" title="Seleccionar"><i
+                    class="bi bi-cursor"></i></button>
+            <button class="tool-btn active" id="pencilBtn" onclick="setTool('pencil')" title="Llapis"><i
+                    class="bi bi-pencil"></i></button>
+            <button class="tool-btn" id="eraserBtn" onclick="setTool('eraser')" title="Goma"><i
+                    class="bi bi-eraser"></i></button>
+            <button class="tool-btn" id="textBtn" onclick="addText()" title="Text"><i class="bi bi-type"></i></button>
+            <button class="tool-btn" id="lineBtn" onclick="setTool('line')" title="Línia"><i
+                    class="bi bi-slash-lg"></i></button>
+            <button class="tool-btn" id="rectBtn" onclick="setTool('rect')" title="Rectangle"><i
+                    class="bi bi-square"></i></button>
+            <button class="tool-btn" id="circleBtn" onclick="setTool('circle')" title="Cercle"><i
+                    class="bi bi-circle"></i></button>
+        </div>
+
+        <div style="height: 30px; width: 1px; background: #555; margin: 0 5px;"></div>
+
+        <div style="display:flex; align-items:center; gap:8px;">
+            <input type="color" id="colorPicker" value="#000000" oninput="updateBrush()" title="Color">
+            <input type="range" id="widthPicker" min="1" max="50" value="3" oninput="updateBrush()" style="width:100px;"
+                title="Gruix">
+        </div>
+
+        <div style="height: 30px; width: 1px; background: #555; margin: 0 5px;"></div>
+
+        <div style="display:flex; gap:5px;">
+            <button class="tool-btn" onclick="document.getElementById('imgInput').click()" title="Afegir Imatge"><i
+                    class="bi bi-image"></i></button>
+            <input type="file" id="imgInput" style="display:none;" accept="image/*" onchange="addImage(event)">
+            <button class="tool-btn" id="gridBtn" onclick="toggleGrid()" title="Quadrícula"><i
+                    class="bi bi-grid-3x3"></i></button>
+            <button class="tool-btn" onclick="deleteSelected()" title="Esborrar seleccionats"><i
+                    class="bi bi-trash"></i></button>
+            <button class="tool-btn" onclick="clearCanvas()" title="Netejar-ho tot" style="color:#e74c3c;"><i
+                    class="bi bi-x-circle"></i></button>
+        </div>
+
+        <button class="tool-btn save-btn" style="margin-left:auto; font-weight: bold;" onclick="saveBoard()"><i
+                class="bi bi-save" style="margin-right:5px;"></i> {{ content.recursos.btn_save if content and
+            content.recursos is defined else "Guardar" }}</button>
+    </div>
+
+    <div class="pissarra-canvas-wrapper" id="canvasWrap">
+        <div id="canvasGroup">
+            <div class="grid-overlay" id="grid"></div>
+            <canvas id="c" width="3600" height="2400"></canvas>
+        </div>
+    </div>
+
+    {# Contenidor segur per a les dades JSON #}
+    <script id="board-data" type="application/json">{{ canvas_data | safe }}</script>
+
+    <script>
+        const canvas = new fabric.Canvas('c', {
+            isDrawingMode: true,
+            width: 3600,
+            height: 2400,
+            backgroundColor: '#ffffff',
+            preserveObjectStacking: true
+        });
+
+        // Configura la goma correctament (de veritat, no només pintar de blanc)
+        // Per a Fabric.js 5+ podem fer servir EraseBrush si volem, però el Pencil blanc és un fallback clàssic.
+        // Tanmateix, Fabric.js 5 té fabric.EraserBrush si s'inclou el mòdul, però la versió CDN estàndard potser no.
+        // Triem el mètode de pintar de blanc per simplicitat en aquesta versió sense dependències extra.
+
+        // Carregar dades inicials de forma segura
+        try {
+            const boardContent = document.getElementById('board-data').textContent;
+            if (boardContent && boardContent.trim() !== "" && boardContent.length > 30) {
+                const boardData = JSON.parse(boardContent);
+                canvas.loadFromJSON(boardData, function () {
+                    canvas.renderAll();
+                    canvas.calcOffset();
+                    // Ens assegurem que el zoom i la posició són correctes
+                    canvas.setZoom(1);
+                    canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
+                    // Reforcem el render un parell de cops per si hi ha retards
+                    setTimeout(() => { canvas.renderAll(); canvas.calcOffset(); }, 100);
+                    setTimeout(() => { canvas.renderAll(); }, 500);
+                });
+            } else {
+                canvas.setBackgroundColor('#ffffff', canvas.renderAll.bind(canvas));
+                canvas.renderAll();
+            }
+        } catch (e) {
+            console.error("Error carregant dades de la pissarra:", e);
+            canvas.setBackgroundColor('#ffffff', canvas.renderAll.bind(canvas));
+        }
+
+        let currentTool = 'pencil';
+        let isDrawingShape = false;
+        let shape, origX, origY;
+
+        function updateBrush() {
+            if (canvas.isDrawingMode && canvas.freeDrawingBrush) {
+                if (currentTool === 'eraser') {
+                    canvas.freeDrawingBrush.color = '#ffffff';
+                } else {
+                    canvas.freeDrawingBrush.color = document.getElementById('colorPicker').value;
+                }
+                canvas.freeDrawingBrush.width = parseInt(document.getElementById('widthPicker').value);
+            }
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+            // Desactiva dibuix si estem en selecció, formes o goma intel·ligent
+            canvas.isDrawingMode = (tool === 'pencil');
+
+            document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+            const btn = document.getElementById(tool + 'Btn');
+            if (btn) btn.classList.add('active');
+
+            if (canvas.isDrawingMode) {
+                canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+                updateBrush();
+            } else {
+                canvas.selection = (tool === 'select');
+                if (tool !== 'select') canvas.selection = false;
+
+                // Configurem selectabilitat segons l'eina
+                canvas.getObjects().forEach(obj => {
+                    obj.selectable = (tool === 'select');
+                    // Bloquem interacció amb objectes si estem en mode goma per evitar seleccions accidentals
+                    obj.evented = (tool !== 'eraser');
+                });
+            }
+        }
+
+        canvas.on('mouse:down', function (o) {
+            if (canvas.isDrawingMode || currentTool === 'select') return;
+            isDrawingShape = true;
+            let pointer = canvas.getPointer(o.e);
+            origX = pointer.x;
+            origY = pointer.y;
+
+            const color = document.getElementById('colorPicker').value;
+            const width = parseInt(document.getElementById('widthPicker').value);
+
+            if (currentTool === 'line') {
+                shape = new fabric.Line([pointer.x, pointer.y, pointer.x, pointer.y], {
+                    strokeWidth: width,
+                    stroke: color,
+                    originX: 'center',
+                    originY: 'center',
+                    selectable: true
+                });
+            } else if (currentTool === 'rect') {
+                shape = new fabric.Rect({
+                    left: origX,
+                    top: origY,
+                    width: 0,
+                    height: 0,
+                    fill: 'transparent',
+                    stroke: color,
+                    strokeWidth: width,
+                    selectable: true
+                });
+            } else if (currentTool === 'circle') {
+                shape = new fabric.Circle({
+                    left: origX,
+                    top: origY,
+                    radius: 0,
+                    fill: 'transparent',
+                    stroke: color,
+                    strokeWidth: width,
+                    selectable: true
+                });
+            }
+            if (shape) canvas.add(shape);
+        });
+
+        canvas.on('mouse:move', function (o) {
+            if (currentTool === 'eraser' && o.e.buttons === 1) {
+                // Esborrat intel·ligent d'objectes
+                const pointer = canvas.getPointer(o.e);
+                const objects = canvas.getObjects();
+                objects.forEach(obj => {
+                    if (obj.type === 'image') return; // No esborrem imatges
+                    if (obj.containsPoint(pointer)) {
+                        canvas.remove(obj);
+                    }
+                });
+                canvas.renderAll();
+                return;
+            }
+
+            if (!isDrawingShape) return;
+            let pointer = canvas.getPointer(o.e);
+
+            if (currentTool === 'line') {
+                shape.set({ x2: pointer.x, y2: pointer.y });
+            } else if (currentTool === 'rect') {
+                shape.set({
+                    left: Math.min(origX, pointer.x),
+                    top: Math.min(origY, pointer.y),
+                    width: Math.abs(origX - pointer.x),
+                    height: Math.abs(origY - pointer.y)
+                });
+            } else if (currentTool === 'circle') {
+                let radius = Math.sqrt(Math.pow(origX - pointer.x, 2) + Math.pow(origY - pointer.y, 2)) / 2;
+                shape.set({
+                    left: Math.min(origX, pointer.x),
+                    top: Math.min(origY, pointer.y),
+                    radius: radius
+                });
+            }
+            canvas.renderAll();
+        });
+
+        canvas.on('mouse:up', function () {
+            if (isDrawingShape) {
+                isDrawingShape = false;
+            }
+        });
+
+        function addText() {
+            const color = document.getElementById('colorPicker').value;
+            const text = new fabric.IText('Text...', {
+                left: 100,
+                top: 100,
+                fill: color,
+                fontSize: 24,
+                fontFamily: 'Arial'
+            });
+            canvas.add(text);
+            canvas.setActiveObject(text);
+            setTool('select');
+        }
+
+        function addImage(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function (f) {
+                fabric.Image.fromURL(f.target.result, function (img) {
+                    img.scaleToWidth(400);
+                    canvas.add(img);
+                    canvas.centerObject(img);
+                    canvas.setActiveObject(img);
+                });
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function toggleGrid() {
+            const grid = document.getElementById('grid');
+            const isActive = grid.style.display === 'block';
+            grid.style.display = isActive ? 'none' : 'block';
+            document.getElementById('gridBtn').classList.toggle('active', !isActive);
+        }
+
+        function deleteSelected() {
+            const activeObjects = canvas.getActiveObjects();
+            if (activeObjects.length > 0) {
+                activeObjects.forEach(obj => canvas.remove(obj));
+                canvas.discardActiveObject();
+                canvas.renderAll();
+            }
+        }
+
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'Delete' || e.key === 'Backspace') {
+                // Només si no estem editant un text
+                const active = canvas.getActiveObject();
+                if (active && active.type === 'i-text' && active.isEditing) return;
+                deleteSelected();
+            }
+        });
+
+        function clearCanvas() {
+            if (confirm('Vols esborrar tota la pissarra?')) {
+                canvas.clear();
+                canvas.setBackgroundColor('#ffffff', canvas.renderAll.bind(canvas));
+            }
+        }
+
+        function saveBoard() {
+            const jsonData = canvas.toJSON();
+            fetch("{{ url_for('recursos.pissarra_guardar', board_id=board.id) }}", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'ok') {
+                        // Notificació visual subtil en comptes de alert si és possible
+                        const btn = document.querySelector('.save-btn');
+                        const originalText = btn.innerHTML;
+                        btn.innerHTML = '<i class="bi bi-check-lg"></i> Guardat!';
+                        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error("Error guardant:", err);
+                    alert("Error al guardar.");
+                });
+        }
+
+        // Inicialització final
+        window.addEventListener('resize', () => canvas.calcOffset());
+        setTimeout(() => {
+            canvas.calcOffset();
+            canvas.renderAll();
+            if (currentTool === 'pencil') setTool('pencil');
+        }, 300);
+    </script>
+</body>
+
+</html>

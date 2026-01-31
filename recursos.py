@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, flash,
 from sqlalchemy.orm import sessionmaker, joinedload
 from werkzeug.utils import secure_filename
 from crea_dades import engine
-from models import User, Recurso
+from models import User, Recurso, Pissarra
 import os
 from datetime import datetime
 
@@ -25,7 +25,8 @@ def get_current_lang():
 
 # configuració
 STATIC_RECURSOS_DIR = "/var/www/ceduoda/static/recursos"
-os.makedirs(STATIC_RECURSOS_DIR, exist_ok=True)
+STATIC_PISSARRES_DIR = os.path.join(STATIC_RECURSOS_DIR, "pissarres")
+os.makedirs(STATIC_PISSARRES_DIR, exist_ok=True)
 ALLOWED_EXT = {"png", "jpg", "jpeg", "pdf"}
 
 def allowed(filename):
@@ -236,6 +237,80 @@ def recursos_edit(recurso_id):
     content = load_translation(lang)
     sess.close()
     return render_template("recursos_edit.html", recurso=rec, lang=lang, content=content)
+
+@bp.route("/recursos/pissarres")
+def pissarra_list():
+    lang = get_current_lang()
+    content = load_translation(lang)
+    sess = Session()
+    boards = sess.query(Pissarra).options(joinedload(Pissarra.uploader), joinedload(Pissarra.last_editor)).order_by(Pissarra.updated_at.desc()).all()
+    sess.close()
+    user = {"id": session.get("user_id"), "username": session.get("username")}
+    return render_template("pissarra_list.html", boards=boards, user=user, lang=lang, content=content)
+
+@bp.route("/recursos/pissarres/nova", methods=["POST"])
+def pissarra_nova():
+    if "user_id" not in session:
+        return abort(403)
+    title = request.form.get("title", "Sense títol").strip()
+    filename = f"{int(datetime.utcnow().timestamp())}_{session['user_id']}.json"
+    initial_data = {"version": "5.3.0", "objects": []}
+    with open(os.path.join(STATIC_PISSARRES_DIR, filename), "w") as f:
+        json.dump(initial_data, f)
+    sess = Session()
+    new_board = Pissarra(
+        title=title,
+        filename=filename,
+        uploader_id=session["user_id"],
+        last_editor_id=session["user_id"]
+    )
+    sess.add(new_board)
+    sess.commit()
+    bid = new_board.id
+    sess.close()
+    return redirect(url_for("recursos.pissarra_editor", board_id=bid))
+
+@bp.route("/recursos/pissarres/editor/<int:board_id>")
+def pissarra_editor(board_id):
+    if "user_id" not in session:
+        return redirect(url_for("recursos.recursos_login"))
+    sess = Session()
+    b = sess.query(Pissarra).get(board_id)
+    if not b:
+        sess.close(); return abort(404)
+    p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
+    cdata = "{}"
+    if os.path.exists(p):
+        with open(p, "r") as f: cdata = f.read()
+    sess.close()
+    l = get_current_lang()
+    cnt = load_translation(l)
+    return render_template("pissarra_editor.html", board=b, canvas_data=cdata, lang=l, content=cnt)
+
+@bp.route("/recursos/pissarres/guardar/<int:board_id>", methods=["POST"])
+def pissarra_guardar(board_id):
+    if "user_id" not in session: return abort(403)
+    d = request.get_json()
+    sess = Session()
+    b = sess.query(Pissarra).get(board_id)
+    if not b: sess.close(); return abort(404)
+    p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
+    with open(p, "w") as f: json.dump(d, f)
+    b.last_editor_id = session["user_id"]
+    b.updated_at = datetime.utcnow()
+    sess.commit(); sess.close()
+    return {"status": "ok"}
+
+@bp.route("/recursos/pissarres/eliminar/<int:board_id>", methods=["POST"])
+def pissarra_eliminar(board_id):
+    if "user_id" not in session: return abort(403)
+    sess = Session()
+    b = sess.query(Pissarra).get(board_id)
+    if not b: sess.close(); return abort(404)
+    p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
+    if os.path.exists(p): os.remove(p)
+    sess.delete(b); sess.commit(); sess.close()
+    return redirect(url_for("recursos.pissarra_list"))
 
 # opcional: servir fitxers pujats (normalment ja es serveixen des de /static)
 @bp.route("/recursos/static/<path:filename>")

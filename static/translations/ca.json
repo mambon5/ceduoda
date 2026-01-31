@@ -284,6 +284,18 @@
     "confirm_delete": "Segur que voleu eliminar el recurs?",
     "error_file_too_large": "El fitxer és massa gran. El límit és de 5MB.",
     "msg_deleted": "Recurs eliminat correctament.",
-    "msg_updated": "Recurs actualitzat correctament."
+    "msg_updated": "Recurs actualitzat correctament.",
+    "pissarra": {
+      "title": "Pissarres Digitals",
+      "tool_pencil": "Llapis",
+      "tool_eraser": "Goma",
+      "tool_text": "Text",
+      "tool_line": "Línia",
+      "tool_rect": "Rectangle",
+      "tool_circle": "Cercle",
+      "tool_image": "Imatge",
+      "tool_grid": "Quadrícula",
+      "msg_saved": "Pissarra guardada correctament."
+    }
   }
 }

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="{{ lang or 'ca' }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ content.recursos.pissarra.title if content and content.recursos.pissarra is defined else "Pissarres" }}
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .pissarra-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1.5rem 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="w3-light-grey">
+    <header class="w3-container w3-white w3-padding">
+        <a href="{{ url_for('recursos.recursos_list') }}" class="w3-button w3-border">
+            <i class="bi bi-arrow-left"></i> {{ content.recursos.btn_back if content and content.recursos is defined
+            else "Enrere" }}
+        </a>
+
+        <div class="pissarra-hero">
+            <h2 class="w3-center">{{ content.recursos.pissarra.title if content and content.recursos.pissarra is defined
+                else "Pissarres Digitals" }}
+                <i class="bi bi-easel" style="color:#0d6efd;"></i>
+            </h2>
+        </div>
+
+        <nav style="float:right;">
+            {% if user.username %}
+            <span class="w3-tag w3-green">{{ user.username }}</span>
+            <button onclick="document.getElementById('newBoardModal').style.display='block'" class="w3-button w3-blue">
+                <i class="bi bi-plus-lg"></i> {{ content.recursos.pissarra.btn_new if content and
+                content.recursos.pissarra is defined else "Nova Pissarra" }}
+            </button>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main class="w3-container w3-margin-top">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, msg in messages %}
+        <div
+            class="w3-panel w3-pale-{{ 'green' if category == 'success' else 'red' if category == 'danger' else 'yellow' }}">
+            {{ msg }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="w3-row-padding">
+            {% for b in boards %}
+            <div class="w3-third w3-margin-bottom">
+                <div class="w3-card-4 w3-white w3-padding">
+                    <h3 class="w3-center">{{ b.title }}</h3>
+                    <p class="w3-tiny w3-text-grey">
+                        {{ content.recursos.uploader if content and content.recursos is defined else "Pujat per" }}: {{
+                        b.uploader.username if b.uploader else '?' }}
+                        {% if b.last_editor %}
+                        <br>{{ content.recursos.last_editor if content and content.recursos is defined else "Editat per"
+                        }}: {{ b.last_editor.username }}
+                        {% endif %}
+                    </p>
+                    <div class="w3-center">
+                        <a href="{{ url_for('recursos.pissarra_editor', board_id=b.id) }}" class="w3-button w3-blue">
+                            <i class="bi bi-pencil"></i> {{ content.recursos.btn_edit if content and content.recursos is
+                            defined else "Editar" }}
+                        </a>
+                        {% if user.username %}
+                        <form action="{{ url_for('recursos.pissarra_eliminar', board_id=b.id) }}" method="POST"
+                            style="display:inline;"
+                            onsubmit="return confirm('{{ content.recursos.pissarra.confirm_delete if content and content.recursos.pissarra is defined else 'Eliminar?' }}')">
+                            <button class="w3-button w3-red"><i class="bi bi-trash"></i></button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <p class="w3-center">{{ content.recursos.no_resources if content and content.recursos is defined else "No hi
+                ha pissarres." }}</p>
+            {% endfor %}
+        </div>
+    </main>
+
+    <!-- Modal Nova Pissarra -->
+    <div id="newBoardModal" class="w3-modal">
+        <div class="w3-modal-content w3-card-4" style="max-width:500px">
+            <header class="w3-container w3-blue">
+                <span onclick="document.getElementById('newBoardModal').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <h2>{{ content.recursos.pissarra.btn_new if content and content.recursos.pissarra is defined else "Nova
+                    Pissarra" }}</h2>
+            </header>
+            <form class="w3-container w3-padding" action="{{ url_for('recursos.pissarra_nova') }}" method="POST">
+                <label>{{ content.recursos.label_title if content and content.recursos is defined else "Títol"
+                    }}</label>
+                <input class="w3-input w3-border" type="text" name="title" required>
+                <div class="w3-margin-top w3-center">
+                    <button class="w3-button w3-blue" type="submit">{{ content.recursos.btn_upload if content and
+                        content.recursos is defined else "Crear" }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

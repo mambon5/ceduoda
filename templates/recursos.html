@@ -161,24 +161,28 @@
       </div>
     </div>
 
-    <nav style="float:right;">
-      {% if user.username %}
-      <span class="w3-tag w3-green"> {{ user.username }} </span>
+    <a href="{{ url_for('recursos.pissarra_list') }}" class="w3-button w3-indigo">
+      <i class="bi bi-easel"></i> {{ content.recursos.pissarra.title if content and content.recursos.pissarra is defined
+      else "Pissarra" }}
+    </a>
 
-      <!-- botó pujar amb icona a l'esquerra -->
-      <a href="{{ url_for('recursos.recursos_upload') }}" class="w3-button upload-cta"
-        style="background:#28a745; color:white;">
-        <span class="icon"><i class="bi bi-cloud-arrow-up" aria-hidden="true"></i></span><br>
-        <span class="label">{{ content.recursos.btn_upload if content and content.recursos is defined else "Pujar"
-          }}</span>
-      </a>
+    {% if user.username %}
+    <span class="w3-tag w3-green"> {{ user.username }} </span>
 
-      <a class="w3-button" href="{{ url_for('recursos.recursos_logout') }}">{{ content.recursos.btn_logout if content
-        and content.recursos is defined else "Logout" }}</a>
-      {% else %}
-      <a class="w3-button" href="{{ url_for('recursos.recursos_login') }}">{{ content.recursos.btn_login if content and
-        content.recursos is defined else "Identifica't" }}</a>
-      {% endif %}
+    <!-- botó pujar amb icona a l'esquerra -->
+    <a href="{{ url_for('recursos.recursos_upload') }}" class="w3-button upload-cta"
+      style="background:#28a745; color:white;">
+      <span class="icon"><i class="bi bi-cloud-arrow-up" aria-hidden="true"></i></span><br>
+      <span class="label">{{ content.recursos.btn_upload if content and content.recursos is defined else "Pujar"
+        }}</span>
+    </a>
+
+    <a class="w3-button" href="{{ url_for('recursos.recursos_logout') }}">{{ content.recursos.btn_logout if content
+      and content.recursos is defined else "Logout" }}</a>
+    {% else %}
+    <a class="w3-button" href="{{ url_for('recursos.recursos_login') }}">{{ content.recursos.btn_login if content and
+      content.recursos is defined else "Identifica't" }}</a>
+    {% endif %}
     </nav>
   </header>
 

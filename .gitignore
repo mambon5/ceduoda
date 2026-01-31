@@ -6,5 +6,8 @@ config.py
 __pycache__/
 *.py[cod]
 
+#recursos pujats per profes
+static/recursos/
+
 # Fitxers de configuració d'entorns
 *.env
