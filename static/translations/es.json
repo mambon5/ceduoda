@@ -4,7 +4,7 @@
   "welcome": "¡Bienvenidos a CE Duoda!",
   "header_name": "Centro de Estudios Duoda",
   "header_address": "Calle Duoda 21, 08020 Barcelona",
-   "typewritting_title" : "¡Clases de todo!",
+  "typewritting_title": "¡Clases de todo!",
   "menu_home": "Inicio",
   "menu_reforç": "Refuerzo",
   "menu_estiu": "Verano",
@@ -16,8 +16,6 @@
   "intro_p1": "Nos enfocamos en el alumno, porque creemos que lo más importante es aprender de verdad.",
   "intro_p2": "Cuestionamos el sistema educativo formal y apostamos por una educación centrada en el alumno. Tu éxito empieza aquí.",
   "intro_p3": "¡Tanto para jóvenes como para mayores!",
-
-
   "subjects": {
     "mates": {
       "title": "Matemáticas",
@@ -65,7 +63,7 @@
     },
     "apps": {
       "title": "Desarrollo de apps",
-      "desc": "Aprende a crear aplicaciones móviles y web desde cero, con herramientas modernas y prácticas."
+      "desc": "Aprende a crear aplicaciones móviles y web desde cero, con eaves modernas y prácticas."
     },
     "fisica": {
       "title": "Física",
@@ -76,7 +74,7 @@
       "desc": "Desde conceptos básicos y teoría atómica hasta estequiometría, formulación inorgánica y orgánica, reacciones de equilibrio, óxido‑reducción, cálculo del pH, energía de Gibbs y termodinámica."
     }
   },
-    "reforç": {
+  "reforç": {
     "title": "Clases de Refuerzo",
     "p1": "Reforzamos el conocimiento actual del alumno y lo ampliamos para facilitar su experiencia en el próximo curso escolar",
     "p2": "Nuestro método:",
@@ -87,48 +85,45 @@
       "Si la dificultad no se ha resuelto satisfactoriamente, volvemos al paso 3 pero con ejercicios con un enfoque diferente. Por ejemplo, si la dificultad del alumno es sumar fracciones algebraicas, este tema puede abordarse de varias maneras. Primero podemos poner fracciones sencillas con denominador primo: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. Si progresa, pasamos a fracciones que requieren encontrar el mcm, como \\[ \\frac{5}{12} - \\frac{7}{18} \\]. Si no lo consigue, podemos replantear la suma inicial usando dibujos de un pastel, por ejemplo. El objetivo cuando el alumno no entiende un tema es reformularlo, no tratarlo de torpe.",
       "Este método se aplica a todas las asignaturas: Lengua Catalana, Matemáticas, Biología, etc."
     ],
-
     "target": {
       "nom": "Público Objetivo",
       "valor": "General"
     },
     "modalitat": {
-    "nom": "Modalidad",
-    "valor" : "presencial y online"
-  }
+      "nom": "Modalidad",
+      "valor": "presencial y online"
+    }
   },
-    "estiu": {
+  "estiu": {
     "title": "Cursos de verano ☀️",
     "p1": "Trabajamos con más calma problemas y asignaturas más interesantes y quizás no tan estrechamente relacionadas con el programa académico como en las clases de refuerzo.",
     "p2": "El objetivo es fomentar el interés del estudiante y su alegría por aprender.",
-
-"exemples": [
-  {
-    "titol": "Matemáticas",
-    "descripcio": "Usar el teorema de Tales para calcular la altura de un edificio usando su sombra, resolver el siguiente sistema de ecuaciones: \\[ 3x + 2y = 12 \\] \\[ -x+y = -3 \\], problemas de dibujar gráficas de funciones, como la función \\[ f(x) = e^{-x²} \\] o calcular el límite de la función \\[ \\lim_{x\\rightarrow 0}x\\sin(x) \\], y sobre todo muchos problemas que obliguen al estudiante a entender un texto y transformarlo en una ecuación matemática, que es lo más difícil en todos los niveles y edades (incluida la nuestra)."
-  },
-  {
-    "titol": "Catalán y Castellano",
-    "descripcio": "Leer un texto y resumirlo en 150 palabras. Analizar morfosintácticamente diferentes frases y decidir cuál es el CD y el CI y sustituirlos por pronombres átonos."
-  },
-  {
-    "titol": "Inglés",
-    "descripcio": "Enseñar desde pequeños a mayores a hablar, escribir y leer en esta lengua. Ponemos conversaciones y vídeos de 10 minutos, y el alumno debe resumir lo escuchado. Tenemos conversaciones de 10 minutos también para niveles iniciales, para que el alumno pueda aprender y practicar una conversación. Ponemos fragmentos de libros y textos para resumir en 200 palabras. Practicar los phrasal verbs en diferentes oraciones."
-  },
-  {
-    "titol": "Biología",
-    "descripcio": "Dibujar y definir las diferentes partes de una célula procariota. Describir el proceso de fermentación o la fotosíntesis. Explicar qué es el ADN y qué ácidos nucleicos lo componen."
-  },
-  {
-    "titol": "Historia",
-    "descripcio": "Repasar con el profe todo el periodo desde 1830 hasta el final de la guerra civil española. Estudiar la evolución del cristianismo y del imperio romano."
-  },
-  {
-    "titol": "Programación C++",
-    "descripcio": "Uno de los proyectos que hacemos es programar un barco por radio control usando dos placas Arduino y dos antenas UART DX que usan tecnología inalámbrica LORA para comunicarse hasta 1km de distancia. El objetivo es hacer todo el cableado de pines en cada placa Arduino, de la antena a la placa, y programar en C++ los comandos que se envían desde el control remoto al barco."
-  }
-  ],
-
+    "exemples": [
+      {
+        "titol": "Matemáticas",
+        "descripcio": "Usar el teorema de Tales para calcular la altura de un edificio usando su sombra, resolver el siguiente sistema de ecuaciones: \\[ 3x + 2y = 12 \\] \\[ -x+y = -3 \\], problemas de dibujar gráficas de funciones, como la función \\[ f(x) = e^{-x²} \\] o calcular el límite de la función \\[ \\lim_{x\\rightarrow 0}x\\sin(x) \\], y sobre todo muchos problemas que obliguen al estudiante a entender un texto y transformarlo en una ecuación matemática, que es lo más difícil en todos los niveles y edades (incluida la nuestra)."
+      },
+      {
+        "titol": "Catalán y Castellano",
+        "descripcio": "Leer un texto y resumirlo en 150 palabras. Analizar morfosintácticamente diferentes frases y decidir cuál es el CD y el CI y sustituirlos por pronombres átonos."
+      },
+      {
+        "titol": "Inglés",
+        "descripcio": "Enseñar desde pequeños a mayores a hablar, escribir y leer en esta lengua. Ponemos conversaciones y vídeos de 10 minutos, y el alumno debe resumir lo escuchado. Tenemos conversaciones de 10 minutos también para niveles iniciales, para que el alumno pueda aprender y practicar una conversación. Ponemos fragmentos de libros y textos para resumir en 200 palabras. Practicar los phrasal verbs en diferentes oraciones."
+      },
+      {
+        "titol": "Biología",
+        "descripcio": "Dibujar y definir las diferentes partes de una célula procariota. Describir el proceso de fermentación o la fotosíntesis. Explicar qué es el ADN y qué ácidos nucleicos lo componen."
+      },
+      {
+        "titol": "Historia",
+        "descripcio": "Repasar con el profe todo el periodo desde 1830 hasta el final de la guerra civil española. Estudiar la evolución del cristianismo y del imperio romano."
+      },
+      {
+        "titol": "Programación C++",
+        "descripcio": "Uno de los proyectos que hacemos es programar un barco por radio control usando dos placas Arduino y dos antenas UART DX que usan tecnología inalámbrica LORA para comunicarse hasta 1km de distancia. El objetivo es hacer todo el cableado de pines en cada placa Arduino, de la antena a la placa, y programar en C++ los comandos que se envían desde el control remoto al barco."
+      }
+    ],
     "p3": "Información clave del curso de verano:",
     "info": [
       "Durante las primeras 4 semanas de julio",
@@ -143,14 +138,14 @@
       "valor": "General"
     },
     "modalitat": {
-    "nom": "Modalidad",
-    "valor" : "presencial y online"
-  }
+      "nom": "Modalidad",
+      "valor": "presencial y online"
+    }
   },
-    "ampliacio": {
+  "ampliacio": {
     "title": "Clases de ampliación",
-    "summary1" : "Más información",
-    "summary2" : "Nuestro método",
+    "summary1": "Más información",
+    "summary2": "Nuestro método",
     "p1": "Ampliamos los conocimientos del alumno en cualquiera de las materias listadas en nuestra web, incluyendo:",
     "assignatures": [
       "Matemáticas",
@@ -169,9 +164,9 @@
       "valor": "General"
     },
     "modalitat": {
-    "nom": "Modalidad",
-    "valor" : "presencial y online"
-  },
+      "nom": "Modalidad",
+      "valor": "presencial y online"
+    },
     "steps": [
       "Hacer una prueba rápida con diferentes ejercicios para detectar las principales dificultades del alumno.",
       "Revisar exámenes pasados del alumno y observar los errores más comunes.",
@@ -180,7 +175,7 @@
       "Si no se resuelve satisfactoriamente, se vuelve al paso 3 pero con un enfoque diferente. Por ejemplo, si la dificultad es la suma de fracciones algebraicas, se puede abordar de diferentes formas. Primero con fracciones simples como \\[ \\frac{1}{2} + \\frac{2}{3} \\], luego con otras que requieren MCM, como \\[ \\frac{5}{12} - \\frac{7}{18} \\], y si sigue sin entender, se puede recurrir a dibujos de un pastel. El objetivo no es tratar al alumno de torpe, sino reformular el problema hasta que lo entienda."
     ]
   },
-    "equip": {
+  "equip": {
     "title": "Equipo",
     "membres": [
       {
@@ -201,7 +196,7 @@
         "imatge": "static/images/sergi.png",
         "descripcio": [
           "Graduado en Historia",
-          "Especialista en humanidades y lenguas",
+          "Especialista en humanitades y lenguas",
           "Experiencia en formación personalizada",
           "Apasionado por el aprendizaje autodidacta"
         ],
@@ -233,7 +228,7 @@
       }
     ]
   },
-    "contacte": {
+  "contacte": {
     "titol": "Contacto",
     "telefon": {
       "text": "611 648 478",
@@ -246,7 +241,7 @@
       "icona": "bi bi-envelope-fill"
     }
   },
-    "follow": {
+  "follow": {
     "titol": "Síguenos en Instagram",
     "instagram": {
       "url": "https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&utm_campaign=loading",
@@ -261,7 +256,34 @@
         "icona": "bi bi-geo-alt-fill"
       }
     }
+  },
+  "recursos": {
+    "title": "Recursos",
+    "login_title": "Identifícate para subir recursos",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "upload_title": "Subir recurso didáctico",
+    "edit_title": "Editar recurso didáctico",
+    "label_title": "Título",
+    "label_description": "Descripción",
+    "label_link": "Enlace externo",
+    "label_file": "Archivo (png/jpg/pdf)",
+    "label_keep_file": "Mantener archivo actual",
+    "btn_upload": "Subir",
+    "btn_save": "Guardar",
+    "uploader": "Subido por",
+    "last_editor": "Editado por",
+    "btn_login": "Entrar",
+    "btn_back": "Volver",
+    "btn_cancel": "Cancelar",
+    "hero_sub": "Recursos, documentos y enlaces para el aprendizaje — accesible para todos; subir requiere identificación.",
+    "upload_sub": "Añade un PDF, imagen o enlace. Recuerda incluir título y descripción.",
+    "no_resources": "No hay recursos publicados.",
+    "btn_home": "Inicio",
+    "btn_logout": "Logout",
+    "confirm_delete": "¿Seguro que quieres eliminar el recurso?",
+    "error_file_too_large": "El archivo es demasiado grande. El límite es de 5MB.",
+    "msg_deleted": "Recurso eliminado correctamente.",
+    "msg_updated": "Recurso actualizado correctamente."
   }
-
-
 }

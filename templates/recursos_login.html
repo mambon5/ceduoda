@@ -1,37 +1,46 @@
 <!doctype html>
-<html lang="ca">
+<html lang="{{ lang or 'ca' }}">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login - Recursos</title>
+  <title>{{ content.recursos.title if content and content.recursos is defined else "Recursos" }} - Login</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
+
 <body class="w3-light-grey">
   <div class="w3-container w3-margin-top" style="max-width:600px; margin:auto;">
     <div class="w3-card-4 w3-padding">
-      <h3>Identifica't per pujar recursos</h3>
+      <h3>{{ content.recursos.login_title if content and content.recursos is defined else "Identifica't per pujar
+        recursos" }}</h3>
 
       {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          {% for category, msg in messages %}
-            <div class="w3-panel w3-pale-{{ 'green' if category == 'success' else 'red' if category == 'danger' else 'yellow' }}">{{ msg }}</div>
-          {% endfor %}
-        {% endif %}
+      {% if messages %}
+      {% for category, msg in messages %}
+      <div
+        class="w3-panel w3-pale-{{ 'green' if category == 'success' else 'red' if category == 'danger' else 'yellow' }}">
+        {{ msg }}</div>
+      {% endfor %}
+      {% endif %}
       {% endwith %}
 
       <form method="post" class="w3-container">
-        <label>Usuari</label>
+        <label>{{ content.recursos.username if content and content.recursos is defined else "Usuari" }}</label>
         <input class="w3-input w3-border" name="username" required>
-        <label class="w3-margin-top">Contrasenya</label>
+        <label class="w3-margin-top">{{ content.recursos.password if content and content.recursos is defined else
+          "Contrasenya" }}</label>
         <input class="w3-input w3-border" type="password" name="password" required>
         <div class="w3-margin-top">
-          <button class="w3-button w3-blue" type="submit">Entrar</button>
-          <a class="w3-button w3-light-grey" href="{{ url_for('recursos.recursos_list') }}">Tornar</a>
+          <button class="w3-button w3-blue" type="submit">{{ content.recursos.btn_login if content and content.recursos
+            is defined else "Entrar" }}</button>
+          <a class="w3-button w3-light-grey" href="{{ url_for('recursos.recursos_list') }}">{{ content.recursos.btn_back
+            if content and content.recursos is defined else "Tornar" }}</a>
         </div>
       </form>
     </div>
   </div>
 </body>
+
 </html>

@@ -124,7 +124,11 @@ class Recurso(Base):
     url = Column(String(500), nullable=True)        # si és un enllaç extern
     file_type = Column(String(20), nullable=True)   # 'pdf','img','link'
     uploader_id = Column(Integer, ForeignKey("users.id"), nullable=True)
-    uploader = relationship("User", backref="recursos")
+    uploader = relationship("User", backref="recursos", foreign_keys=[uploader_id])
     uploaded_at = Column(DateTime, default=datetime.utcnow)
+    
+    last_editor_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    last_editor = relationship("User", foreign_keys=[last_editor_id])
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
 

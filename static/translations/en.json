@@ -2,11 +2,9 @@
   "title": "CE Duoda - Creative Education",
   "description": "Educational center in Barcelona with creative activities for children.",
   "welcome": "Welcome to CE Duoda!",
-
   "header_name": "Duoda Study Center",
   "header_address": "Carrer Duoda 21, 08020 Barcelona",
-   "typewritting_title" : "We teach everything!",
-
+  "typewritting_title": "We teach everything!",
   "menu_home": "Home",
   "menu_reforç": "Tutoring",
   "menu_estiu": "Summer",
@@ -14,13 +12,10 @@
   "menu_equip": "Team",
   "menu_contacte": "Contact",
   "menu_follow": "Follow us",
-
   "intro_title": "Welcome to CE Duoda!",
   "intro_p1": "We focus on the student because we believe true learning is what really matters.",
   "intro_p2": "We question the formal education system and support student-centered learning. Your success starts here.",
   "intro_p3": "For both kids and adults!",
-
-
   "subjects": {
     "mates": {
       "title": "Mathematics",
@@ -80,165 +75,188 @@
     }
   },
   "reforç": {
-  "title": "Tutoring Classes",
-  "p1": "We reinforce the student’s current knowledge and expand it to ease their experience in the upcoming school year",
-  "p2": "Our method:",
-  "steps": [
-    "Give an initial test to identify the student's main difficulties",
-    "Create a tailored program focused on exercises and problems that match the student's specific challenges",
-    "After about 6 classes, we check if the student is now able to solve the initial difficulties identified",
-    "If the student still struggles, we return to step 3, but with exercises from a different approach. For instance, if the student struggles with adding algebraic fractions, we can tackle it in several ways. First, we might use simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If the student progresses, we can move to more complex ones requiring LCM, like \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If they still can’t solve them, we might go back to the first example but use a visual approach like a cake diagram. The goal when a student doesn’t understand something is to reframe the question, not treat the student as slow.",
-    "This method applies to all subjects: Catalan, Mathematics, Biology, etc."
-  ],
-  "target": {
-    "nom": "Target Audience",
-    "valor": "General"
-  },
-  "modalitat": {
-    "nom": "Format",
-    "valor" : "In-person and online"
-  }
-},
-
-"estiu": {
-  "title": "Summer Courses ☀️",
-  "p1": "We take more time to work on interesting problems and subjects that may not be as tightly linked to the academic curriculum as in tutoring classes.",
-"p2": "The goal is to spark the student’s interest and their joy for learning.",
-
-  "info": [
-    "During the first 4 weeks of July",
-    "Subjects available: Math, Catalan, Spanish, Physics, Chemistry, History, Programming",
-    "Tuesdays, Wednesdays, and Thursdays",
-    "Schedule: 4:00pm to 6:30pm",
-    "Approximate cost (may vary yearly): 300€",
-    "Total hours: 30h"
-  ],
-  "target": {
-    "nom": "Target Audience",
-    "valor": "General"
-  },
-  "modalitat": {
-    "nom": "Format",
-    "valor" : "In-person and online"
-  }
-},
-
-"ampliacio": {
-  "title": "Advanced Classes",
-  "summary1" : "More info",
-  "summary2" : "Our method",
-  "p1": "We expand the student’s knowledge in any of the subjects listed on our website, including:",
-  "assignatures": [
-    "Mathematics",
-    "English",
-    "Catalan",
-    "Spanish",
-    "Programming and Web App Development",
-    "History",
-    "Kangaroo Math Contests",
-    "Math Olympiads"
-  ],
-  "p2": "At any stage ranging from 4 years old up to the first years of university. In these classes, we offer challenging exercises and problems, complemented by theoretical explanations the student hasn't yet encountered in school.",
-  "p3": "Designed for more demanding students and parents who want to get ahead of their level or prepare for academic and professional challenges to improve their career prospects.",
-  "target": {
-    "nom": "Target Audience",
-    "valor": "General"
-  },
-  "modalitat": {
-    "nom": "Format",
-    "valor" : "In-person and online"
-  },
-  "steps": [
-    "Conduct a quick test with various exercises to detect the student’s main difficulties.",
-    "Review the student’s past exams to identify common mistakes.",
-    "Create a tailored program focused on exercises and problems related to the student's challenges.",
-    "Check whether the student can now solve the initially identified difficulties using exercises closely related to those topics.",
-    "If the difficulties are not resolved satisfactorily, return to step 3, but with exercises using a different approach. For example, if the difficulty is adding algebraic fractions, we can approach this in several ways. First, try simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If progress is made, move to fractions requiring the least common multiple: \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If there’s still difficulty, use visual aids, like pie charts. The goal is to reframe the problem, not treat the student as incapable."
-  ]
-},
-"equip": {
-  "title": "Team",
-  "membres": [
-    {
-      "nom": "Romà Masana",
-      "rol": "Director and Teacher",
-      "imatge": "static/images/roma.jpg",
-      "descripcio": [
-        "Degree in Mathematics",
-        "Specialist in Programming",
-        "Over 10 years of teaching experience",
-        "Passionate about educational innovation"
-      ],
-      "linkedin": "https://www.linkedin.com/in/rom%C3%A0-masana-61459411b"
+    "title": "Tutoring Classes",
+    "p1": "We reinforce the student’s current knowledge and expand it to ease their experience in the upcoming school year",
+    "p2": "Our method:",
+    "steps": [
+      "Give an initial test to identify the student's main difficulties",
+      "Create a tailored program focused on exercises and problems that match the student's specific challenges",
+      "After about 6 classes, we check if the student is now able to solve the initial difficulties identified",
+      "If the student still struggles, we return to step 3, but with exercises from a different approach. For instance, if the student struggles with adding algebraic fractions, we can tackle it in several ways. First, we might use simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If the student progresses, we can move to more complex ones requiring LCM, like \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If they still can’t solve them, we might go back to the first example but use a visual approach like a cake diagram. The goal when a student doesn’t understand something is to reframe the question, not treat the student as slow.",
+      "This method applies to all subjects: Catalan, Mathematics, Biology, etc."
+    ],
+    "target": {
+      "nom": "Target Audience",
+      "valor": "General"
     },
-    {
-      "nom": "Sergi Valero",
-      "rol": "Director and Teacher",
-      "imatge": "static/images/sergi.png",
-      "descripcio": [
-        "Degree in History",
-        "Specialist in Humanities and Languages",
-        "Experience in personalized learning",
-        "Passionate about self-directed learning"
-      ],
-      "linkedin": "#"
-    },
-    {
-      "nom": "Elena Pareja",
-      "rol": "Biology Teacher",
-      "imatge": "static/images/elenap.jpeg",
-      "descripcio": [
-        "PhD from IRB Barcelona",
-        "Specialist in Bioinformatics",
-        "Extensive experience mentoring students",
-        "Researcher in AI and new drugs"
-      ],
-      "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
-    },
-    {
-      "nom": "Marc Sitges",
-      "rol": "English Teacher",
-      "imatge": "static/images/marcs.jpg",
-      "descripcio": [
-        "Degree in History",
-        "Extensive experience tailoring lessons to each student",
-        "Expert in communication, culture, and language",
-        "Enthusiast of open knowledge"
-      ],
-      "linkedin": "#"
+    "modalitat": {
+      "nom": "Format",
+      "valor": "In-person and online"
     }
-  ]
-},
-
-"contacte": {
-  "titol": "Contact",
-  "telefon": {
-    "text": "611 648 478",
-    "href": "tel:+34611648478",
-    "icona": "bi bi-telephone-fill"
   },
-  "email": {
-    "text": "ceduoda@gmail.com",
-    "href": "mailto:ceduoda@gmail.com",
-    "icona": "bi bi-envelope-fill"
-  }
-},
-
-"follow": {
-  "titol": "Follow us on Instagram",
-  "instagram": {
-    "url": "https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&utm_campaign=loading",
-    "embed": true
-  },
-  "footer": {
-    "logo": "static/images/logo_9.png",
-    "nom": "Duoda Study Center",
-    "adreça": {
-      "text": "Carrer Duoda 21, 08020 Barcelona",
-      "href": "https://www.google.com/maps/place/Carrer+Duoda,+21,+08020+Barcelona",
-      "icona": "bi bi-geo-alt-fill"
+  "estiu": {
+    "title": "Summer Courses ☀️",
+    "p1": "We take more time to work on interesting problems and subjects that may not be as tightly linked to the academic curriculum as in tutoring classes.",
+    "p2": "The goal is to spark the student’s interest and their joy for learning.",
+    "info": [
+      "During the first 4 weeks of July",
+      "Subjects available: Math, Catalan, Spanish, Physics, Chemistry, History, Programming",
+      "Tuesdays, Wednesdays, and Thursdays",
+      "Schedule: 4:00pm to 6:30pm",
+      "Approximate cost (may vary yearly): 300€",
+      "Total hours: 30h"
+    ],
+    "target": {
+      "nom": "Target Audience",
+      "valor": "General"
+    },
+    "modalitat": {
+      "nom": "Format",
+      "valor": "In-person and online"
     }
+  },
+  "ampliacio": {
+    "title": "Advanced Classes",
+    "summary1": "More info",
+    "summary2": "Our method",
+    "p1": "We expand the student’s knowledge in any of the subjects listed on our website, including:",
+    "assignatures": [
+      "Mathematics",
+      "English",
+      "Catalan",
+      "Spanish",
+      "Programming and Web App Development",
+      "History",
+      "Kangaroo Math Contests",
+      "Math Olympiads"
+    ],
+    "p2": "At any stage ranging from 4 years old up to the first years of university. In these classes, we offer challenging exercises and problems, complemented by theoretical explanations the student hasn't yet encountered in school.",
+    "p3": "Designed for more demanding students and parents who want to get ahead of their level or prepare for academic and professional challenges to improve their career prospects.",
+    "target": {
+      "nom": "Target Audience",
+      "valor": "General"
+    },
+    "modalitat": {
+      "nom": "Format",
+      "valor": "In-person and online"
+    },
+    "steps": [
+      "Conduct a quick test with various exercises to detect the student’s main difficulties.",
+      "Review the student’s past exams to identify common mistakes.",
+      "Create a tailored program focused on exercises and problems related to the student's challenges.",
+      "Check whether the student can now solve the initially identified difficulties using exercises closely related to those topics.",
+      "If the difficulties are not resolved satisfactorily, return to step 3, but with exercises using a different approach. For example, if the difficulty is adding algebraic fractions, we can approach this in several ways. First, try simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If progress is made, move to fractions requiring the least common multiple: \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If there’s still difficulty, use visual aids, like pie charts. The goal is to reframe the problem, not treat the student as incapable."
+    ]
+  },
+  "equip": {
+    "title": "Team",
+    "membres": [
+      {
+        "nom": "Romà Masana",
+        "rol": "Director and Teacher",
+        "imatge": "static/images/roma.jpg",
+        "descripcio": [
+          "Degree in Mathematics",
+          "Specialist in Programming",
+          "Over 10 years of teaching experience",
+          "Passionate about educational innovation"
+        ],
+        "linkedin": "https://www.linkedin.com/in/rom%C3%A0-masana-61459411b"
+      },
+      {
+        "nom": "Sergi Valero",
+        "rol": "Director and Teacher",
+        "imatge": "static/images/sergi.png",
+        "descripcio": [
+          "Degree in History",
+          "Specialist in Humanities and Languages",
+          "Experience in personalized learning",
+          "Passionate about self-directed learning"
+        ],
+        "linkedin": "#"
+      },
+      {
+        "nom": "Elena Pareja",
+        "rol": "Biology Teacher",
+        "imatge": "static/images/elenap.jpeg",
+        "descripcio": [
+          "PhD from IRB Barcelona",
+          "Specialist in Bioinformatics",
+          "Extensive experience mentoring students",
+          "Researcher in AI and new drugs"
+        ],
+        "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
+      },
+      {
+        "nom": "Marc Sitges",
+        "rol": "English Teacher",
+        "imatge": "static/images/marcs.jpg",
+        "descripcio": [
+          "Degree in History",
+          "Extensive experience tailoring lessons to each student",
+          "Expert in communication, culture, and language",
+          "Enthusiast of open knowledge"
+        ],
+        "linkedin": "#"
+      }
+    ]
+  },
+  "contacte": {
+    "titol": "Contact",
+    "telefon": {
+      "text": "611 648 478",
+      "href": "tel:+34611648478",
+      "icona": "bi bi-telephone-fill"
+    },
+    "email": {
+      "text": "ceduoda@gmail.com",
+      "href": "mailto:ceduoda@gmail.com",
+      "icona": "bi bi-envelope-fill"
+    }
+  },
+  "follow": {
+    "titol": "Follow us on Instagram",
+    "instagram": {
+      "url": "https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&utm_campaign=loading",
+      "embed": true
+    },
+    "footer": {
+      "logo": "static/images/logo_9.png",
+      "nom": "Duoda Study Center",
+      "adreça": {
+        "text": "Carrer Duoda 21, 08020 Barcelona",
+        "href": "https://www.google.com/maps/place/Carrer+Duoda,+21,+08020+Barcelona",
+        "icona": "bi bi-geo-alt-fill"
+      }
+    }
+  },
+  "recursos": {
+    "title": "Resources",
+    "login_title": "Login to upload resources",
+    "username": "Username",
+    "password": "Password",
+    "upload_title": "Upload educational resource",
+    "edit_title": "Edit educational resource",
+    "label_title": "Title",
+    "label_description": "Description",
+    "label_link": "External link",
+    "label_file": "File (png/jpg/pdf)",
+    "label_keep_file": "Keep current file",
+    "btn_upload": "Upload",
+    "btn_save": "Save",
+    "uploader": "Uploaded by",
+    "last_editor": "Edited by",
+    "btn_login": "Login",
+    "btn_back": "Back",
+    "btn_cancel": "Cancel",
+    "hero_sub": "Resources, documents, and links for learning — accessible to everyone; uploading requires identification.",
+    "upload_sub": "Add a PDF, image, or link. Remember to include a title and description.",
+    "no_resources": "No resources published.",
+    "btn_home": "Home",
+    "btn_logout": "Logout",
+    "confirm_delete": "Are you sure you want to delete the resource?",
+    "error_file_too_large": "The file is too large. The limit is 5MB.",
+    "msg_deleted": "Resource deleted successfully.",
+    "msg_updated": "Resource updated successfully."
   }
-}
-
 }

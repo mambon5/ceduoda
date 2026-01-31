@@ -2,11 +2,9 @@
   "title": "CE Duoda - Educació creativa",
   "description": "Centre educatiu a Barcelona amb activitats creatives per infants.",
   "welcome": "Benvinguts a CE Duoda!",
-
   "header_name": "Centre d'Estudis Duoda",
   "header_address": "Carrer Duoda 21, 08020 Barcelona",
-  "typewritting_title" : "Classes de tot!",
-
+  "typewritting_title": "Classes de tot!",
   "menu_home": "Inici",
   "menu_reforç": "Reforç",
   "menu_estiu": "Estiu",
@@ -14,12 +12,10 @@
   "menu_equip": "Equip",
   "menu_contacte": "Contacte",
   "menu_follow": "Segueix-nos",
-
   "intro_title": "Benvinguts a CE Duoda!",
   "intro_p1": "Ens enfoquem en l'alumne, perquè creiem que el més important és aprendre de veritat.",
   "intro_p2": "Qüestionem el sistema educatiu formal i apostem per una educació alumne-cèntrica. El teu èxit comença aquí.",
   "intro_p3": "Tant per a joves com per a grans!",
-
   "subjects": {
     "mates": {
       "title": "Matemàtiques",
@@ -43,7 +39,7 @@
     },
     "angles": {
       "title": "Anglès",
-      "desc": "Classes d’anglès per a tots els nivells, amb èmfasi en conversa, gramàtica i vocabulari."
+      "desc": "Classes d’anglès per a tots els nivells, with emphasis on conversa, gramàtica i vocabulari."
     },
     "biologia": {
       "title": "Biologia",
@@ -78,167 +74,160 @@
       "desc": "Aprèn a crear aplicacions mòbils i web des de zero, amb eines modernes i pràctiques."
     }
   },
-
   "reforç": {
-  "title": "Classes de Reforç",
-  "p1": "Reforcem el coneixement actual de l'alumne i l'ampliem per facilitar la seva experiència en el curs escolar vinent",
-  "p2": "El nostre mètode:",
-  "steps": [
-    "Fer una prova per veure on falla més l'alumne",
-    "Crear un programa a mida, que es centra amb exercicis i problemes relacionats amb la dificultat de l'alumne",
-    "Després d'unes 6 classes, mirem si l'alumne pot ara resoldre les dificultats concretes que s'havien observat inicialment",
-    "Si no es resol satisfactòriament la dificultat de l'alumne, es torna al pas 3, però amb uns exercicis d'un enfoc diferent. Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encarar de diferents formes en matemàtiques. D'una banda podríem posar fraccions senzilles de denominador primer: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara \\[ \\frac{5}{12} - \\frac{7}{18} \\]. Si l'alumne no se'n surt en cap dels casos, podríem optar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau.",
-    "Aquest mètode s'aplica a totes les assignatures: Català, Matemàtiques, Biologia, etc."
-  ],
- 
-  "target": {
-    "nom" : "Públic Objectiu",
-    "valor" : "General"
-  },
-  "modalitat": {
-    "nom": "Modalitat",
-    "valor" : "presencial i online"
-  }
-  },
-
-  "estiu": {
-  "title": "Cursos d'estiu ☀️",
-  "p1": "Treballem amb més calma problemes i assignatures més interessants i potser no tant estretament relacionades amb el programa acadèmic com en les classes de reforç",
-  "p2": "L'objectiu és fomentar l'interès de l'estudiant i la seva joia per aprendre",
-  "exemples":[
-     {
-    "titol": "Matemàtiques",
-    "descripcio": "Usar el teorema de Tales per calcular l'altura d'un edifici usant la seva sombra, resoldre el següent sistema d'equacions: \\[ 3x + 2y = 12 \\] \\[ -x+y = -3 \\], problemes de dibuixar gràfiques de funcions, com la funció \\[ f(x) = e^{-x²} \\] o calcular el límit de la funció \\[ \\lim_{x\\rightarrow 0}x\\sin(x) \\], i sobretot molts problemes que forcin la estudiant a entendre un text i transformar-lo a una equació matemàtica, que és el que més costa en tots els nivells i edats (incloent la nostra)."
-     },
-     {
-    "titol": "Català i Castellà",
-    "descripcio": "Llegir un text i resumir-lo en 150 paraules. Analitzar morfosintàcticament diferents frases i decidir quin és el CD i el CI i substituir-los per pronoms febles"
-     },
-     {
-     "titol": "Anglès",
-    "descripcio": "Ensenyar desde petits a grans a parlar, escriure i llegir en aquesta llengua. Posem converses i vídeos de 10 minuts, i l'alumne ha de resumir el que ha escoltat. Tenim converses de 10 minuts també per a nivells inicials, per a que l'alumna pugui aprendre i practicar una conversa. Posem fragments de llibres i textos per a resumir en 200 paraules. Practicar els phrasal verbs en direrentes oracions."
-     },
-     {
-    "titol": "Biologia",
-    "descripcio": "Dibuixar i definir les diferents parts d'una cèlula procariota. Descriure el procés de fermentació o la fotosíntesi. Explicar què és el DNA i quins àcids nucleics el formen"
-     },
-     {
-    "titol": "Història",
-    "descripcio": "Repassar amb el profe tot el perióde desde el 1830 fins al final de la guerra civil espanyola. Estudiar l'evolució del cristianisme i de l'imperi romà. "
-     },
-     {
-    "titol": "Programació C++",
-    "descripcio": "Un dels projectes que fem és programar un vaixell a radiocontrol usant dos plaques Arduino i dues antenes UART DX que van amb tecnologia inalàmbrica LORA per comunicar-se fins a 1km de distància. L'objectiu és fer tot el cablejat de pins a cada placa d'arduino de l'antena a la placa, i programar en C++ les comandes a enviar desde el control remot, al vaixell."
-     }
-  ],
-  "p3": "La informació principal referent al curs d'estiu és la següent:",
-  "info": [
-    "Durant les 4 primeres setmanes de Juliol",
-    "Asignatures que es poden solicitar: Mates, Català, Castellà, Física, Química, Història, Programació",
-    "Dimarts, Dimecres i Dijous",
-    "horari: de 4pm a 6:30pm",
-    "cost aproximat (varia cada any): 300€",
-    "total d'hores: 30h"
-  ],
-  "target": {
-    "nom": "Públic Objectiu",
-    "valor": "General"
-  },
-  "modalitat": {
-    "nom": "Modalitat",
-    "valor" : "presencial i online"
-  }
-},
-
-"ampliacio": {
-  "title": "Classes d'ampliació",
-  "summary1" : "Més informació",
-  "summary2" : "El nostre mètode",
-  "p1": "Extenem els coneixements de l'alumne en qualssevol de les matèries llistades a la nostra web, que inclouen:",
-  "assignatures": [
-    "Matemàtiques",
-    "Anglès",
-    "Català",
-    "Castellà",
-    "Programació i desenvolupament de webapps",
-    "Història",
-    "Proves Cangur",
-    "Olimpíades matemàtiques"
-  ],
-  "p2": "En quasevol dels nivells que van de 4 anys fins a primers cursos d'universitat. En aquestes classes posem exercicis i problemes exigents, i que es complementen d'explicacions teòriques que l'estudiant desconeix, perquè no li han explicat (encara) a classe.",
-  "p3": "Classes dissenyades per a estudiants i pares més exigents que es volen avançar al seu nivell, o preparar aspectes professionals i acadèmics per encarar el mercat laboral amb millors expectatives.",
-  "target": {
-    "nom": "Públic objectiu",
-    "valor": "General"
-  },
-  "modalitat": {
-    "nom": "Modalitat",
-    "valor" : "presencial i online"
-  },
-  "steps": [
-    "Fer una prova ràpida amb diferents exercicis per veure on falla més l'alumne",
-    "Agafar exàmens passats de l'alumne i observar on fa més errors",
-    "Crear un programa a mida, que es centra amb exercicis i problemes relacionats amb la dificultat de l'alumne",
-    "Veure si l'alumne pot ara resoldre les dificultats concretes que s'havien observat inicialment, mitjançant exercicis estretament relacionats amb la dificultat de l'alumne.",
-    "Si no es resol satisfactòriament la dificultat de l'alumne, es torna al pas 3, però amb uns exercicis d'un enfoc diferent. Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encarar de diferents formes en matemàtiques. D'una banda podríem posar fraccions senzilles de denominador primer: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara \\[ \\frac{5}{12} - \\frac{7}{18} \\]. Si l'alumne no se'n surt en cap dels casos, podríem optar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau."
-  ]
-},
-
-"equip": {
-  "title": "Equip",
-  "membres": [
-    {
-      "nom": "Romà Masana",
-      "rol": "Director i profe",
-      "imatge": "static/images/roma.jpg",
-      "descripcio": [
-        "Graduat en Matemàtiques",
-        "Especialista en programació",
-        "Experiència docent de més de 10 anys",
-        "Passió per la innovació educativa"
-      ],
-      "linkedin": "https://www.linkedin.com/in/rom%C3%A0-masana-61459411b"
+    "title": "Classes de Reforç",
+    "p1": "Reforcem el coneixement actual de l'alumne i l'ampliem per facilitar la seva experiència en el curs escolar vinent",
+    "p2": "El nostre mètode:",
+    "steps": [
+      "Fer una prova per veure on falla més l'alumne",
+      "Crear un programa a mida, que es centra amb exercicis i problemes relacionats amb la dificultat de l'alumne",
+      "Després d'unes 6 classes, mirem si l'alumne pot ara resoldre les dificultats concretes que s'havien observat inicialment",
+      "Si no es resol satisfactòriament la dificultat de l'alumne, es torna al pas 3, però amb uns exercicis d'un enfoc diferent. Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encarar de diferents formes en matemàtiques. D'una banda podríem posar fraccions senzilles de denominador primer: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara \\[ \\frac{5}{12} - \\frac{7}{18} \\]. Si l'alumne no se'n surt en cap dels casos, podríem optar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau.",
+      "Aquest mètode s'aplica a totes les assignatures: Català, Matemàtiques, Biologia, etc."
+    ],
+    "target": {
+      "nom": "Públic Objectiu",
+      "valor": "General"
     },
-    {
-      "nom": "Sergi Valero",
-      "rol": "Director i profe",
-      "imatge": "static/images/sergi.png",
-      "descripcio": [
-        "Graduat en Història",
-        "Especialista en humanitats i llengues",
-        "Experiència en formació personalitzada",
-        "Apassionat per l’aprenentatge autodidacte"
-      ],
-      "linkedin": "#"
-    },
-    {
-      "nom": "Elena Pareja",
-      "rol": "Profe de Bio",
-      "imatge": "static/images/elenap.jpeg",
-      "descripcio": [
-        "PhD en el IRB de Barcelona",
-        "Especialista en bioinformàtica",
-        "Vasta experiència formant estudiants",
-        "Investigadora en AI i medicaments nous"
-      ],
-      "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
-    },
-    {
-      "nom": "Marc Sitges",
-      "rol": "Profe d'anglès",
-      "imatge": "static/images/marcs.jpg",
-      "descripcio": [
-        "Graduat en Història",
-        "Gran trajectòria adaptant les classes a cada alumne.",
-        "Expert en comunicació, cultura i llenguatge",
-        "Entusiasta del coneixement lliure"
-      ],
-      "linkedin": "#"
+    "modalitat": {
+      "nom": "Modalitat",
+      "valor": "presencial i online"
     }
-  ]
-},
-
-
+  },
+  "estiu": {
+    "title": "Cursos d'estiu ☀️",
+    "p1": "Treballem amb més calma problemes i assignatures més interessants i potser no tant estretament relacionades amb el programa acadèmic com en les classes de reforç",
+    "p2": "L'objectiu és fomentar l'interès de l'estudiant i la seva joia per aprendre",
+    "exemples": [
+      {
+        "titol": "Matemàtiques",
+        "descripcio": "Usar el teorema de Tales per calcular l'altura d'un edifici usant la seva sombra, resoldre el següent sistema d'equacions: \\[ 3x + 2y = 12 \\] \\[ -x+y = -3 \\], problemes de dibuixar gràfiques de funcions, com la funció \\[ f(x) = e^{-x²} \\] o calcular el límit de la funció \\[ \\lim_{x\\rightarrow 0}x\\sin(x) \\], i sobretot molts problemes que forcin la estudiant a entendre un text i transformar-lo a una equació matemàtica, que és el que més costa en tots els nivells i edats (incloent la nostra)."
+      },
+      {
+        "titol": "Català i Castellà",
+        "descripcio": "Llegir un text i resumir-lo en 150 paraules. Analitzar morfosintàcticament diferents frases i decidir quin és el CD i el CI i substituir-los per pronoms febles"
+      },
+      {
+        "titol": "Anglès",
+        "descripcio": "Ensenyar desde petits a grans a parlar, escriure i llegir en aquesta llengua. Posem converses i vídeos de 10 minuts, i l'alumne ha de resumir el que ha escoltat. Tenim converses de 10 minuts també per a nivells inicials, per a que l'alumna pugui aprendre i practicar una conversa. Posem fragments de llibres i textos per a resumir en 200 paraules. Practicar els phrasal verbs en direrentes oracions."
+      },
+      {
+        "titol": "Biologia",
+        "descripcio": "Dibuixar i definir les diferents parts d'una cèlula procariota. Descriure el procés de fermentació o la fotosíntesi. Explicar què és el DNA i quins àcids nucleics el formen"
+      },
+      {
+        "titol": "Història",
+        "descripcio": "Repassar amb el profe tot el perióde desde el 1830 fins al final de la guerra civil espanyola. Estudiar l'evolució del cristianisme i de l'imperi romà. "
+      },
+      {
+        "titol": "Programació C++",
+        "descripcio": "Un dels projectes que fem és programar un vaixell a radiocontrol usant dos plaques Arduino i dues antenes UART DX que van amb tecnologia inalàmbrica LORA per comunicar-se fins a 1km de distància. L'objectiu és fer tot el cablejat de pins a cada placa d'arduino de l'antena a la placa, i programar en C++ les comandes a enviar desde el control remot, al vaixell."
+      }
+    ],
+    "p3": "La informació principal referent al curs d'estiu és la següent:",
+    "info": [
+      "Durant les 4 primeres setmanes de Juliol",
+      "Asignatures que es poden solicitar: Mates, Català, Castellà, Física, Química, Història, Programació",
+      "Dimarts, Dimecres i Dijous",
+      "horari: de 4pm a 6:30pm",
+      "cost aproximat (varia cada any): 300€",
+      "total d'hores: 30h"
+    ],
+    "target": {
+      "nom": "Públic Objectiu",
+      "valor": "General"
+    },
+    "modalitat": {
+      "nom": "Modalitat",
+      "valor": "presencial i online"
+    }
+  },
+  "ampliacio": {
+    "title": "Classes d'ampliació",
+    "summary1": "Més informació",
+    "summary2": "El nostre mètode",
+    "p1": "Extenem els coneixements de l'alumne en qualssevol de les matèries llistades a la nostra web, que inclouen:",
+    "assignatures": [
+      "Matemàtiques",
+      "Anglès",
+      "Català",
+      "Castellà",
+      "Programació i desenvolupament de webapps",
+      "Història",
+      "Proves Cangur",
+      "Olimpíades matemàtiques"
+    ],
+    "p2": "En quasevol dels nivells que van de 4 anys fins a primers cursos d'universitat. En aquestes classes posem exercicis i problemes exigents, i que es complementen d'explicacions teòriques que l'estudiant desconeix, perquè no li han explicat (encara) a classe.",
+    "p3": "Classes dissenyades per a estudiants i pares més exigents que es volen avançar al seu nivell, o preparar aspectes professionals i acadèmics per encarar el mercat laboral amb millors expectatives.",
+    "target": {
+      "nom": "Públic objectiu",
+      "valor": "General"
+    },
+    "modalitat": {
+      "nom": "Modalitat",
+      "valor": "presencial i online"
+    },
+    "steps": [
+      "Fer una prova ràpida amb diferents exercicis per veure on falla més l'alumne",
+      "Agafar exàmens passats de l'alumne i observar on fa més errors",
+      "Crear un programa a mida, que es centra amb exercicis i problemes relacionats amb la dificultat de l'alumne",
+      "Veure si l'alumne pot now resoldre les dificultats concretes que s'havien observat inicialment, mitjançant exercicis estretament relacionats amb la dificultat de l'alumne.",
+      "Si no es resol satisfactòriament la dificultat de l'alumne, es torna al pas 3, però amb uns exercicis d'un enfoc diferent. Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encarar de diferents formes en matemàtiques. D'una banda podríem posar fraccions senzilles de denominador primer: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara \\[ \\frac{5}{12} - \\frac{7}{18} \\]. Si l'alumne no se'n surt en cap dels casos, podríem optar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau."
+    ]
+  },
+  "equip": {
+    "title": "Equip",
+    "membres": [
+      {
+        "nom": "Romà Masana",
+        "rol": "Director i profe",
+        "imatge": "static/images/roma.jpg",
+        "descripcio": [
+          "Graduat en Matemàtiques",
+          "Especialista en programació",
+          "Experiència docent de més de 10 anys",
+          "Passió per la innovació educativa"
+        ],
+        "linkedin": "https://www.linkedin.com/in/rom%C3%A0-masana-61459411b"
+      },
+      {
+        "nom": "Sergi Valero",
+        "rol": "Director i profe",
+        "imatge": "static/images/sergi.png",
+        "descripcio": [
+          "Graduat en Història",
+          "Especialista en humanitats i llengues",
+          "Experiència en formació personalitzada",
+          "Apassionat per l’aprenentatge autodidacte"
+        ],
+        "linkedin": "#"
+      },
+      {
+        "nom": "Elena Pareja",
+        "rol": "Profe de Bio",
+        "imatge": "static/images/elenap.jpeg",
+        "descripcio": [
+          "PhD en el IRB de Barcelona",
+          "Especialista en bioinformàtica",
+          "Vasta experiència formant estudiants",
+          "Investigadora en AI i medicaments nous"
+        ],
+        "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
+      },
+      {
+        "nom": "Marc Sitges",
+        "rol": "Profe d'anglès",
+        "imatge": "static/images/marcs.jpg",
+        "descripcio": [
+          "Graduat en Història",
+          "Gran trajectòria adaptant les classes a cada alumne.",
+          "Expert en comunicació, cultura i llenguatge",
+          "Entusiasta del coneixement lliure"
+        ],
+        "linkedin": "#"
+      }
+    ]
+  },
   "contacte": {
     "titol": "Contacte",
     "telefon": {
@@ -268,31 +257,33 @@
       }
     }
   },
-
   "recursos": {
-  "title": "Recursos",
-  "login_title": "Identifica't per pujar recursos",
-  "username": "Usuari",
-  "password": "Contrasenya",
-  "upload_title": "Pujar recurs didàctic",
-  "label_title": "Títol",
-  "label_description": "Descripció",
-  "label_link": "Enllaç extern",
-  "label_file": "Fitxer (png/jpg/pdf)",
-  "btn_upload": "Pujar",
-  "uploader": "Pujat per"
+    "title": "Recursos",
+    "login_title": "Identifica't per pujar recursos",
+    "username": "Usuari",
+    "password": "Contrasenya",
+    "upload_title": "Pujar recurs didàctic",
+    "edit_title": "Editar recurs didàctic",
+    "label_title": "Títol",
+    "label_description": "Descripció",
+    "label_link": "Enllaç extern",
+    "label_file": "Fitxer (png/jpg/pdf)",
+    "label_keep_file": "Mantenir fitxer actual",
+    "btn_upload": "Pujar",
+    "btn_save": "Guardar",
+    "uploader": "Pujat per",
+    "last_editor": "Editat per",
+    "btn_login": "Entrar",
+    "btn_back": "Tornar",
+    "btn_cancel": "Cancel·lar",
+    "hero_sub": "Recursos, documents i enllaços per a l'aprenentatge — accessible per tothom; pujar requereix identificació.",
+    "upload_sub": "Afegeix un PDF, imatge o enllaç. Recorda incloure títol i descripció.",
+    "no_resources": "No hi ha recursos publicats.",
+    "btn_home": "Inici",
+    "btn_logout": "Logout",
+    "confirm_delete": "Segur que voleu eliminar el recurs?",
+    "error_file_too_large": "El fitxer és massa gran. El límit és de 5MB.",
+    "msg_deleted": "Recurs eliminat correctament.",
+    "msg_updated": "Recurs actualitzat correctament."
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
