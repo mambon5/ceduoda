@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'%3E%3Cpath d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ content.recursos.title if content and content.recursos is defined else "Recursos" }}</title>
 
@@ -138,16 +140,60 @@
       transform: scale(1.1);
       background: #ffca28;
     }
+
+    /* Estils per la barra d'accions central */
+    .action-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: none;
+      cursor: pointer;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
   </style>
 </head>
 
 <body class="w3-light-grey">
   <header class="w3-container w3-white w3-padding">
-    <a href="{{ url_for('home', lang_code=content.lang_code if content and content.lang_code is defined else 'ca') }}"
-      class="w3-button w3-border">
-      <i class="bi bi-house-door-fill" style="margin-right:0.5rem;"></i> {{ content.recursos.btn_home if content and
-      content.recursos is defined else "Inici" }}
-    </a>
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="{{ url_for('home', lang_code=content.lang_code if content and content.lang_code is defined else 'ca') }}"
+        class="w3-button w3-border w3-round">
+        <i class="bi bi-house-door-fill" style="margin-right:0.5rem;"></i> {{ content.recursos.btn_home if content and
+        content.recursos is defined else "Inici" }}
+      </a>
+
+      {% if user.username %}
+      <div>
+        <span class="w3-tag w3-green w3-round"> {{ user.username }} </span>
+        <a class="w3-button w3-border w3-round" href="{{ url_for('recursos.recursos_logout') }}">{{
+          content.recursos.btn_logout if content
+          and content.recursos is defined else "Logout" }}</a>
+      </div>
+      {% else %}
+      <a class="w3-button w3-blue w3-round" href="{{ url_for('recursos.recursos_login') }}">{{
+        content.recursos.btn_login if content and
+        content.recursos is defined else "Identifica't" }}</a>
+      {% endif %}
+    </div>
 
     <div class="recursos-hero">
       <!-- icona descriptiva + títol -->
@@ -161,29 +207,29 @@
       </div>
     </div>
 
-    <a href="{{ url_for('recursos.pissarra_list') }}" class="w3-button w3-indigo">
-      <i class="bi bi-easel"></i> {{ content.recursos.pissarra.title if content and content.recursos.pissarra is defined
-      else "Pissarra" }}
-    </a>
+    <!-- ACTION TOOLBAR -->
+    <div class="action-toolbar">
+      <a href="{{ url_for('recursos.pissarra_list') }}" class="action-btn w3-indigo">
+        <i class="bi bi-easel"></i>
+        {{ content.recursos.pissarra.title if content and content.recursos.pissarra is defined else "Pissarres Digitals"
+        }}
+      </a>
 
-    {% if user.username %}
-    <span class="w3-tag w3-green"> {{ user.username }} </span>
+      {% if user.username %}
+      <a href="{{ url_for('recursos.recursos_upload') }}" class="action-btn w3-green">
+        <i class="bi bi-cloud-arrow-up"></i>
+        {{ content.recursos.btn_upload if content and content.recursos is defined else "Pujar Recurs" }}
+      </a>
 
-    <!-- botó pujar amb icona a l'esquerra -->
-    <a href="{{ url_for('recursos.recursos_upload') }}" class="w3-button upload-cta"
-      style="background:#28a745; color:white;">
-      <span class="icon"><i class="bi bi-cloud-arrow-up" aria-hidden="true"></i></span><br>
-      <span class="label">{{ content.recursos.btn_upload if content and content.recursos is defined else "Pujar"
-        }}</span>
-    </a>
+      {% if user.role == "admin" %}
+      <button onclick="document.getElementById('newUserModal').style.display='block'" class="action-btn w3-dark-grey">
+        <i class="bi bi-person-plus"></i> Admin: Usuaris
+      </button>
+      {% endif %}
 
-    <a class="w3-button" href="{{ url_for('recursos.recursos_logout') }}">{{ content.recursos.btn_logout if content
-      and content.recursos is defined else "Logout" }}</a>
-    {% else %}
-    <a class="w3-button" href="{{ url_for('recursos.recursos_login') }}">{{ content.recursos.btn_login if content and
-      content.recursos is defined else "Identifica't" }}</a>
-    {% endif %}
-    </nav>
+      {% endif %}
+    </div>
+
   </header>
 
   <main class="w3-container w3-margin-top">
@@ -273,6 +319,36 @@
       }
     }
   </script>
+
+  <!-- Modal Crear Usuari (Admin) -->
+  {% if user.role == 'admin' %}
+  <div id="newUserModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4" style="max-width:500px">
+      <header class="w3-container w3-dark-grey">
+        <span onclick="document.getElementById('newUserModal').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <h2>Crear Nou Usuari</h2>
+      </header>
+      <form class="w3-container w3-padding" action="{{ url_for('recursos.user_create') }}" method="POST">
+        <label>Nom d'usuari</label>
+        <input class="w3-input w3-border" type="text" name="username" required>
+        <br>
+        <label>Contrasenya</label>
+        <input class="w3-input w3-border" type="password" name="password" required>
+        <br>
+        <label>Rol</label>
+        <select class="w3-select w3-border" name="role">
+          <option value="user">Usuari</option>
+          <option value="admin">Administrador</option>
+        </select>
+        <div class="w3-margin-top w3-center">
+          <button class="w3-button w3-dark-grey" type="submit">Crear Usuari</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% endif %}
+
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 import json
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session, current_app, send_from_directory, abort
-from sqlalchemy.orm import sessionmaker, joinedload
+from sqlalchemy.orm import sessionmaker, joinedload, subqueryload
+from sqlalchemy import or_
 from werkzeug.utils import secure_filename
 from crea_dades import engine
 from models import User, Recurso, Pissarra
@@ -41,7 +42,7 @@ def recursos_list():
     sess = Session()
     recursos = sess.query(Recurso).options(joinedload(Recurso.uploader), joinedload(Recurso.last_editor)).order_by(Recurso.uploaded_at.desc()).all()
     sess.close()
-    user = {"id": session.get("user_id"), "username": session.get("username")}
+    user = {"id": session.get("user_id"), "username": session.get("username"), "role": session.get("role")}
     return render_template("recursos.html", recursos=recursos, user=user, lang=lang, content=content)
 
 @bp.route("/recursos/login", methods=["GET", "POST"])
@@ -58,6 +59,7 @@ def recursos_login():
         if user and user.check_password(password):
             session["user_id"] = user.id
             session["username"] = user.username
+            session["role"] = user.role
             flash("Login correcte", "success")
             return redirect(url_for("recursos.recursos_list"))
         flash("Usuari o contrasenya incorrectes", "danger")
@@ -67,6 +69,7 @@ def recursos_login():
 def recursos_logout():
     session.pop("user_id", None)
     session.pop("username", None)
+    session.pop("role", None)
     flash("Sessió tancada", "info")
     return redirect(url_for("recursos.recursos_list"))
 
@@ -240,24 +243,59 @@ def recursos_edit(recurso_id):
 
 @bp.route("/recursos/pissarres")
 def pissarra_list():
+    if "user_id" not in session:
+        return redirect(url_for("recursos.recursos_login"))
+        
     lang = get_current_lang()
     content = load_translation(lang)
     sess = Session()
-    boards = sess.query(Pissarra).options(joinedload(Pissarra.uploader), joinedload(Pissarra.last_editor)).order_by(Pissarra.updated_at.desc()).all()
+    
+    current_user_id = session.get("user_id")
+    user_role = session.get("role")
+    
+    q = sess.query(Pissarra).options(
+        joinedload(Pissarra.uploader),
+        joinedload(Pissarra.last_editor),
+        subqueryload(Pissarra.shared_users)
+    )
+    
+    if user_role != 'admin':
+        q = q.filter(
+            or_(
+                Pissarra.uploader_id == current_user_id,
+                Pissarra.shared_users.any(id=current_user_id),
+                Pissarra.is_public == True
+            )
+        )
+        
+    boards = q.order_by(Pissarra.updated_at.desc()).all()
+    
+    # Get all users for sharing dropdown
+    all_users = sess.query(User).order_by(User.username).all()
+
     sess.close()
-    user = {"id": session.get("user_id"), "username": session.get("username")}
-    return render_template("pissarra_list.html", boards=boards, user=user, lang=lang, content=content)
+    user = {"id": session.get("user_id"), "username": session.get("username"), "role": session.get("role")}
+    return render_template("pissarra_list.html", boards=boards, user=user, all_users=all_users, lang=lang, content=content)
 
 @bp.route("/recursos/pissarres/nova", methods=["POST"])
 def pissarra_nova():
     if "user_id" not in session:
         return abort(403)
     title = request.form.get("title", "Sense títol").strip()
+    
+    # Check for unique title
+    sess = Session()
+    existing = sess.query(Pissarra).filter_by(title=title).first()
+    if existing:
+        sess.close()
+        flash(f"Ja existeix una pissarra amb el títol '{title}'. Tria un altre nom.", "danger")
+        return redirect(url_for("recursos.pissarra_list"))
+    
     filename = f"{int(datetime.utcnow().timestamp())}_{session['user_id']}.json"
     initial_data = {"version": "5.3.0", "objects": []}
     with open(os.path.join(STATIC_PISSARRES_DIR, filename), "w") as f:
         json.dump(initial_data, f)
-    sess = Session()
+    
     new_board = Pissarra(
         title=title,
         filename=filename,
@@ -278,6 +316,19 @@ def pissarra_editor(board_id):
     b = sess.query(Pissarra).get(board_id)
     if not b:
         sess.close(); return abort(404)
+        
+    # Check permissions
+    current_user_id = session["user_id"]
+    is_admin = session.get("role") == 'admin'
+    is_owner = b.uploader_id == current_user_id
+    is_shared = any(u.id == current_user_id for u in b.shared_users)
+    is_public = b.is_public
+    
+    if not (is_admin or is_owner or is_shared or is_public):
+        sess.close()
+        flash("No tens permís per veure aquesta pissarra.", "danger")
+        return redirect(url_for("recursos.pissarra_list"))
+
     p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
     cdata = "{}"
     if os.path.exists(p):
@@ -285,7 +336,7 @@ def pissarra_editor(board_id):
     sess.close()
     l = get_current_lang()
     cnt = load_translation(l)
-    return render_template("pissarra_editor.html", board=b, canvas_data=cdata, lang=l, content=cnt)
+    return render_template("pissarra_editor.html", board=b, canvas_data=cdata, lang=l, content=cnt, is_owner=(is_owner or is_admin))
 
 @bp.route("/recursos/pissarres/guardar/<int:board_id>", methods=["POST"])
 def pissarra_guardar(board_id):
@@ -294,6 +345,18 @@ def pissarra_guardar(board_id):
     sess = Session()
     b = sess.query(Pissarra).get(board_id)
     if not b: sess.close(); return abort(404)
+    
+    # Check permissions (Shared users and public CAN edit/save)
+    current_user_id = session["user_id"]
+    is_admin = session.get("role") == 'admin'
+    is_owner = b.uploader_id == current_user_id
+    is_shared = any(u.id == current_user_id for u in b.shared_users)
+    is_public = b.is_public
+    
+    if not (is_admin or is_owner or is_shared or is_public):
+        sess.close()
+        return abort(403)
+
     p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
     with open(p, "w") as f: json.dump(d, f)
     b.last_editor_id = session["user_id"]
@@ -307,10 +370,110 @@ def pissarra_eliminar(board_id):
     sess = Session()
     b = sess.query(Pissarra).get(board_id)
     if not b: sess.close(); return abort(404)
+    
+    # Check permissions (Delete ONLY Owner or Admin)
+    current_user_id = session["user_id"]
+    is_admin = session.get("role") == 'admin'
+    is_owner = b.uploader_id == current_user_id
+    
+    if not (is_admin or is_owner):
+        sess.close()
+        flash("Només el creador o un administrador pot esborrar.", "danger")
+        return redirect(url_for("recursos.pissarra_list"))
+
     p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
     if os.path.exists(p): os.remove(p)
     sess.delete(b); sess.commit(); sess.close()
     return redirect(url_for("recursos.pissarra_list"))
+
+@bp.route("/recursos/pissarres/compartir/<int:board_id>", methods=["POST"])
+def pissarra_compartir(board_id):
+    if "user_id" not in session: return abort(403)
+    username_to_add = request.form.get("username")
+    
+    sess = Session()
+    b = sess.query(Pissarra).get(board_id)
+    if not b: sess.close(); return abort(404)
+    
+    # Check permissions (Share allowed for Owner or Admin)
+    current_user_id = session["user_id"]
+    is_admin = session.get("role") == 'admin'
+    is_owner = b.uploader_id == current_user_id
+    
+    if not (is_admin or is_owner):
+        sess.close()
+        flash("No tens permís per compartir aquesta pissarra.", "danger")
+        return redirect(url_for("recursos.pissarra_list"))
+        
+    user_to_add = sess.query(User).filter_by(username=username_to_add).first()
+    if not user_to_add:
+        sess.close()
+        flash(f"L'usuari {username_to_add} no existeix.", "warning")
+        return redirect(url_for("recursos.pissarra_list"))
+        
+    if user_to_add not in b.shared_users:
+        b.shared_users.append(user_to_add)
+        sess.commit()
+        flash(f"Pissarra compartida amb {username_to_add}.", "success")
+    else:
+        flash(f"L'usuari ja té accés.", "info")
+        
+    sess.close()
+    return redirect(url_for("recursos.pissarra_list"))
+
+@bp.route("/recursos/pissarres/toggle_public/<int:board_id>", methods=["POST"])
+def pissarra_toggle_public(board_id):
+    if "user_id" not in session: return abort(403)
+    
+    sess = Session()
+    b = sess.query(Pissarra).get(board_id)
+    if not b: sess.close(); return abort(404)
+    
+    # Only owner or admin can toggle visibility
+    current_user_id = session["user_id"]
+    is_admin = session.get("role") == 'admin'
+    is_owner = b.uploader_id == current_user_id
+    
+    if not (is_admin or is_owner):
+        sess.close()
+        flash("Només el creador o un administrador pot canviar la visibilitat.", "danger")
+        return redirect(url_for("recursos.pissarra_list"))
+    
+    # Toggle
+    b.is_public = not b.is_public
+    sess.commit()
+    status = "pública" if b.is_public else "privada"
+    flash(f"La pissarra '{b.title}' ara és {status}.", "success")
+    sess.close()
+    return redirect(url_for("recursos.pissarra_list"))
+
+@bp.route("/recursos/users/create", methods=["POST"])
+def user_create():
+    if "user_id" not in session or session.get("role") != 'admin':
+        return abort(403)
+        
+    username = request.form.get("username")
+    password = request.form.get("password")
+    role = request.form.get("role", "user")
+    
+    if not username or not password:
+        flash("Falten dades.", "warning")
+        return redirect(url_for("recursos.pissarra_list"))
+        
+    sess = Session()
+    if sess.query(User).filter_by(username=username).first():
+        sess.close()
+        flash("L'usuari ja existeix.", "danger")
+        return redirect(url_for("recursos.pissarra_list"))
+        
+    new_user = User(username=username, role=role)
+    new_user.set_password(password)
+    sess.add(new_user)
+    sess.commit()
+    sess.close()
+    flash(f"Usuari {username} creat correctament.", "success")
+    flash(f"Usuari {username} creat correctament.", "success")
+    return redirect(request.referrer or url_for("recursos.pissarra_list"))
 
 # opcional: servir fitxers pujats (normalment ja es serveixen des de /static)
 @bp.route("/recursos/static/<path:filename>")

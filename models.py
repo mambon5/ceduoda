@@ -1,10 +1,16 @@
-from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey, Table, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
 Base = declarative_base()
+
+# Taula d'associació per a usuaris compartits en una pissarra
+pissarra_users = Table('pissarra_users', Base.metadata,
+    Column('pissarra_id', Integer, ForeignKey('pissarres.id'), primary_key=True),
+    Column('user_id', Integer, ForeignKey('users.id'), primary_key=True)
+)
 
 # Definició de la taula
 class Visita(Base):
@@ -107,6 +113,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     username = Column(String(50), unique=True, nullable=False)
     password_hash = Column(String(200), nullable=False)
+    role = Column(String(20), default="user", nullable=False) # 'admin' or 'user'
     created_at = Column(DateTime, default=datetime.utcnow)
 
     def set_password(self, plaintext):
@@ -140,6 +147,12 @@ class Pissarra(Base):
     uploader = relationship("User", foreign_keys=[uploader_id])
     last_editor_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     last_editor = relationship("User", foreign_keys=[last_editor_id])
+    
+    is_public = Column(Boolean, default=False)
+    
+    # Usuaris amb qui s'ha compartit (a part de l'uploader)
+    shared_users = relationship("User", secondary=pissarra_users, backref="shared_pissarres")
+    
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 

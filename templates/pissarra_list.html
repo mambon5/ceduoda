@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'%3E%3Cpath d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ content.recursos.pissarra.title if content and content.recursos.pissarra is defined else "Pissarres" }}
     </title>
@@ -37,8 +39,14 @@
         </div>
 
         <nav style="float:right;">
+            {% if user.role == 'admin' %}
+            <button onclick="document.getElementById('newUserModal').style.display='block'"
+                class="w3-button w3-dark-grey">
+                <i class="bi bi-person-plus"></i> Admin: Nous Usuaris
+            </button>
+            {% endif %}
             {% if user.username %}
-            <span class="w3-tag w3-green">{{ user.username }}</span>
+            <span class="w3-tag w3-green">{{ user.username }} ({{ user.role }})</span>
             <button onclick="document.getElementById('newBoardModal').style.display='block'" class="w3-button w3-blue">
                 <i class="bi bi-plus-lg"></i> {{ content.recursos.pissarra.btn_new if content and
                 content.recursos.pissarra is defined else "Nova Pissarra" }}
@@ -72,19 +80,48 @@
                         }}: {{ b.last_editor.username }}
                         {% endif %}
                     </p>
-                    <div class="w3-center">
+                    <div class="w3-center" style="display:flex; justify-content:center; gap:5px; flex-wrap:wrap;">
                         <a href="{{ url_for('recursos.pissarra_editor', board_id=b.id) }}" class="w3-button w3-blue">
                             <i class="bi bi-pencil"></i> {{ content.recursos.btn_edit if content and content.recursos is
                             defined else "Editar" }}
                         </a>
-                        {% if user.username %}
+
+                        {% if user.role == 'admin' or user.id == b.uploader_id %}
+                        <form action="{{ url_for('recursos.pissarra_toggle_public', board_id=b.id) }}" method="POST"
+                            style="display:inline;">
+                            <button class="w3-button {{ 'w3-green' if b.is_public else 'w3-grey' }}"
+                                title="{{ 'Fer privada' if b.is_public else 'Fer pública' }}">
+                                <i class="bi {{ 'bi-globe' if b.is_public else 'bi-lock' }}"></i>
+                            </button>
+                        </form>
+
+                        <button onclick="openShareModal('{{ b.id }}', '{{ b.title }}')" class="w3-button w3-teal"
+                            title="Compartir">
+                            <i class="bi bi-share"></i>
+                        </button>
+
                         <form action="{{ url_for('recursos.pissarra_eliminar', board_id=b.id) }}" method="POST"
                             style="display:inline;"
                             onsubmit="return confirm('{{ content.recursos.pissarra.confirm_delete if content and content.recursos.pissarra is defined else 'Eliminar?' }}')">
-                            <button class="w3-button w3-red"><i class="bi bi-trash"></i></button>
+                            <button class="w3-button w3-red" title="Eliminar"><i class="bi bi-trash"></i></button>
                         </form>
                         {% endif %}
                     </div>
+                    {% if b.is_public %}
+                    <span class="w3-tag w3-green w3-tiny w3-display-topright" style="margin:5px;"><i
+                            class="bi bi-globe"></i> Pública</span>
+                    {% elif user.id != b.uploader_id %}
+                    <span class="w3-tag w3-orange w3-tiny w3-display-topleft"
+                        style="transform:rotate(-10deg); margin:5px;">Compartit</span>
+                    {% endif %}
+                    {% if b.shared_users %}
+                    <div class="w3-tiny w3-text-grey w3-padding-small">
+                        <i class="bi bi-people"></i> Compartit amb:
+                        {% for u in b.shared_users %}
+                        {{ u.username }}{{ "," if not loop.last }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             {% else %}
@@ -114,6 +151,71 @@
             </form>
         </div>
     </div>
+
+    <!-- Modal Compartir -->
+    <div id="shareModal" class="w3-modal">
+        <div class="w3-modal-content w3-card-4" style="max-width:500px">
+            <header class="w3-container w3-teal">
+                <span onclick="document.getElementById('shareModal').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <h2>Compartir Pissarra</h2>
+            </header>
+            <div class="w3-container w3-padding">
+                <p>Compartir <b id="shareBoardTitle"></b> amb un usuari:</p>
+                <form id="shareForm" method="POST">
+                    <label>Selecciona un usuari:</label>
+                    <select class="w3-select w3-border" name="username" required>
+                        <option value="" disabled selected>Escull un usuari...</option>
+                        {% for u in all_users %}
+                        {% if u.username != user.username %}
+                        <option value="{{ u.username }}">{{ u.username }} ({{ u.role }})</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                    <div class="w3-margin-top w3-center">
+                        <button class="w3-button w3-teal" type="submit">Compartir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Crear Usuari (Admin) -->
+    {% if user.role == 'admin' %}
+    <div id="newUserModal" class="w3-modal">
+        <div class="w3-modal-content w3-card-4" style="max-width:500px">
+            <header class="w3-container w3-dark-grey">
+                <span onclick="document.getElementById('newUserModal').style.display='none'"
+                    class="w3-button w3-display-topright">&times;</span>
+                <h2>Crear Nou Usuari</h2>
+            </header>
+            <form class="w3-container w3-padding" action="{{ url_for('recursos.user_create') }}" method="POST">
+                <label>Nom d'usuari</label>
+                <input class="w3-input w3-border" type="text" name="username" required>
+                <br>
+                <label>Contrasenya</label>
+                <input class="w3-input w3-border" type="password" name="password" required>
+                <br>
+                <label>Rol</label>
+                <select class="w3-select w3-border" name="role">
+                    <option value="user">Usuari</option>
+                    <option value="admin">Administrador</option>
+                </select>
+                <div class="w3-margin-top w3-center">
+                    <button class="w3-button w3-dark-grey" type="submit">Crear Usuari</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+    <script>
+        function openShareModal(boardId, boardTitle) {
+            document.getElementById('shareBoardTitle').innerText = boardTitle;
+            document.getElementById('shareForm').action = "/recursos/pissarres/compartir/" + boardId;
+            document.getElementById('shareModal').style.display = 'block';
+        }
+    </script>
 
 </body>
 

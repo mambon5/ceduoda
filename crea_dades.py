@@ -18,14 +18,24 @@ def create_initial_users():
 
     sess = Session()
     try:
-        if not sess.query(User).filter_by(username="sergi").first():
-            u = User(username="sergi")
+        # User sergi
+        u = sess.query(User).filter_by(username="sergi").first()
+        if not u:
+            u = User(username="sergi", role="user")
             u.set_password("sergiroma")
             sess.add(u)
-        if not sess.query(User).filter_by(username="roma").first():
-            u2 = User(username="roma")
+        else:
+            if u.role != "admin": u.role = "admin"
+
+        # User roma
+        u2 = sess.query(User).filter_by(username="roma").first()
+        if not u2:
+            u2 = User(username="roma", role="admin")
             u2.set_password("sergiroma")
             sess.add(u2)
+        else:
+            if u2.role != "admin": u2.role = "admin"
+
         sess.commit()
     finally:
         sess.close()

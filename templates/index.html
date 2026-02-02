@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-    <html lang="{{ lang }}">
+<html lang="{{ lang }}">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'%3E%3Cpath d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/%3E%3C/svg%3E">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ content.description }}">
 
@@ -9,8 +12,8 @@
     <link rel="alternate" hreflang="ca" href="https://nescolam.com/ca" />
     <link rel="alternate" hreflang="es" href="https://nescolam.com/es" />
     <link rel="alternate" hreflang="en" href="https://nescolam.com/en" />
-    
-    
+
+
     <title>{{ content.title }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
@@ -19,52 +22,60 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-     <!-- Afegeix el favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <!-- Afegeix el favicon -->
     <link rel="icon" href="/static/images/logo_10.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    
+
+
 </head>
+
 <body data-lang="{{ lang }}">
 
-<a href="https://g.co/kgs/guiGFC3" target="_blank" style="text-decoration: none;">
-    <header style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 5px 0; background-color: transparent;">
-    <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 40px;">
-    <h1 style="font-size: 1.2rem; font-weight: 600; margin: 0; font-family: 'Arial Black', Gadget, sans-serif; color: #2c3e50;">{{ content.header_name }}</h1>
-    <i class="bi bi-geo-alt-fill"></i> {{ content.header_address }}
-    </header>
-</a>
+    <a href="https://g.co/kgs/guiGFC3" target="_blank" style="text-decoration: none;">
+        <header
+            style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 5px 0; background-color: transparent;">
+            <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 40px;">
+            <h1
+                style="font-size: 1.2rem; font-weight: 600; margin: 0; font-family: 'Arial Black', Gadget, sans-serif; color: #2c3e50;">
+                {{ content.header_name }}</h1>
+            <i class="bi bi-geo-alt-fill"></i> {{ content.header_address }}
+        </header>
+    </a>
 
-<button class="menu-toggle" onclick="toggleMenu()">&#9776;</button> <!-- HTML entity for ">" -->
+    <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button> <!-- HTML entity for ">" -->
 
-<nav class="side-menu">
-  <ul>
-    <li><a href="#intro">{{ content.menu_home }}</a></li>
-    <li><a href="#reforç">{{ content.menu_reforç }}  <i class="bi bi-lightning-charge" style="color: rgb(250, 255, 177);"></i></a></li>
-    <li><a href="#estiu">{{ content.menu_estiu }}</a></li>
-    <li><a href="#amplia">{{ content.menu_amplia }} <i class="bi bi-layers" style="color: rgb(208, 222, 255);"></i> </h2></a></li>
-    <li><a href="#equip">{{ content.menu_equip }}</a></li>
-    <li><a href="#contacte">{{ content.menu_contacte }}</a></li>
-    <li><a href="#follow">{{ content.menu_follow }}</a></li>
-    <li><a href="/recursos">{{ content.recursos.title }}</a></li>
-  </ul>
-  <div class="language-switcher">
-<a href="/ca" data-lang-switch="ca" class="{% if lang == 'ca' %}active{% endif %}">
-  <span class="fi fi-es-ct"></span>
-</a>
-<a href="/es" data-lang-switch="es" class="{% if lang == 'es' %}active{% endif %}">
-  <span class="fi fi-es"></span>
-</a>
-<a href="/en" data-lang-switch="en" class="{% if lang == 'en' %}active{% endif %}">
-  <span class="fi fi-us"></span>
-</a>
-</div>
-</nav>
+    <nav class="side-menu">
+        <ul>
+            <li><a href="#intro">{{ content.menu_home }}</a></li>
+            <li><a href="#reforç">{{ content.menu_reforç }} <i class="bi bi-lightning-charge"
+                        style="color: rgb(250, 255, 177);"></i></a></li>
+            <li><a href="#estiu">{{ content.menu_estiu }}</a></li>
+            <li><a href="#amplia">{{ content.menu_amplia }} <i class="bi bi-layers"
+                        style="color: rgb(208, 222, 255);"></i> </h2></a></li>
+            <li><a href="#equip">{{ content.menu_equip }}</a></li>
+            <li><a href="#contacte">{{ content.menu_contacte }}</a></li>
+            <li><a href="#follow">{{ content.menu_follow }}</a></li>
+            <li><a href="/recursos">{{ content.recursos.title }}</a></li>
+        </ul>
+        <div class="language-switcher">
+            <a href="/ca" data-lang-switch="ca" class="{% if lang == 'ca' %}active{% endif %}">
+                <span class="fi fi-es-ct"></span>
+            </a>
+            <a href="/es" data-lang-switch="es" class="{% if lang == 'es' %}active{% endif %}">
+                <span class="fi fi-es"></span>
+            </a>
+            <a href="/en" data-lang-switch="en" class="{% if lang == 'en' %}active{% endif %}">
+                <span class="fi fi-us"></span>
+            </a>
+        </div>
+    </nav>
 
-     <section id="intro"></section >
-     <p id="hidden_typewriter_title" style="visibility: hidden;">{{ content.typewritting_title }}</p>
+    <section id="intro"></section>
+    <p id="hidden_typewriter_title" style="visibility: hidden;">{{ content.typewritting_title }}</p>
     <h1 class="titol-typewriter"><span id="typewriter"></span><span class="cursor">|</span></h1>
 
 
@@ -75,7 +86,7 @@
     <!-- <p>{{ content.intro_p2 }}</p> -->
     <p>{{ content.intro_p3 }}</p>
 
-     <div class="buttons">
+    <div class="buttons">
         <button onclick="openModal('matematiques-modal')">{{ content.subjects.mates.title }}</button>
         <button onclick="openModal('fisica-modal')">{{ content.subjects.fisica.title }}</button>
         <button onclick="openModal('quimica-modal')">{{ content.subjects.quimica.title }}</button>
@@ -93,268 +104,286 @@
     </div>
 
     <!-- modals ocults fins que es cliquen-->
-        <!-- Matemàtiques -->
-        <div id="matematiques-modal" class="custom-modal">
+    <!-- Matemàtiques -->
+    <div id="matematiques-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('matematiques-modal')">&times;</span>
-            <h3>{{ content.subjects.mates.title }} <i class="bi bi-calculator" style="font-size: 2rem; color: darkblue; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.mates.title }} <i class="bi bi-calculator"
+                    style="font-size: 2rem; color: darkblue; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.mates.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Física -->
-        <div id="fisica-modal" class="custom-modal">
+    <!-- Física -->
+    <div id="fisica-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('fisica-modal')">&times;</span>
-            <h3>{{ content.subjects.fisica.title }} <i class="bi bi-gear" style="font-size: 2rem; color: steelblue; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.fisica.title }} <i class="bi bi-gear"
+                    style="font-size: 2rem; color: steelblue; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.fisica.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Química -->
-        <div id="quimica-modal" class="custom-modal">
+    <!-- Química -->
+    <div id="quimica-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('quimica-modal')">&times;</span>
-            <h3>{{ content.subjects.quimica.title }} <i class="bi bi-flask" style="font-size: 2rem; color: darkmagenta; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.quimica.title }} <i class="bi bi-flask"
+                    style="font-size: 2rem; color: darkmagenta; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.quimica.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Català -->
-        <div id="catala-modal" class="custom-modal">
+    <!-- Català -->
+    <div id="catala-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('catala-modal')">&times;</span>
-            <h3>{{ content.subjects.catala.title }} <i class="bi bi-book" style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.catala.title }} <i class="bi bi-book"
+                    style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
             <p> {{ content.subjects.catala.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Castellà -->
-        <div id="castella-modal" class="custom-modal">
+    <!-- Castellà -->
+    <div id="castella-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('castella-modal')">&times;</span>
-            <h3>{{ content.subjects.castella.title }} <i class="bi bi-file-text" style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.castella.title }} <i class="bi bi-file-text"
+                    style="font-size: 2rem; color: darkred; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.castella.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Anglès -->
-        <div id="angles-modal" class="custom-modal">
+    <!-- Anglès -->
+    <div id="angles-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('angles-modal')">&times;</span>
-            <h3>{{ content.subjects.angles.title }} <i class="bi bi-globe" style="font-size: 2rem; color: navy; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.angles.title }} <i class="bi bi-globe"
+                    style="font-size: 2rem; color: navy; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.angles.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Biologia -->
-        <div id="biologia-modal" class="custom-modal">
+    <!-- Biologia -->
+    <div id="biologia-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('biologia-modal')">&times;</span>
-            <h3>{{ content.subjects.biologia.title }} <i class="bi bi-bug" style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.biologia.title }} <i class="bi bi-bug"
+                    style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.biologia.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Història -->
-        <div id="historia-modal" class="custom-modal">
+    <!-- Història -->
+    <div id="historia-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('historia-modal')">&times;</span>
-            <h3>{{ content.subjects.historia.title }} <i class="bi bi-bank" style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.historia.title }} <i class="bi bi-bank"
+                    style="font-size: 2rem; color: green; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.historia.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Python -->
-        <div id="python-modal" class="custom-modal">
+    <!-- Python -->
+    <div id="python-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('python-modal')">&times;</span>
-            <h3>{{ content.subjects.python.title }} <i class="bi bi-code-slash" style="font-size: 2rem; color: darkorange; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.python.title }} <i class="bi bi-code-slash"
+                    style="font-size: 2rem; color: darkorange; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.python.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- C++ -->
-        <div id="cpp-modal" class="custom-modal">
+    <!-- C++ -->
+    <div id="cpp-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('cpp-modal')">&times;</span>
-            <h3>{{ content.subjects.cpp.title }} <i class="bi bi-code" style="font-size: 2rem; color: darkcyan; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.cpp.title }} <i class="bi bi-code"
+                    style="font-size: 2rem; color: darkcyan; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.cpp.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Trading -->
-        <div id="trading-modal" class="custom-modal">
+    <!-- Trading -->
+    <div id="trading-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('trading-modal')">&times;</span>
-        <h3>{{ content.subjects.trading.title }} <i class="bi bi-graph-up-arrow rotate-icon" style="font-size: 2rem; color: seagreen; margin-left: 1rem;"></i></h3>            
-        <p>{{ content.subjects.trading.desc }}</p>
+            <h3>{{ content.subjects.trading.title }} <i class="bi bi-graph-up-arrow rotate-icon"
+                    style="font-size: 2rem; color: seagreen; margin-left: 1rem;"></i></h3>
+            <p>{{ content.subjects.trading.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Estadística -->
-        <div id="estadistica-modal" class="custom-modal">
+    <!-- Estadística -->
+    <div id="estadistica-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('estadistica-modal')">&times;</span>
-            <h3>{{ content.subjects.estadistica.title }} <i class="bi bi-bar-chart" style="font-size: 2rem; color: purple; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.estadistica.title }} <i class="bi bi-bar-chart"
+                    style="font-size: 2rem; color: purple; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.estadistica.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Probabilitat -->
-        <div id="probabilitat-modal" class="custom-modal">
+    <!-- Probabilitat -->
+    <div id="probabilitat-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('probabilitat-modal')">&times;</span>
-            <h3>{{ content.subjects.probabilitat.title }} <i class="bi bi-dice-3" style="font-size: 2rem; color: darkviolet; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.probabilitat.title }} <i class="bi bi-dice-3"
+                    style="font-size: 2rem; color: darkviolet; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.probabilitat.desc }}</p>
         </div>
-        </div>
+    </div>
 
-        <!-- Desenvolupament de apps -->
-        <div id="apps-modal" class="custom-modal">
+    <!-- Desenvolupament de apps -->
+    <div id="apps-modal" class="custom-modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('apps-modal')">&times;</span>
-            <h3>{{ content.subjects.apps.title }} <i class="bi bi-phone" style="font-size: 2rem; color: teal; margin-left: 1rem;"></i></h3>
+            <h3>{{ content.subjects.apps.title }} <i class="bi bi-phone"
+                    style="font-size: 2rem; color: teal; margin-left: 1rem;"></i></h3>
             <p>{{ content.subjects.apps.desc }}</p>
         </div>
-        </div>
+    </div>
 
     </section>
     <!-- 🔹 Nova secció: Reforç -->
     <section id="reforç">
-    <h2 class="w3-center w3-padding-32">{{ content.reforç.title }} <i class="bi bi-lightning-charge" style="color: orange;"></i></h2>
-    <p >{{ content.reforç.p1 }}</p>
-    <p class="descripcio">{{ content.reforç.p2 }}</p>
-    <ol class="descripcio">
-        <li>{{ content.reforç.steps[0] }}</li>
-        <li>{{ content.reforç.steps[1] }}</li>
-        <li>{{ content.reforç.steps[2] }}</li>
-        <li>{{ content.reforç.steps[3] }}</li>
-        <li>{{ content.reforç.steps[4] }}</li>
-    </ol>
-    <br>
-    <p><b>{{ content.reforç.target.nom }}: </b> {{ content.reforç.target.valor }}</p>
-    <p class="w3-center">
-        <b>{{ content.reforç.modalitat.nom }}:</b> {{ content.reforç.modalitat.valor }}
-    </p>    
+        <h2 class="w3-center w3-padding-32">{{ content.reforç.title }} <i class="bi bi-lightning-charge"
+                style="color: orange;"></i></h2>
+        <p>{{ content.reforç.p1 }}</p>
+        <p class="descripcio">{{ content.reforç.p2 }}</p>
+        <ol class="descripcio">
+            <li>{{ content.reforç.steps[0] }}</li>
+            <li>{{ content.reforç.steps[1] }}</li>
+            <li>{{ content.reforç.steps[2] }}</li>
+            <li>{{ content.reforç.steps[3] }}</li>
+            <li>{{ content.reforç.steps[4] }}</li>
+        </ol>
+        <br>
+        <p><b>{{ content.reforç.target.nom }}: </b> {{ content.reforç.target.valor }}</p>
+        <p class="w3-center">
+            <b>{{ content.reforç.modalitat.nom }}:</b> {{ content.reforç.modalitat.valor }}
+        </p>
 
     </section>
 
     <!-- estiu -->
     <section id="estiu" class="justificat">
         <h2 id="h2estiu" class="w3-center w3-padding-32">{{ content.estiu.title }} </h2>
-    <p >{{ content.estiu.p1 }}</p>
-    <p class="estiu">{{ content.estiu.p2 }}
-    </p>
-    <div class="exemples-accordion">
-     {% for ex in content.estiu.exemples %}
-         <details class="">
-        <summary class="examples w3-center"><strong>{{ ex.titol }}</strong></summary>
-        <p>{{ ex.descripcio | safe }}</p>
-        </details>
-     {% endfor %}
-     </div>
-     <p class="estiu">{{ content.estiu.p3 }}</p>
-    
-    <ul class="justificat" id="curs_juliol">
-        <li>{{ content.estiu.info[0] }}</li>
-        <li>{{ content.estiu.info[1] }}</li>
-        <li>{{ content.estiu.info[2] }}</li>
-        <li>{{ content.estiu.info[3] }}</li>
-        <li>{{ content.estiu.info[4] }}</li>
-        <li>{{ content.estiu.info[5] }}</li>
-    </ul>
-    <br>
-    <p class="w3-center"><b>{{ content.estiu.target.nom }}: </b> {{ content.estiu.target.valor }}</p>
-    <p class="w3-center">
-        <b>{{ content.estiu.modalitat.nom }}:</b> {{ content.estiu.modalitat.valor }}
-    </p>    
+        <p>{{ content.estiu.p1 }}</p>
+        <p class="estiu">{{ content.estiu.p2 }}
+        </p>
+        <div class="exemples-accordion">
+            {% for ex in content.estiu.exemples %}
+            <details class="">
+                <summary class="examples w3-center"><strong>{{ ex.titol }}</strong></summary>
+                <p>{{ ex.descripcio | safe }}</p>
+            </details>
+            {% endfor %}
+        </div>
+        <p class="estiu">{{ content.estiu.p3 }}</p>
 
-</section>
+        <ul class="justificat" id="curs_juliol">
+            <li>{{ content.estiu.info[0] }}</li>
+            <li>{{ content.estiu.info[1] }}</li>
+            <li>{{ content.estiu.info[2] }}</li>
+            <li>{{ content.estiu.info[3] }}</li>
+            <li>{{ content.estiu.info[4] }}</li>
+            <li>{{ content.estiu.info[5] }}</li>
+        </ul>
+        <br>
+        <p class="w3-center"><b>{{ content.estiu.target.nom }}: </b> {{ content.estiu.target.valor }}</p>
+        <p class="w3-center">
+            <b>{{ content.estiu.modalitat.nom }}:</b> {{ content.estiu.modalitat.valor }}
+        </p>
+
+    </section>
 
     <!-- ampliació -->
-<section id="amplia" class="justificat">
-    <h2 class="w3-center w3-padding-32">{{ content.ampliacio.title }} <i class="bi bi-layers" style="color:rgb(23, 76, 189)"></i> </h2>
+    <section id="amplia" class="justificat">
+        <h2 class="w3-center w3-padding-32">{{ content.ampliacio.title }} <i class="bi bi-layers"
+                style="color:rgb(23, 76, 189)"></i> </h2>
 
-    <p>{{ content.ampliacio.p1 }}</p>
-    
-    <br>
-    <div class="exemples-accordion">
-    <details class="">
-        <summary class="examples w3-center"><strong>{{ content.ampliacio.summary1 }}</strong></summary>
-        <ol class="descripcio">
-        {% for assignatura in content.ampliacio.assignatures %}
-        <li>{{ assignatura }}</li>
-        {% endfor %}
-    </ol>
+        <p>{{ content.ampliacio.p1 }}</p>
 
-        <p class="descripcio">{{ content.ampliacio.p2 | safe}}</p>
-        <p class="descripcio">{{ content.ampliacio.p3 | safe}}</p>
-        </details>
-</div>
-    
+        <br>
+        <div class="exemples-accordion">
+            <details class="">
+                <summary class="examples w3-center"><strong>{{ content.ampliacio.summary1 }}</strong></summary>
+                <ol class="descripcio">
+                    {% for assignatura in content.ampliacio.assignatures %}
+                    <li>{{ assignatura }}</li>
+                    {% endfor %}
+                </ol>
 
-    
-    <p class="w3-center">
-        <b>{{ content.ampliacio.target.nom }}:</b> {{ content.ampliacio.target.valor }}
-    </p>
-    <p class="w3-center">
-        <b>{{ content.ampliacio.modalitat.nom }}:</b> {{ content.ampliacio.modalitat.valor }}
-    </p>
+                <p class="descripcio">{{ content.ampliacio.p2 | safe}}</p>
+                <p class="descripcio">{{ content.ampliacio.p3 | safe}}</p>
+            </details>
+        </div>
 
-    <div class="exemples-accordion">
-    <details class="">
-        <summary class="examples w3-center"><strong>{{ content.ampliacio.summary2 }}</strong></summary>
-        
-        <ol class="descripcio">
-            {% for step in content.ampliacio.steps %}
-            <li>{{ step | safe }}</li>
-            {% endfor %}
-        </ol>
-        </details>
-</div>
-</section>
+
+
+        <p class="w3-center">
+            <b>{{ content.ampliacio.target.nom }}:</b> {{ content.ampliacio.target.valor }}
+        </p>
+        <p class="w3-center">
+            <b>{{ content.ampliacio.modalitat.nom }}:</b> {{ content.ampliacio.modalitat.valor }}
+        </p>
+
+        <div class="exemples-accordion">
+            <details class="">
+                <summary class="examples w3-center"><strong>{{ content.ampliacio.summary2 }}</strong></summary>
+
+                <ol class="descripcio">
+                    {% for step in content.ampliacio.steps %}
+                    <li>{{ step | safe }}</li>
+                    {% endfor %}
+                </ol>
+            </details>
+        </div>
+    </section>
 
 
     <!-- equip -->
     <section id="equip">
-    <!-- 🔹 Nova secció: Equip -->
-    <h2 class="w3-center w3-padding-32">Equip</h2>
+        <!-- 🔹 Nova secció: Equip -->
+        <h2 class="w3-center w3-padding-32">Equip</h2>
 
-    
 
-        {% for profe in content.equip.membres %}        
-         {% if loop.index0 % 2 == 0 %}
+
+        {% for profe in content.equip.membres %}
+        {% if loop.index0 % 2 == 0 %}
         <div class="w3-row-padding w3-padding-16">
-        {% endif %}
-        <div class="w3-half">
-        <!-- {{ profe.nom }} -->
-            <div class="w3-row">
-                <div class="w3-quarter">
-                    <img src="{{ profe.imatge }}" alt="{{ profe.nom }}" class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
-                    <img src="{{ profe.imatge }}" alt="{{ profe.nom }}" class="w3-circle w3-hover-opacity w3-hide-large w3-hide-medium" style="width:40%">
-                </div>
-            
-                <div class="w3-threequarter">
-                    <h3>{{ profe.nom }}</h3>
-                    <p class="w3-text-aqua">{{ profe.rol }}</p>
-                    <ul>
-                        {% for item in profe.descripcio %}
-                        <li>{{ item | safe }}</li>
-                        {% endfor %}
-                    </ul>
+            {% endif %}
+            <div class="w3-half">
+                <!-- {{ profe.nom }} -->
+                <div class="w3-row">
+                    <div class="w3-quarter">
+                        <img src="{{ profe.imatge }}" alt="{{ profe.nom }}"
+                            class="w3-hide-small w3-circle w3-hover-opacity" style="width:100%">
+                        <img src="{{ profe.imatge }}" alt="{{ profe.nom }}"
+                            class="w3-circle w3-hover-opacity w3-hide-large w3-hide-medium" style="width:40%">
+                    </div>
+
+                    <div class="w3-threequarter">
+                        <h3>{{ profe.nom }}</h3>
+                        <p class="w3-text-aqua">{{ profe.rol }}</p>
+                        <ul>
+                            {% for item in profe.descripcio %}
+                            <li>{{ item | safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% if loop.index0 % 2 == 1 %}
+            {% if loop.index0 % 2 == 1 %}
         </div>
         {% endif %}
-        
+
         {% endfor %}
-        
-    
+
+
     </section>
-    
+
     <!-- ancla per recursos didàctics -->
     <section id="recursos"></section>
 
@@ -362,45 +391,135 @@
     </section>
 
     <section id="contacte">
-    <div class="w3-content" style="max-width:600px; margin: 0 auto;">
-        <section style="text-align: center; margin-top: 40px; font-family: sans-serif;">
-        <h2 class="w3-center" style="margin-bottom: 10px;">Contacte</h2>
-        <p >
-            <i class="bi bi-telephone-fill" style="margin-right: 6px;"></i>
-            <a href="tel:+34611648478" style="text-decoration: none; color: #333;">611 648 478</a>
-        </p>
-        <p >
-            <i class="bi bi-telephone-fill" style="margin-right: 6px;"></i>
-            <a href="tel:+34640669010" style="text-decoration: none; color: #333;">640 669 010</a>
-        </p>
-        
-        <p >
-            <i class="bi bi-envelope-fill" style="margin-right: 6px;"></i>
-            <a href="mailto:ceduoda@gmail.com" style="text-decoration: none; color: #333;">ceduoda@gmail.com</a>
-        </p>
-        </section>
+        <div class="w3-content" style="max-width:600px; margin: 0 auto;">
+            <section style="text-align: center; margin-top: 40px; font-family: sans-serif;">
+                <h2 class="w3-center" style="margin-bottom: 10px;">Contacte</h2>
+                <p>
+                    <i class="bi bi-telephone-fill" style="margin-right: 6px;"></i>
+                    <a href="tel:+34611648478" style="text-decoration: none; color: #333;">611 648 478</a>
+                </p>
+                <p>
+                    <i class="bi bi-telephone-fill" style="margin-right: 6px;"></i>
+                    <a href="tel:+34640669010" style="text-decoration: none; color: #333;">640 669 010</a>
+                </p>
+
+                <p>
+                    <i class="bi bi-envelope-fill" style="margin-right: 6px;"></i>
+                    <a href="mailto:ceduoda@gmail.com" style="text-decoration: none; color: #333;">ceduoda@gmail.com</a>
+                </p>
+            </section>
     </section>
     </div>
-    
-    <section id="follow">
-    <h2>Segueix-nos a Instagram</h2>
-    <div class="insta-container">
-    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Centre D&#39;estudis Duoda (@ce.duoda)</a></p></div></blockquote>
 
-        <div class="footer-info">
-        <img src="static/images/logo_9.png" alt="Logo CE duoda">
-        <div>
-            Centre d'estudis Duoda
-            <a href="https://www.google.com/maps/place/Carrer+Duoda,+21,+08020+Barcelona" target="_blank" rel="noopener noreferrer">
-             <i class="bi bi-geo-alt-fill"></i> Carrer Duoda 21, 08020 Barcelona
-            </a>
-        </div>
-        </div>
+    <section id="follow">
+        <h2>Segueix-nos a Instagram</h2>
+        <div class="insta-container">
+            <blockquote class="instagram-media" data-instgrm-captioned
+                data-instgrm-permalink="https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&amp;utm_campaign=loading"
+                data-instgrm-version="14"
+                style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                <div style="padding:16px;"> <a
+                        href="https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
+                        target="_blank">
+                        <div style=" display: flex; flex-direction: row; align-items: center;">
+                            <div
+                                style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
+                            </div>
+                            <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                                <div
+                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
+                                </div>
+                                <div
+                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 19% 0;"></div>
+                        <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px"
+                                height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg"
+                                xmlns:xlink="https://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                                        <g>
+                                            <path
+                                                d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg></div>
+                        <div style="padding-top: 8px;">
+                            <div
+                                style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
+                                View this post on Instagram</div>
+                        </div>
+                        <div style="padding: 12.5% 0;"></div>
+                        <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                            <div>
+                                <div
+                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
+                                </div>
+                                <div
+                                    style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
+                                </div>
+                                <div
+                                    style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
+                                </div>
+                            </div>
+                            <div style="margin-left: 8px;">
+                                <div
+                                    style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
+                                </div>
+                                <div
+                                    style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
+                                </div>
+                            </div>
+                            <div style="margin-left: auto;">
+                                <div
+                                    style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
+                                </div>
+                                <div
+                                    style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
+                                </div>
+                                <div
+                                    style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                            <div
+                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
+                            </div>
+                            <div
+                                style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
+                            </div>
+                        </div>
+                    </a>
+                    <p
+                        style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+                        <a href="https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&amp;utm_campaign=loading"
+                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
+                            target="_blank">A post shared by Centre D&#39;estudis Duoda (@ce.duoda)</a></p>
+                </div>
+            </blockquote>
+
+            <div class="footer-info">
+                <img src="static/images/logo_9.png" alt="Logo CE duoda">
+                <div>
+                    Centre d'estudis Duoda
+                    <a href="https://www.google.com/maps/place/Carrer+Duoda,+21,+08020+Barcelona" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="bi bi-geo-alt-fill"></i> Carrer Duoda 21, 08020 Barcelona
+                    </a>
+                </div>
+            </div>
 
     </section>
 
     <script async src="//www.instagram.com/embed.js"></script>
-    
+
     <!-- Script del teu efecte de màquina d'escriure -->
     <script src="/static/js/typewriting.js"></script>
     <script src="/static/js/modals.js"></script>
@@ -410,4 +529,5 @@
     <script src="/static/js/registre_clics.js"></script>
 
 </body>
+
 </html>
