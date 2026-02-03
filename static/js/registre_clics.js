@@ -1,5 +1,5 @@
 let scroll_max = 0;
-let ultima_pagina = "inici";   // 👈 ja comencem a la principal
+let ultima_pagina = pagina_nom || "inici";   // 👈 ja comencem a la principal
 let ultim_temps = Date.now();
 
 window.addEventListener("scroll", () => {
@@ -10,8 +10,13 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-    enviarVisita(ultima_pagina); // envia "pag_principal"
-    ultima_pagina="pag_principal";
+    if (typeof pagina_nom !== 'undefined') {
+        enviarVisita(pagina_nom);
+        ultima_pagina = pagina_nom;
+    } else {
+        enviarVisita(ultima_pagina); // envia "inici"
+        ultima_pagina = "pag_principal";
+    }
     ultim_temps = Date.now();
 });
 

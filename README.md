@@ -103,3 +103,42 @@ pagina web del centre d'estudis duoda
     └── veure_visites.py
 
     7 directories, 35 files
+
+
+# Instalar numpy a servidor antic.
+
+✅ Pla net i segur
+
+1️⃣ Elimina l’entorn trencat:
+
+cd /var/www/ceduoda
+rm -rf envi
+
+
+2️⃣ Crea entorn nou:
+
+python3 -m venv envi
+source envi/bin/activate
+pip install --upgrade pip setuptools wheel
+
+
+3️⃣ Instal·la versions modernes (amb wheels):
+
+pip3 install "numpy<2.0,>=1.26.0"
+
+pip3 install pandas matplotlib flask gunicorn
+
+
+⚠️ NO posis --no-binary
+
+💡 Per què ara funcionarà?
+
+Les versions modernes:
+
+numpy ≥2.x
+
+pandas recents
+
+matplotlib recents
+
+👉 ja tenen wheels per Python 3.12 → no compilen → no tarden hores → no pete
