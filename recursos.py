@@ -243,9 +243,6 @@ def recursos_edit(recurso_id):
 
 @bp.route("/recursos/pissarres")
 def pissarra_list():
-    if "user_id" not in session:
-        return redirect(url_for("recursos.recursos_login"))
-        
     lang = get_current_lang()
     content = load_translation(lang)
     sess = Session()
@@ -259,22 +256,27 @@ def pissarra_list():
         subqueryload(Pissarra.shared_users)
     )
     
-    if user_role != 'admin':
-        q = q.filter(
-            or_(
-                Pissarra.uploader_id == current_user_id,
-                Pissarra.shared_users.any(id=current_user_id),
-                Pissarra.is_public == True
+    if current_user_id:
+        if user_role != 'admin':
+            q = q.filter(
+                or_(
+                    Pissarra.uploader_id == current_user_id,
+                    Pissarra.shared_users.any(id=current_user_id),
+                    Pissarra.is_public == True
+                )
             )
-        )
+    else:
+        q = q.filter(Pissarra.is_public == True)
         
     boards = q.order_by(Pissarra.updated_at.desc()).all()
     
-    # Get all users for sharing dropdown
-    all_users = sess.query(User).order_by(User.username).all()
+    # Get all users for sharing dropdown (only if logged in)
+    all_users = []
+    if current_user_id:
+        all_users = sess.query(User).order_by(User.username).all()
 
     sess.close()
-    user = {"id": session.get("user_id"), "username": session.get("username"), "role": session.get("role")}
+    user = {"id": current_user_id, "username": session.get("username"), "role": user_role}
     return render_template("pissarra_list.html", boards=boards, user=user, all_users=all_users, lang=lang, content=content)
 
 @bp.route("/recursos/pissarres/nova", methods=["POST"])
@@ -310,24 +312,25 @@ def pissarra_nova():
 
 @bp.route("/recursos/pissarres/editor/<int:board_id>")
 def pissarra_editor(board_id):
-    if "user_id" not in session:
-        return redirect(url_for("recursos.recursos_login"))
     sess = Session()
     b = sess.query(Pissarra).get(board_id)
     if not b:
         sess.close(); return abort(404)
         
     # Check permissions
-    current_user_id = session["user_id"]
+    current_user_id = session.get("user_id")
     is_admin = session.get("role") == 'admin'
-    is_owner = b.uploader_id == current_user_id
-    is_shared = any(u.id == current_user_id for u in b.shared_users)
+    is_owner = b.uploader_id == current_user_id if current_user_id else False
+    is_shared = any(u.id == current_user_id for u in b.shared_users) if current_user_id else False
     is_public = b.is_public
     
     if not (is_admin or is_owner or is_shared or is_public):
         sess.close()
-        flash("No tens permís per veure aquesta pissarra.", "danger")
-        return redirect(url_for("recursos.pissarra_list"))
+        if current_user_id:
+            flash("No tens permís per veure aquesta pissarra.", "danger")
+            return redirect(url_for("recursos.pissarra_list"))
+        else:
+            return abort(403)  # Or redirect to login
 
     p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
     cdata = "{}"
@@ -336,7 +339,8 @@ def pissarra_editor(board_id):
     sess.close()
     l = get_current_lang()
     cnt = load_translation(l)
-    return render_template("pissarra_editor.html", board=b, canvas_data=cdata, lang=l, content=cnt, is_owner=(is_owner or is_admin))
+    can_edit = current_user_id and (is_admin or is_owner or is_shared or is_public)
+    return render_template("pissarra_editor.html", board=b, canvas_data=cdata, lang=l, content=cnt, is_owner=is_owner or is_admin, can_edit=can_edit)
 
 @bp.route("/recursos/pissarres/guardar/<int:board_id>", methods=["POST"])
 def pissarra_guardar(board_id):
@@ -346,7 +350,7 @@ def pissarra_guardar(board_id):
     b = sess.query(Pissarra).get(board_id)
     if not b: sess.close(); return abort(404)
     
-    # Check permissions (Shared users and public CAN edit/save)
+    # Check permissions (Owner, admin, shared, or public can edit/save)
     current_user_id = session["user_id"]
     is_admin = session.get("role") == 'admin'
     is_owner = b.uploader_id == current_user_id
