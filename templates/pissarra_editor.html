@@ -362,6 +362,15 @@
                 isHistoryLocked = true;
                 canvas.loadFromJSON(boardData, function () {
                     isHistoryLocked = false;
+                    
+                    // IMPORTANT: Assignar IDs a tots els objectes carregats del servidor
+                    // Perquè en saveBoard() puguem saber quin venen del servidor i quin són nous
+                    canvas.getObjects().forEach((obj, idx) => {
+                        if (!obj.ceduodaId) {
+                            obj.ceduodaId = 'server_' + idx + '_' + Math.random().toString(36).substring(7);
+                        }
+                    });
+                    
                     onLoaded();
                 });
                 loaded = true;
@@ -651,25 +660,92 @@
         {% endif %}
 
         function saveBoard() {
-            const jsonData = canvas.toJSON();
-            fetch("{{ url_for('recursos.pissarra_guardar', board_id=board.id) }}", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(jsonData)
+            // 1. Primer, recuperar els IDs dels objectes actuals (ABANS de toJSON)
+            const objectIdMap = {};  // Maps position/index to ceduodaId
+            canvas.getObjects().forEach((obj, idx) => {
+                objectIdMap[idx] = obj.ceduodaId || null;
+            });
+            
+            // 2. Guardar els canvis actuals de l'usuari temporalment
+            const myChanges = canvas.toJSON();
+            
+            // 3. Re-assignar els IDs als objectes serialitzats
+            myChanges.objects.forEach((obj, idx) => {
+                if (objectIdMap[idx]) {
+                    obj.ceduodaId = objectIdMap[idx];  // Restaurar ID del servidor
+                } else if (!obj.ceduodaId) {
+                    obj.ceduodaId = 'local_' + Date.now() + '_' + idx;  // ID local nou
+                }
+            });
+            
+            // 4. Carregar l'últim estat del servidor
+            fetch("/recursos/pissarres/get-data/{{ board.id }}", {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
             })
                 .then(res => res.json())
-                .then(data => {
-                    if (data.status === 'ok') {
-                        // Notificació visual subtil en comptes de alert si és possible
-                        const btn = document.querySelector('.save-btn');
-                        const originalText = btn.innerHTML;
-                        btn.innerHTML = '<i class="bi bi-check-lg"></i> Guardat!';
-                        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
-                    }
+                .then(serverData => {
+                    // 5. Combinar els canvis: mantenir els meus, afegir els nous del servidor
+                    const serverObjects = serverData.objects || [];
+                    
+                    // Assignar IDs als objectes del servidor que no els tinguin
+                    serverObjects.forEach((obj, idx) => {
+                        if (!obj.ceduodaId) {
+                            obj.ceduodaId = 'server_' + idx;
+                        }
+                    });
+                    
+                    // Crear mapa dels objectes meus per ID
+                    const myMap = {};
+                    myChanges.objects.forEach(obj => {
+                        myMap[obj.ceduodaId] = true;  // només necessitem marcar que existeix
+                    });
+                    
+                    // Afegir objectes del servidor que no tinc
+                    serverObjects.forEach(serverObj => {
+                        if (!myMap[serverObj.ceduodaId]) {
+                            // Objecte nou del servidor que no tenim localment, afegir-lo
+                            myChanges.objects.push(serverObj);
+                        }
+                    });
+                    
+                    // 4. Guardar el resultat combinat al servidor
+                    fetch("{{ url_for('recursos.pissarra_guardar', board_id=board.id) }}", {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(myChanges)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.status === 'ok') {
+                                // Recarregar el canvas amb l'estat final combinat (incloent canvis de altres pestanyes)
+                                isHistoryLocked = true;
+                                canvas.loadFromJSON(myChanges, function() {
+                                    isHistoryLocked = false;
+                                    // Re-assignar IDs als objectes carregats
+                                    canvas.getObjects().forEach((obj, idx) => {
+                                        if (!obj.ceduodaId) {
+                                            obj.ceduodaId = 'server_' + idx + '_' + Math.random().toString(36).substring(7);
+                                        }
+                                    });
+                                    canvas.renderAll();
+                                });
+                                
+                                // Notificació visual
+                                const btn = document.querySelector('.save-btn');
+                                const originalText = btn.innerHTML;
+                                btn.innerHTML = '<i class="bi bi-check-lg"></i> Guardat!';
+                                setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+                            }
+                        })
+                        .catch(err => {
+                            console.error("Error guardant:", err);
+                            alert("Error al guardar.");
+                        });
                 })
                 .catch(err => {
-                    console.error("Error guardant:", err);
-                    alert("Error al guardar.");
+                    console.error("Error actualitzant desde servidor:", err);
+                    alert("Error al sincronitzar des del servidor.");
                 });
         }
 

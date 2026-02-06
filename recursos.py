@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session, current_app, send_from_directory, abort
+from flask import Blueprint, render_template, request, redirect, url_for, flash, session, current_app, send_from_directory, abort, jsonify
 from sqlalchemy.orm import sessionmaker, joinedload, subqueryload
 from sqlalchemy import or_
 from werkzeug.utils import secure_filename
@@ -341,6 +341,38 @@ def pissarra_editor(board_id):
     cnt = load_translation(l)
     can_edit = current_user_id and (is_admin or is_owner or is_shared or is_public)
     return render_template("pissarra_editor.html", board=b, canvas_data=cdata, lang=l, content=cnt, is_owner=is_owner or is_admin, can_edit=can_edit)
+
+@bp.route("/recursos/pissarres/get-data/<int:board_id>", methods=["GET"])
+def pissarra_get_data(board_id):
+    """Retorna el JSON actual de la pissarra per a sincronització"""
+    if "user_id" not in session:
+        return abort(403)
+    
+    sess = Session()
+    b = sess.query(Pissarra).get(board_id)
+    if not b:
+        sess.close()
+        return abort(404)
+    
+    # Check permissions
+    current_user_id = session.get("user_id")
+    is_admin = session.get("role") == 'admin'
+    is_owner = b.uploader_id == current_user_id
+    is_shared = any(u.id == current_user_id for u in b.shared_users)
+    is_public = b.is_public
+    
+    if not (is_admin or is_owner or is_shared or is_public):
+        sess.close()
+        return abort(403)
+    
+    p = os.path.join(STATIC_PISSARRES_DIR, b.filename)
+    cdata = {"objects": []}
+    if os.path.exists(p):
+        with open(p, "r") as f:
+            cdata = json.load(f)
+    
+    sess.close()
+    return jsonify(cdata)
 
 @bp.route("/recursos/pissarres/guardar/<int:board_id>", methods=["POST"])
 def pissarra_guardar(board_id):
