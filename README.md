@@ -7,6 +7,9 @@ Afegir la següent linia un cop creat el certificat ssl amb certbot:
 
 ```
 # Línia per executar Flask/WSGI:
+# Activa mode dimoni amb el teu entorn virtual Python
+    WSGIDaemonProcess ceduoda python-home=/var/www/ceduoda/venv python-path=/var/www/ceduoda
+    WSGIProcessGroup ceduoda
     WSGIScriptAlias / /var/www/ceduoda/config.wsgi
 ```
 al fitxer: 
@@ -25,6 +28,11 @@ romanov@mireia77serv:/etc/apache2/sites-available$ more ceduoda.com-le-ssl.conf
    # ServerAlias www.ceduoda.com
 
     DocumentRoot /var/www/ceduoda
+
+    # Activa mode dimoni amb el teu entorn virtual Python
+    WSGIDaemonProcess ceduoda python-home=/var/www/ceduoda/venv python-path=/var/www/ceduoda
+    WSGIProcessGroup ceduoda
+    WSGIScriptAlias / /var/www/ceduoda/config.wsgi
 
     <Directory /var/www/ceduoda>
         Options Indexes FollowSymLinks
