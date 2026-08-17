@@ -1,6 +1,54 @@
 # ceduoda
 pagina web del centre d'estudis duoda
 
+# Afegir wsgi al vh
+
+Afegir la següent linia un cop creat el certificat ssl amb certbot:
+
+```
+# Línia per executar Flask/WSGI:
+    WSGIScriptAlias / /var/www/ceduoda/config.wsgi
+```
+al fitxer: 
+
+```
+ceduoda.com-le-ssl.con
+```
+
+El fitxer ha de quedar una cosa aixi:
+
+```
+romanov@mireia77serv:/etc/apache2/sites-available$ more ceduoda.com-le-ssl.conf 
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+    ServerName ceduoda.com
+   # ServerAlias www.ceduoda.com
+
+    DocumentRoot /var/www/ceduoda
+
+    <Directory /var/www/ceduoda>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/ceduoda_error.log
+    CustomLog ${APACHE_LOG_DIR}/ceduoda_access.log combined
+RewriteEngine on
+# Some rewrite rules in this file were disabled on your HTTPS site,
+# because they have the potential to create redirection loops.
+
+# RewriteCond %{SERVER_NAME} =ceduoda.com [OR]
+# #RewriteCond %{SERVER_NAME} =www.ceduoda.com
+# RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+
+SSLCertificateFile /etc/letsencrypt/live/ceduoda.com/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/ceduoda.com/privkey.pem
+Include /etc/letsencrypt/options-ssl-apache.conf
+</VirtualHost>
+</IfModule>
+```
+
 # Com usar el codi
 
 1. Hi ha un fitxer de python `crea_dades.py` que crea les taules necessàries a la base de dades mysql.
