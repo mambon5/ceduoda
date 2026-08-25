@@ -30,7 +30,7 @@ romanov@mireia77serv:/etc/apache2/sites-available$ more ceduoda.com-le-ssl.conf
     DocumentRoot /var/www/ceduoda
 
     # Activa mode dimoni amb el teu entorn virtual Python
-    WSGIDaemonProcess ceduoda python-home=/var/www/ceduoda/venv python-path=/var/www/ceduoda
+    WSGIDaemonProcess ceduoda python-home=/var/www/ceduoda/envi python-path=/var/www/ceduoda
     WSGIProcessGroup ceduoda
     WSGIScriptAlias / /var/www/ceduoda/config.wsgi
 
@@ -55,6 +55,13 @@ SSLCertificateKeyFile /etc/letsencrypt/live/ceduoda.com/privkey.pem
 Include /etc/letsencrypt/options-ssl-apache.conf
 </VirtualHost>
 </IfModule>
+```
+
+## fer test per veure si funciona:
+
+
+```
+sudo -u www-data /var/www/ceduoda/envi/bin/python3 -c 'import sys; sys.path.insert(0, "/var/www/ceduoda"); from app import app; print("CARREGAT OK")'
 ```
 
 # Com usar el codi
