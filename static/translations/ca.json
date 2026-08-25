@@ -10,6 +10,7 @@
   "menu_estiu": "Estiu",
   "menu_amplia": "Ampliació",
   "menu_equip": "Equip",
+  "menu_duoda": "Qui és Duoda?",
   "menu_contacte": "Contacte",
   "menu_follow": "Segueix-nos",
   "intro_title": "Benvinguts a CE Duoda!",
@@ -174,6 +175,30 @@
       "Veure si l'alumne pot now resoldre les dificultats concretes que s'havien observat inicialment, mitjançant exercicis estretament relacionats amb la dificultat de l'alumne.",
       "Si no es resol satisfactòriament la dificultat de l'alumne, es torna al pas 3, però amb uns exercicis d'un enfoc diferent. Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encarar de diferents formes en matemàtiques. D'una banda podríem posar fraccions senzilles de denominador primer: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara \\[ \\frac{5}{12} - \\frac{7}{18} \\]. Si l'alumne no se'n surt en cap dels casos, podríem optar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau."
     ]
+  },
+  "duoda": {
+    "title": "El nostre nom",
+    "summary": "Qui és Duoda de Septimània? Coneix la nostra història",
+    "h3": "Duoda de Septimània: una dona que va fer de l'educació una eina de vida",
+    "p1": "Al segle IX, en plena Edat Mitjana, viure com a dona amb accés al coneixement no era gens habitual. En aquest context trobem Duoda de Septimània, una noble franca que va viure aproximadament entre els anys 803 i 843 i que va deixar una empremta excepcional en la història de l'educació.",
+    "p2": "Duoda va ser esposa de Bernat de Septimània, un important noble de l'Imperi Carolingi, i mare de dos fills, Guillem i Bernat. La seva vida va estar marcada per les tensions polítiques i familiars del seu temps, però va trobar una manera extraordinària de transmetre els seus coneixements: escrivint.",
+    "p3": "Entre els anys 841 i 843, Duoda va redactar una obra coneguda com el Manual per al meu fill, adreçada al seu fill Guillem. És un dels textos educatius més antics conservats escrits per una dona de l'Europa medieval.",
+    "h4_1": "Una mare que va voler educar el seu fill",
+    "p4": "El que fa especialment interessant Duoda és que no es va limitar a transmetre normes o consells. En el seu llibre parla d'ètica, religió, conducta, responsabilitat, coneixement i de la manera d'actuar correctament davant les dificultats de la vida.",
+    "p5": "Duoda volia que el seu fill aprengués a pensar, a prendre decisions i a convertir-se en una persona responsable. Per això, el seu manual combina reflexions, consells i exercicis que conviden a llegir, memoritzar, reflexionar i aplicar els coneixements a la vida quotidiana.",
+    "p6": "En una època en què l'educació estava principalment reservada a determinats grups socials, el seu text ens mostra una idea molt poderosa: educar no és només transmetre informació, sinó ajudar una persona a créixer.",
+    "h4_2": "El valor d'una veu femenina",
+    "p7": "La importància de Duoda també rau en el fet que va ser una dona escriptora i educadora en un món medieval dominat pels homes.",
+    "p8": "La seva obra ens permet conèixer com una dona del segle IX entenia l'educació, la família, la responsabilitat i el desenvolupament personal. Gràcies al seu llibre, la seva veu ha arribat fins als nostres dies.",
+    "p9": "Duoda no va fundar una escola ni va crear un sistema educatiu com els que coneixem avui. El seu impacte és diferent: va deixar un testimoni excepcional de l'educació medieval i del paper que el coneixement podia tenir en la formació d'una persona.",
+    "h4_3": "Per què Duoda dona nom a la nostra escola?",
+    "p10": "Avui, més de mil anys després, el nom de Duoda continua representant una idea que segueix sent actual: l'educació transforma les persones.",
+    "p11": "A Centre d'Estudis Duoda entenem l'educació com un camí de creixement. No es tracta només d'aprovar un examen, sinó d'entendre, preguntar, raonar, adquirir confiança i aprendre a afrontar nous reptes.",
+    "p12": "Duoda va escriure per ajudar el seu fill a construir el seu propi camí. Nosaltres volem mantenir viu aquest mateix esperit: acompanyar cada alumne en el seu procés d'aprenentatge i donar-li les eines per avançar.",
+    "h4_4": "Més de mil anys després",
+    "p13": "La història de Duoda ens recorda que el coneixement no té data de caducitat.",
+    "p14": "Al segle IX, una mare va escriure un llibre perquè el seu fill pogués aprendre i créixer. Al segle XXI, continuem compartint aquesta mateixa convicció: educar és sembrar coneixement, confiança i futur.",
+    "closing": "Duoda de Septimània: una veu del passat que encara ens parla d'educació."
   },
   "equip": {
     "title": "Equip",

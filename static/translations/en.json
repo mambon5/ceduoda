@@ -10,6 +10,7 @@
   "menu_estiu": "Summer",
   "menu_amplia": "Advanced",
   "menu_equip": "Team",
+  "menu_duoda": "Who is Duoda?",
   "menu_contacte": "Contact",
   "menu_follow": "Follow us",
   "intro_title": "Welcome to CE Duoda!",
@@ -147,6 +148,30 @@
       "Check whether the student can now solve the initially identified difficulties using exercises closely related to those topics.",
       "If the difficulties are not resolved satisfactorily, return to step 3, but with exercises using a different approach. For example, if the difficulty is adding algebraic fractions, we can approach this in several ways. First, try simple fractions with prime denominators: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. If progress is made, move to fractions requiring the least common multiple: \\[ \\frac{5}{12} - \\frac{7}{18} \\]. If there’s still difficulty, use visual aids, like pie charts. The goal is to reframe the problem, not treat the student as incapable."
     ]
+  },
+  "duoda": {
+    "title": "Our Name",
+    "summary": "Who is Duoda of Septimania? Discover our story",
+    "h3": "Duoda of Septimania: a woman who made education a tool for life",
+    "p1": "In the 9th century, in the heart of the Middle Ages, living as a woman with access to knowledge was highly unusual. In this context we find Duoda of Septimania, a Frankish noblewoman who lived approximately between 803 and 843 and who left an exceptional mark on the history of education.",
+    "p2": "Duoda was the wife of Bernard of Septimania, an important noble of the Carolingian Empire, and mother of two sons, William and Bernard. Her life was shaped by the political and family tensions of her time, but she found an extraordinary way to pass on her knowledge: by writing.",
+    "p3": "Between 841 and 843, Duoda wrote a work known as the Handbook for my Son, addressed to her son William. It is one of the oldest surviving educational texts written by a woman in medieval Europe.",
+    "h4_1": "A mother who wanted to educate her son",
+    "p4": "What makes Duoda especially interesting is that she did not simply pass on rules or advice. Her book addresses ethics, religion, conduct, responsibility, knowledge, and how to act correctly in the face of life's difficulties.",
+    "p5": "Duoda wanted her son to learn how to think, make decisions, and become a responsible person. For this reason, her handbook combines reflections, advice, and exercises that invite reading, memorization, reflection, and the application of knowledge to everyday life.",
+    "p6": "At a time when education was mainly reserved for certain social groups, her text conveys a very powerful idea: educating is not just transmitting information, but helping a person grow.",
+    "h4_2": "The value of a female voice",
+    "p7": "Duoda's importance also lies in the fact that she was a female writer and educator in a medieval world dominated by men.",
+    "p8": "Her work allows us to understand how a 9th-century woman perceived education, family, responsibility and personal development. Thanks to her book, her voice has reached us today.",
+    "p9": "Duoda did not found a school or create an educational system as we know them today. Her impact is different: she left an exceptional testimony of medieval education and of the role that knowledge could play in shaping a person.",
+    "h4_3": "Why does Duoda give her name to our school?",
+    "p10": "Today, more than a thousand years later, the name Duoda continues to represent an idea that remains relevant: education transforms people.",
+    "p11": "At Centre d'Estudis Duoda we understand education as a path of growth. It is not just about passing an exam, but about understanding, questioning, reasoning, building confidence, and learning to face new challenges.",
+    "p12": "Duoda wrote to help her son build his own path. We want to keep that same spirit alive: accompanying each student through their learning journey and giving them the tools to move forward.",
+    "h4_4": "More than a thousand years later",
+    "p13": "Duoda's story reminds us that knowledge has no expiry date.",
+    "p14": "In the 9th century, a mother wrote a book so that her son could learn and grow. In the 21st century, we continue to share that same conviction: to educate is to sow knowledge, confidence, and future.",
+    "closing": "Duoda of Septimania: a voice from the past that still speaks to us about education."
   },
   "equip": {
     "title": "Team",

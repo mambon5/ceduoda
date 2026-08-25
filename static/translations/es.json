@@ -10,6 +10,7 @@
   "menu_estiu": "Verano",
   "menu_amplia": "Ampliación",
   "menu_equip": "Equipo",
+  "menu_duoda": "¿Quién es Duoda?",
   "menu_contacte": "Contacto",
   "menu_follow": "Síguenos",
   "intro_title": "¡Bienvenidos a CE Duoda!",
@@ -174,6 +175,30 @@
       "Ver si el alumno puede ahora resolver dichas dificultades mediante ejercicios muy específicos.",
       "Si no se resuelve satisfactoriamente, se vuelve al paso 3 pero con un enfoque diferente. Por ejemplo, si la dificultad es la suma de fracciones algebraicas, se puede abordar de diferentes formas. Primero con fracciones simples como \\[ \\frac{1}{2} + \\frac{2}{3} \\], luego con otras que requieren MCM, como \\[ \\frac{5}{12} - \\frac{7}{18} \\], y si sigue sin entender, se puede recurrir a dibujos de un pastel. El objetivo no es tratar al alumno de torpe, sino reformular el problema hasta que lo entienda."
     ]
+  },
+  "duoda": {
+    "title": "Nuestro nombre",
+    "summary": "¿Quién es Duoda de Septimania? Conoce nuestra historia",
+    "h3": "Duoda de Septimania: una mujer que hizo de la educación una herramienta de vida",
+    "p1": "En el siglo IX, en plena Edad Media, vivir como mujer con acceso al conocimiento no era nada habitual. En este contexto encontramos a Duoda de Septimania, una noble franca que vivió aproximadamente entre los años 803 y 843 y que dejó una huella excepcional en la historia de la educación.",
+    "p2": "Duoda fue esposa de Bernardo de Septimania, un importante noble del Imperio Carolingio, y madre de dos hijos, Guillén y Bernardo. Su vida estuvo marcada por las tensiones políticas y familiares de su época, pero encontró una manera extraordinaria de transmitir sus conocimientos: escribiendo.",
+    "p3": "Entre los años 841 y 843, Duoda redactó una obra conocida como el Manual para mi hijo, dirigida a su hijo Guillén. Es uno de los textos educativos más antiguos conservados escritos por una mujer de la Europa medieval.",
+    "h4_1": "Una madre que quiso educar a su hijo",
+    "p4": "Lo que hace especialmente interesante a Duoda es que no se limitó a transmitir normas o consejos. En su libro habla de ética, religión, conducta, responsabilidad, conocimiento y de cómo actuar correctamente ante las dificultades de la vida.",
+    "p5": "Duoda quería que su hijo aprendiera a pensar, a tomar decisiones y a convertirse en una persona responsable. Por ello, su manual combina reflexiones, consejos y ejercicios que invitan a leer, memorizar, reflexionar y aplicar los conocimientos a la vida cotidiana.",
+    "p6": "En una época en que la educación estaba principalmente reservada a determinados grupos sociales, su texto nos muestra una idea muy poderosa: educar no es solo transmitir información, sino ayudar a una persona a crecer.",
+    "h4_2": "El valor de una voz femenina",
+    "p7": "La importancia de Duoda también reside en que fue una mujer escritora y educadora en un mundo medieval dominado por los hombres.",
+    "p8": "Su obra nos permite conocer cómo una mujer del siglo IX entendía la educación, la familia, la responsabilidad y el desarrollo personal. Gracias a su libro, su voz ha llegado hasta nuestros días.",
+    "p9": "Duoda no fundó una escuela ni creó un sistema educativo como los que conocemos hoy. Su impacto es diferente: dejó un testimonio excepcional de la educación medieval y del papel que el conocimiento podía tener en la formación de una persona.",
+    "h4_3": "¿Por qué Duoda da nombre a nuestra escuela?",
+    "p10": "Hoy, más de mil años después, el nombre de Duoda sigue representando una idea que continúa siendo actual: la educación transforma a las personas.",
+    "p11": "En Centre d'Estudis Duoda entendemos la educación como un camino de crecimiento. No se trata solo de aprobar un examen, sino de entender, preguntar, razonar, adquirir confianza y aprender a afrontar nuevos retos.",
+    "p12": "Duoda escribió para ayudar a su hijo a construir su propio camino. Nosotros queremos mantener vivo ese mismo espíritu: acompañar a cada alumno en su proceso de aprendizaje y darle las herramientas para avanzar.",
+    "h4_4": "Más de mil años después",
+    "p13": "La historia de Duoda nos recuerda que el conocimiento no tiene fecha de caducidad.",
+    "p14": "En el siglo IX, una madre escribió un libro para que su hijo pudiera aprender y crecer. En el siglo XXI, seguimos compartiendo esa misma convicción: educar es sembrar conocimiento, confianza y futuro.",
+    "closing": "Duoda de Septimania: una voz del pasado que aún nos habla de educación."
   },
   "equip": {
     "title": "Equipo",
