@@ -7,7 +7,7 @@ function typeEffect() {
     if (i < text.length) {
         typewriter.innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeEffect, 120);
+        setTimeout(typeEffect, 100);
     }
 }
 
@@ -18,5 +18,5 @@ window.onload = () => {
     setTimeout(() => {
         cursor.style.animation = "none";
         cursor.style.opacity = 0;
-    }, 3000+20); // 5 segs approx
+    }, 3000 + 20); // 5 segs approx
 };

@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
 
@@ -93,7 +95,7 @@
 
     <!-- Header NAVEGACIÓ -->
     <header
-        style="display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background-color: #ffffff; border-bottom: 1px solid #edf2f7;">
+        style="display: flex; align-items: center; justify-content: center; padding: 12px 24px; background-color: #ffffff; border-bottom: 1px solid #edf2f7;">
         <a href="https://g.co/kgs/guiGFC3" target="_blank"
             style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
             <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 42px;">
@@ -137,7 +139,7 @@
     <section class="hero-banner w3-center" id="intro">
         <div class="w3-content" style="max-width: 800px;">
             <p id="hidden_typewriter_title" style="display: none;">{{ content.typewritting_title }}</p>
-            <h1 class="titol-typewriter" style="font-size: 2rem; font-weight: 700; margin-bottom: 15px;">
+            <h1 class="titol-typewriter">
                 <span id="typewriter"></span><span class="cursor">|</span>
             </h1>
             <p style="font-size: 1.1rem; opacity: 0.95; line-height: 1.6;">{{ content.intro_p1 }}</p>
@@ -496,12 +498,12 @@
         </div>
     </footer>
 
-    <script async src="//www.instagram.com/embed.js"></script>
+    <!-- Script del teu efecte de màquina d'escriure -->
+    <script src="/static/js/typewriting.js"></script>
     <script src="/static/js/main.js"></script>
     <script async src="//www.instagram.com/embed.js"></script>
 
-    <!-- Script del teu efecte de màquina d'escriure -->
-    <script src="/static/js/typewriting.js"></script>
+
     <script src="/static/js/modals.js"></script>
     <script src="/static/js/selecc_nav_segons_actiu.js"></script>
     <script src="/static/js/descripcions_estiu.js"></script>

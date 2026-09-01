@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ content.description }}">
+
+    <!-- hreflang per SEO -->
+    <link rel="alternate" hreflang="ca" href="https://nescolam.com/ca" />
+    <link rel="alternate" hreflang="es" href="https://nescolam.com/es" />
+    <link rel="alternate" hreflang="en" href="https://nescolam.com/en" />
+
+    <title>{{ content.title }}</title>
+
+    <!-- Icones i Estils -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="/static/images/logo_10.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 20px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 5px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .btn-phone {
+            background-color: #ffffff;
+            color: #1e3c72;
+        }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+            padding: 20px 0;
+        }
+
+        .subject-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        }
+
+        .subject-card:hover {
+            border-color: #3182ce;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body data-lang="{{ lang }}">
+
+    <!-- Header NAVEGACIÓ -->
+    <header
+        style="display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background-color: #ffffff; border-bottom: 1px solid #edf2f7;">
+        <a href="https://g.co/kgs/guiGFC3" target="_blank"
+            style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 42px;">
+            <div>
+                <h1 style="font-size: 1.1rem; font-weight: 700; margin: 0; color: #2c3e50;">{{ content.header_name }}
+                </h1>
+                <small style="color: #718096;"><i class="bi bi-geo-alt-fill" style="color: #e53e3e;"></i> {{
+                    content.header_address }}</small>
+            </div>
+        </a>
+
+        <button class="menu-toggle" onclick="toggleMenu()"
+            style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&#9776;</button>
+    </header>
+
+    <nav class="side-menu">
+        <ul>
+            <li><a href="#intro">{{ content.menu_home }}</a></li>
+            <li><a href="#reforç">{{ content.menu_reforç }} <i class="bi bi-lightning-charge"
+                        style="color: #ecc94b;"></i></a></li>
+            <li><a href="#estiu">{{ content.menu_estiu }}</a></li>
+            <li><a href="#amplia">{{ content.menu_amplia }} <i class="bi bi-layers" style="color: #63b3ed;"></i></a>
+            </li>
+            <li><a href="#equip">{{ content.menu_equip }}</a></li>
+            <li><a href="#duoda">{{ content.menu_duoda }}</a></li>
+            <li><a href="#contacte">{{ content.menu_contacte }}</a></li>
+            <li><a href="#follow">{{ content.menu_follow }}</a></li>
+            <li><a href="/recursos">{{ content.recursos.title }}</a></li>
+        </ul>
+        <div class="language-switcher">
+            <a href="/ca" data-lang-switch="ca" class="{% if lang == 'ca' %}active{% endif %}"><span
+                    class="fi fi-es-ct"></span></a>
+            <a href="/es" data-lang-switch="es" class="{% if lang == 'es' %}active{% endif %}"><span
+                    class="fi fi-es"></span></a>
+            <a href="/en" data-lang-switch="en" class="{% if lang == 'en' %}active{% endif %}"><span
+                    class="fi fi-us"></span></a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-banner w3-center" id="intro">
+        <div class="w3-content" style="max-width: 800px;">
+            <p id="hidden_typewriter_title" style="display: none;">{{ content.typewritting_title }}</p>
+            <h1 class="titol-typewriter" style="font-size: 2rem; font-weight: 700; margin-bottom: 15px;">
+                <span id="typewriter"></span><span class="cursor">|</span>
+            </h1>
+            <p style="font-size: 1.1rem; opacity: 0.95; line-height: 1.6;">{{ content.intro_p1 }}</p>
+            <p style="font-size: 1rem; opacity: 0.85;">{{ content.intro_p3 }}</p>
+
+            <!-- Botons ràpids de contacte -->
+            <div style="margin-top: 25px;">
+                <a href="https://wa.me/34611648478" target="_blank" class="cta-btn btn-whatsapp"
+                    onclick="enviarVisita('click_whatsapp_hero')">
+                    <i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Directe
+                </a>
+                <a href="tel:+34611648478" class="cta-btn btn-phone" onclick="enviarVisita('click_trucada_hero')">
+                    <i class="bi bi-telephone-fill" style="font-size: 1.1rem;"></i> Truca'ns ara
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓ DE MATÈRIES -->
+    <section class="w3-content" style="max-width: 1000px; padding: 30px 20px;">
+        <h3 class="w3-center" style="font-weight: 600; color: #2d3748; margin-bottom: 20px;">Explora les nostres
+            matèries:</h3>
+
+        <div class="subject-grid">
+            <div class="subject-card" onclick="openModal('matematiques-modal')"><i class="bi bi-calculator"
+                    style="color: #2b6cb0;"></i><br>{{ content.subjects.mates.title }}</div>
+            <div class="subject-card" onclick="openModal('fisica-modal')"><i class="bi bi-gear"
+                    style="color: #3182ce;"></i><br>{{ content.subjects.fisica.title }}</div>
+            <div class="subject-card" onclick="openModal('quimica-modal')"><i class="bi bi-flask"
+                    style="color: #805ad5;"></i><br>{{ content.subjects.quimica.title }}</div>
+            <div class="subject-card" onclick="openModal('catala-modal')"><i class="bi bi-book"
+                    style="color: #c53030;"></i><br>{{ content.subjects.catala.title }}</div>
+            <div class="subject-card" onclick="openModal('castella-modal')"><i class="bi bi-file-text"
+                    style="color: #dd6b20;"></i><br>{{ content.subjects.castella.title }}</div>
+            <div class="subject-card" onclick="openModal('angles-modal')"
+                style="border: 2px solid #3182ce; background: #ebf8ff;"><i class="bi bi-globe"
+                    style="color: #2b6cb0;"></i><br><b>{{ content.subjects.angles.title }}</b></div>
+            <div class="subject-card" onclick="openModal('biologia-modal')"><i class="bi bi-bug"
+                    style="color: #38a169;"></i><br>{{ content.subjects.biologia.title }}</div>
+            <div class="subject-card" onclick="openModal('historia-modal')"><i class="bi bi-bank"
+                    style="color: #d69e2e;"></i><br>{{ content.subjects.historia.title }}</div>
+            <div class="subject-card" onclick="openModal('python-modal')"><i class="bi bi-code-slash"
+                    style="color: #dd6b20;"></i><br>{{ content.subjects.python.title }}</div>
+            <div class="subject-card" onclick="openModal('cpp-modal')"><i class="bi bi-code"
+                    style="color: #319795;"></i><br>{{ content.subjects.cpp.title }}</div>
+            <div class="subject-card" onclick="openModal('trading-modal')"><i class="bi bi-graph-up-arrow"
+                    style="color: #38a169;"></i><br>{{ content.subjects.trading.title }}</div>
+            <div class="subject-card" onclick="openModal('estadistica-modal')"><i class="bi bi-bar-chart"
+                    style="color: #805ad5;"></i><br>{{ content.subjects.estadistica.title }}</div>
+            <div class="subject-card" onclick="openModal('probabilitat-modal')"><i class="bi bi-dice-3"
+                    style="color: #b83280;"></i><br>{{ content.subjects.probabilitat.title }}</div>
+            <div class="subject-card" onclick="openModal('apps-modal')"><i class="bi bi-phone"
+                    style="color: #319795;"></i><br>{{ content.subjects.apps.title }}</div>
+        </div>
+    </section>
+
+    <!-- MODALS -->
+    <div id="matematiques-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('matematiques-modal')">&times;</span>
+            <h3>{{ content.subjects.mates.title }} <i class="bi bi-calculator" style="color: darkblue;"></i></h3>
+            <p>{{ content.subjects.mates.desc }}</p>
+        </div>
+    </div>
+    <div id="fisica-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('fisica-modal')">&times;</span>
+            <h3>{{ content.subjects.fisica.title }} <i class="bi bi-gear" style="color: steelblue;"></i></h3>
+            <p>{{ content.subjects.fisica.desc }}</p>
+        </div>
+    </div>
+    <div id="quimica-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('quimica-modal')">&times;</span>
+            <h3>{{ content.subjects.quimica.title }} <i class="bi bi-flask" style="color: darkmagenta;"></i></h3>
+            <p>{{ content.subjects.quimica.desc }}</p>
+        </div>
+    </div>
+    <div id="catala-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('catala-modal')">&times;</span>
+            <h3>{{ content.subjects.catala.title }} <i class="bi bi-book" style="color: darkred;"></i></h3>
+            <p>{{ content.subjects.catala.desc }}</p>
+        </div>
+    </div>
+    <div id="castella-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('castella-modal')">&times;</span>
+            <h3>{{ content.subjects.castella.title }} <i class="bi bi-file-text" style="color: darkred;"></i></h3>
+            <p>{{ content.subjects.castella.desc }}</p>
+        </div>
+    </div>
+    <div id="angles-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('angles-modal')">&times;</span>
+            <h3>{{ content.subjects.angles.title }} <i class="bi bi-globe" style="color: navy;"></i></h3>
+            <p>{{ content.subjects.angles.desc }}</p>
+            <div style="margin-top: 20px; text-align: center;">
+                <a href="/angles/{{ lang }}" class="w3-button w3-round-large"
+                    style="background-color: #2c3e50; color: white; font-weight: bold; text-decoration: none; padding: 10px 20px;"
+                    onclick="enviarVisita('click_modal_angles_mes_info')">
+                    <i class="bi bi-plus-circle"></i> +Info
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="biologia-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('biologia-modal')">&times;</span>
+            <h3>{{ content.subjects.biologia.title }} <i class="bi bi-bug" style="color: green;"></i></h3>
+            <p>{{ content.subjects.biologia.desc }}</p>
+        </div>
+    </div>
+    <div id="historia-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('historia-modal')">&times;</span>
+            <h3>{{ content.subjects.historia.title }} <i class="bi bi-bank" style="color: green;"></i></h3>
+            <p>{{ content.subjects.historia.desc }}</p>
+        </div>
+    </div>
+    <div id="python-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('python-modal')">&times;</span>
+            <h3>{{ content.subjects.python.title }} <i class="bi bi-code-slash" style="color: darkorange;"></i></h3>
+            <p>{{ content.subjects.python.desc }}</p>
+        </div>
+    </div>
+    <div id="cpp-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('cpp-modal')">&times;</span>
+            <h3>{{ content.subjects.cpp.title }} <i class="bi bi-code" style="color: darkcyan;"></i></h3>
+            <p>{{ content.subjects.cpp.desc }}</p>
+        </div>
+    </div>
+    <div id="trading-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('trading-modal')">&times;</span>
+            <h3>{{ content.subjects.trading.title }} <i class="bi bi-graph-up-arrow" style="color: seagreen;"></i></h3>
+            <p>{{ content.subjects.trading.desc }}</p>
+        </div>
+    </div>
+    <div id="estadistica-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('estadistica-modal')">&times;</span>
+            <h3>{{ content.subjects.estadistica.title }} <i class="bi bi-bar-chart" style="color: purple;"></i></h3>
+            <p>{{ content.subjects.estadistica.desc }}</p>
+        </div>
+    </div>
+    <div id="probabilitat-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('probabilitat-modal')">&times;</span>
+            <h3>{{ content.subjects.probabilitat.title }} <i class="bi bi-dice-3" style="color: darkviolet;"></i></h3>
+            <p>{{ content.subjects.probabilitat.desc }}</p>
+        </div>
+    </div>
+    <div id="apps-modal" class="custom-modal">
+        <div class="modal-content"><span class="close" onclick="closeModal('apps-modal')">&times;</span>
+            <h3>{{ content.subjects.apps.title }} <i class="bi bi-phone" style="color: teal;"></i></h3>
+            <p>{{ content.subjects.apps.desc }}</p>
+        </div>
+    </div>
+
+    <!-- SECCIÓ REFORÇ -->
+    <section id="reforç" class="w3-content" style="max-width: 900px; padding: 40px 20px;">
+        <h2 class="w3-center" style="font-weight: 700; color: #2c3e50;">{{ content.reforç.title }} <i
+                class="bi bi-lightning-charge" style="color: orange;"></i></h2>
+        <p>{{ content.reforç.p1 }}</p>
+        <p class="descripcio">{{ content.reforç.p2 }}</p>
+        <ol class="descripcio">
+            {% for step in content.reforç.steps %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+        <div class="w3-panel w3-light-grey w3-leftbar w3-border-blue w3-padding-16" style="border-radius: 0 8px 8px 0;">
+            <p><b>{{ content.reforç.target.nom }}:</b> {{ content.reforç.target.valor }}</p>
+            <p><b>{{ content.reforç.modalitat.nom }}:</b> {{ content.reforç.modalitat.valor }}</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓ ESTIU -->
+    <section id="estiu" class="w3-content justificat" style="max-width: 900px; padding: 40px 20px;">
+        <h2 class="w3-center" style="font-weight: 700; color: #2c3e50;">{{ content.estiu.title }}</h2>
+        <p>{{ content.estiu.p1 }}</p>
+        <p class="estiu">{{ content.estiu.p2 }}</p>
+        <div class="exemples-accordion">
+            {% for ex in content.estiu.exemples %}
+            <details class="">
+                <summary class="examples w3-center"><strong>{{ ex.titol }}</strong></summary>
+                <p>{{ ex.descripcio | safe }}</p>
+            </details>
+            {% endfor %}
+        </div>
+        <p class="estiu">{{ content.estiu.p3 }}</p>
+
+        <ul class="justificat" id="curs_juliol">
+            {% for info in content.estiu.info %}
+            <li>{{ info }}</li>
+            {% endfor %}
+        </ul>
+        <div class="w3-panel w3-light-grey w3-leftbar w3-border-green w3-padding-16"
+            style="border-radius: 0 8px 8px 0;">
+            <p><b>{{ content.estiu.target.nom }}:</b> {{ content.estiu.target.valor }}</p>
+            <p><b>{{ content.estiu.modalitat.nom }}:</b> {{ content.estiu.modalitat.valor }}</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓ AMPLIACIÓ -->
+    <section id="amplia" class="w3-content justificat" style="max-width: 900px; padding: 40px 20px;">
+        <h2 class="w3-center" style="font-weight: 700; color: #2c3e50;">{{ content.ampliacio.title }} <i
+                class="bi bi-layers" style="color:rgb(23, 76, 189)"></i></h2>
+        <p>{{ content.ampliacio.p1 }}</p>
+
+        <div class="exemples-accordion" style="margin-top: 15px;">
+            <details>
+                <summary class="examples w3-center"><strong>{{ content.ampliacio.summary1 }}</strong></summary>
+                <ol class="descripcio">
+                    {% for assignatura in content.ampliacio.assignatures %}
+                    <li>{{ assignatura }}</li>
+                    {% endfor %}
+                </ol>
+                <p class="descripcio">{{ content.ampliacio.p2 | safe}}</p>
+                <p class="descripcio">{{ content.ampliacio.p3 | safe}}</p>
+            </details>
+        </div>
+
+        <div class="w3-panel w3-light-grey w3-leftbar w3-border-indigo w3-padding-16"
+            style="margin-top: 20px; border-radius: 0 8px 8px 0;">
+            <p><b>{{ content.ampliacio.target.nom }}:</b> {{ content.ampliacio.target.valor }}</p>
+            <p><b>{{ content.ampliacio.modalitat.nom }}:</b> {{ content.ampliacio.modalitat.valor }}</p>
+        </div>
+
+        <div class="exemples-accordion">
+            <details>
+                <summary class="examples w3-center"><strong>{{ content.ampliacio.summary2 }}</strong></summary>
+                <ol class="descripcio">
+                    {% for step in content.ampliacio.steps %}
+                    <li>{{ step | safe }}</li>
+                    {% endfor %}
+                </ol>
+            </details>
+        </div>
+    </section>
+
+    <!-- SECCIÓ EQUIP -->
+    <section id="equip" class="w3-content" style="max-width: 1000px; padding: 40px 20px;">
+        <h2 class="w3-center" style="font-weight: 700; color: #2c3e50; margin-bottom: 30px;">Equip</h2>
+        {% for profe in content.equip.membres %}
+        {% if loop.index0 % 2 == 0 %}
+        <div class="w3-row-padding w3-padding-16">
+            {% endif %}
+            <div class="w3-half" style="margin-bottom: 20px;">
+                <div class="w3-row w3-card-2" style="border-radius: 12px; padding: 15px; background: white;">
+                    <div class="w3-quarter w3-center">
+                        <img src="{{ profe.imatge }}" alt="{{ profe.nom }}" class="w3-circle"
+                            style="width:80px; height:80px; object-fit:cover;">
+                    </div>
+                    <div class="w3-threequarter">
+                        <h3 style="margin-top:0; font-size:1.2rem; color:#2b6cb0;">{{ profe.nom }}</h3>
+                        <p class="w3-text-grey" style="font-weight: bold; margin-bottom: 5px;">{{ profe.rol }}</p>
+                        <ul style="padding-left: 18px; font-size:0.95rem;">
+                            {% for item in profe.descripcio %}
+                            <li>{{ item | safe }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% if loop.index0 % 2 == 1 or loop.last %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </section>
+
+    <!-- SECCIÓ DUODA -->
+    <section id="duoda" class="w3-content justificat" style="max-width: 900px; padding: 40px 20px;">
+        <h2 class="w3-center" style="font-weight: 700; color: #2c3e50;">
+            {{ content.duoda.title }} <i class="bi bi-book-half" style="color: #2c3e50;"></i>
+        </h2>
+        <div class="exemples-accordion" style="max-width: 800px; margin: 0 auto;">
+            <details>
+                <summary class="examples w3-center" style="font-size: 1.1rem; cursor: pointer;">
+                    <strong>{{ content.duoda.summary }}</strong>
+                </summary>
+                <div style="padding: 15px 10px;">
+                    <h3 style="color: #2c3e50; font-size: 1.3rem;">{{ content.duoda.h3 }}</h3>
+                    <div style="text-align: center; margin: 12px 0 18px;">
+                        <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="width: 120px; opacity: 0.85;">
+                    </div>
+                    <p>{{ content.duoda.p1 }}</p>
+                    <p>{{ content.duoda.p2 }}</p>
+                    <p>{{ content.duoda.p3 }}</p>
+                    <h4 style="color: #34495e; font-size: 1.1rem; margin-top: 15px;">{{ content.duoda.h4_1 }}</h4>
+                    <p>{{ content.duoda.p4 }}</p>
+                    <p>{{ content.duoda.p5 }}</p>
+                    <p>{{ content.duoda.p6 }}</p>
+                    <h4 style="color: #34495e; font-size: 1.1rem; margin-top: 15px;">{{ content.duoda.h4_2 }}</h4>
+                    <p>{{ content.duoda.p7 }}</p>
+                    <p>{{ content.duoda.p8 }}</p>
+                    <p>{{ content.duoda.p9 }}</p>
+                    <h4 style="color: #34495e; font-size: 1.1rem; margin-top: 15px;">{{ content.duoda.h4_3 }}</h4>
+                    <p>{{ content.duoda.p10 }}</p>
+                    <p>{{ content.duoda.p11 }}</p>
+                    <p>{{ content.duoda.p12 }}</p>
+                    <h4 style="color: #34495e; font-size: 1.1rem; margin-top: 15px;">{{ content.duoda.h4_4 }}</h4>
+                    <p>{{ content.duoda.p13 }}</p>
+                    <p>{{ content.duoda.p14 }}</p>
+                    <p><strong>{{ content.duoda.closing }}</strong></p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- CONTACTE -->
+    <section id="contacte" style="background: #f7fafc; padding: 50px 20px; border-top: 1px solid #e2e8f0;">
+        <div class="w3-content w3-center" style="max-width:600px;">
+            <h2 style="font-weight: 700; color: #2c3e50; margin-bottom: 15px;">Contacte Directe</h2>
+            <p style="color: #4a5568; margin-bottom: 25px;">Consulta'ns qualsevol dubte per a classes de reforç o
+                ampliació.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                <a href="https://wa.me/34611648478" target="_blank" class="cta-btn btn-whatsapp"
+                    style="width: 100%; max-width: 320px; justify-content: center;"
+                    onclick="enviarVisita('click_whatsapp_footer')">
+                    <i class="bi bi-whatsapp" style="font-size: 1.3rem;"></i> Envia un WhatsApp
+                </a>
+
+                <a href="tel:+34611648478" class="cta-btn"
+                    style="background: #2b6cb0; color: white; width: 100%; max-width: 320px; justify-content: center;"
+                    onclick="enviarVisita('click_trucada_footer')">
+                    <i class="bi bi-telephone-fill"></i> Trucar al 611 64 84 78
+                </a>
+
+                <a href="tel:+34640669010" class="cta-btn"
+                    style="background: #4a5568; color: white; width: 100%; max-width: 320px; justify-content: center;"
+                    onclick="enviarVisita('click_trucada_footer_2')">
+                    <i class="bi bi-telephone-fill"></i> Trucar al 640 66 90 10
+                </a>
+
+                <a href="mailto:ceduoda@gmail.com"
+                    style="margin-top: 15px; color: #4a5568; text-decoration: none; font-weight: bold;">
+                    <i class="bi bi-envelope-fill"></i> ceduoda@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEGUEIX-NOS -->
+    <section id="follow" class="w3-content w3-center" style="padding: 40px 20px;">
+        <h2 style="font-weight: 700; color: #2c3e50; margin-bottom: 25px;">Segueix-nos a Instagram</h2>
+        <div class="insta-container" style="display: flex; justify-content: center;">
+            <blockquote class="instagram-media" data-instgrm-captioned
+                data-instgrm-permalink="https://www.instagram.com/reel/DDFqIAeogQl/?utm_source=ig_embed&amp;utm_campaign=loading"
+                data-instgrm-version="14"
+                style=" background:#FFF; border:0; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin: 1px; max-width:540px; min-width:326px; padding:0; width:100%;">
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="w3-center w3-padding-32" style="background-color: #2c3e50; color: white; margin-top: 40px;">
+        <div class="footer-info" style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+            <img src="/static/images/logo_9.png" alt="Logo CE duoda"
+                style="height: 40px; filter: brightness(0) invert(1);">
+            <div>
+                <p style="margin:0; font-weight: bold;">Centre d'estudis Duoda</p>
+                <small style="opacity: 0.7;">Carrer Duoda 21, Barcelona</small>
+            </div>
+        </div>
+    </footer>
+
+    <script async src="//www.instagram.com/embed.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+
+    <!-- Script del teu efecte de màquina d'escriure -->
+    <script src="/static/js/typewriting.js"></script>
+    <script src="/static/js/modals.js"></script>
+    <script src="/static/js/selecc_nav_segons_actiu.js"></script>
+    <script src="/static/js/descripcions_estiu.js"></script>
+    <script src="/static/js/canvi_idioma.js"></script>
+    <script> const pagina_nom = "inici"; </script>
+    <script src="/static/js/registre_clics.js"></script>
+
+</body>
+
+</html>
