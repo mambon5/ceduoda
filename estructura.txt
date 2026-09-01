@@ -1,0 +1,85 @@
+.
+├── alterar_registres2.py
+├── alterar_registres.py
+├── app.py
+├── config.py
+├── config.wsgi
+├── crea_dades.py
+├── estadistiques.py
+├── estructura.txt
+├── geo.py
+├── .gitignore
+├── models.py
+├── nova_visita.py
+├── __pycache__
+│   ├── config.cpython-312.pyc
+│   ├── crea_dades.cpython-312.pyc
+│   ├── estadistiques.cpython-312.pyc
+│   ├── geo.cpython-312.pyc
+│   ├── models.cpython-312.pyc
+│   └── recursos.cpython-312.pyc
+├── README.md
+├── recursos.py
+├── requirements.txt
+├── static
+│   ├── css
+│   │   ├── style.css
+│   │   └── w3.css
+│   ├── estadistiques
+│   │   ├── dispositius.png
+│   │   ├── evolucio_diaria.png
+│   │   ├── evolucio_setmanal.png
+│   │   ├── histograma_scroll.png
+│   │   ├── idiomes.png
+│   │   ├── scroll_mig_per_pagina.png
+│   │   ├── temps_mig_per_pagina.png
+│   │   ├── temps_total_per_pagina.png
+│   │   ├── visites_dia_setmana.png
+│   │   ├── visites_per_hora.png
+│   │   ├── visites_per_mes.png
+│   │   └── visites_per_pagina.png
+│   ├── images
+│   │   ├── elenap.jpeg
+│   │   ├── logo_10.png
+│   │   ├── logo_9.png
+│   │   ├── marcs.jpg
+│   │   ├── roma.jpg
+│   │   ├── sergi.png
+│   │   └── superficie_backg.jpg
+│   ├── js
+│   │   ├── canvi_idioma.js
+│   │   ├── descripcions_estiu.js
+│   │   ├── modals.js
+│   │   ├── registre_clics.js
+│   │   ├── registre_clics_old.js
+│   │   ├── selecc_nav_segons_actiu.js
+│   │   └── typewriting.js
+│   ├── recursos
+│   │   └── pissarres
+│   │       ├── 1770026028_2.json
+│   │       ├── 1770031251_2.json
+│   │       └── 1770038858_3.json
+│   └── translations
+│       ├── ca copy.json
+│       ├── ca.json
+│       ├── en.json
+│       └── es.json
+├── templates
+│   ├── estadistiques_dashboard.html
+│   ├── estadistiques.html
+│   ├── estadistiques_old.html
+│   ├── index copy 06_2025.html
+│   ├── index copy 08_2025.html
+│   ├── index.html
+│   ├── pissarra_editor.html
+│   ├── pissarra_list.html
+│   ├── recursos_edit.html
+│   ├── recursos.html
+│   ├── recursos_login.html
+│   ├── recursos_upload.html
+│   └── visites.html
+├── update_db.py
+├── visites.csv
+└── visites.db
+
+11 directories, 72 files

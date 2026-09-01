@@ -40,7 +40,7 @@
     },
     "angles": {
       "title": "Anglès",
-      "desc": "Classes d’anglès per a tots els nivells, with emphasis on conversa, gramàtica i vocabulari."
+      "desc": "Classes d’anglès per a tots els nivells, amb èmfasi en conversa, gramàtica i vocabulari."
     },
     "biologia": {
       "title": "Biologia",
@@ -322,5 +322,35 @@
       "tool_grid": "Quadrícula",
       "msg_saved": "Pissarra guardada correctament."
     }
+  },
+  "angles_page": {
+    "btn_inici": "Inici",
+    "hero_badge": "Cursos d'Anglès 2026",
+    "hero_title": "Millora el teu Anglès al Barri de Sant Martí",
+    "hero_subtitle": "Avaluació de nivell gratuïta i sense compromís. Grups reduïts i atenció personalitzada al Carrer Duoda 21.",
+    "btn_whatsapp": "Demana informació per WhatsApp",
+    "btn_truca": "Truca'ns ara",
+    "section_title": "Oferim 3 Modalitats Adaptades a les Teves Necessitats",
+    "reforc_title": "1. Reforç Escolar",
+    "reforc_target": "Alumnes de Primària, ESO i Batxillerat.",
+    "tituls_title": "2. Titulacions Oficials",
+    "tituls_target": "Estudiants i joves per a exàmens Cambridge.",
+    "conversa_title": "3. Conversa per Adults",
+    "conversa_target": "Adults que volen guanyar fluïdesa.",
+    "contact_title": "On Som i Contacte Directe",
+    "btn_reserva": "Reserva la teva Prova de Nivell Gratuïta",
+    "dirigit_a": "Dirigit a:",
+    "reforc_item_1": "Millora de les notes escolars.",
+    "reforc_item_2": "Repàs de gramàtica i vocabulari.",
+    "reforc_item_3": "Preparació per a exàmens de l'escola o institut.",
+    "reforc_item_4": "Seguiment personalitzat.",
+    "tituls_item_1_desc": "(Nivell intermedi).",
+    "tituls_item_2_desc": "(Nivell intermedi-alt).",
+    "tituls_item_3_desc": "(Nivell avançat).",
+    "tituls_item_4": "Simulacres d'examen reals.",
+    "conversa_item_1": "Practica el teu anglès sense vergonya.",
+    "conversa_item_2": "Anglès pràctic per a feina o viatges.",
+    "conversa_item_3": "Grups reduïts per participar al màxim.",
+    "conversa_item_4": "Horaris adaptats."
   }
 }

@@ -180,6 +180,16 @@ def veure_visites():
     sessio.close()
     return render_template("visites.html", visites=visites)
 
+@app.route('/angles')
+@app.route('/angles/<lang_code>')
+def angles(lang_code='ca'):
+    if lang_code not in ['ca', 'es', 'en']:
+        lang_code = 'ca'
+    
+    content = load_translation(lang_code)
+    content["lang_code"] = lang_code
+    
+    return render_template('angles.html', lang=lang_code, content=content)
 
 @app.route('/descarrega_visites')
 def descarrega_visites():

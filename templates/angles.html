@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Classes d'anglès a Sant Martí, Barcelona. Reforç escolar, exàmens oficials B1, B2, C1 i conversa per a adults. Centre d'Estudis Duoda.">
+    <title>Classes d'Anglès a Barcelona - Centre d'Estudis Duoda</title>
+
+    <!-- Llibreries i estils existents del projecte -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/logo_10.png" type="image/png">
+
+    <!-- Enllaços hreflang per a SEO -->
+    <link rel="alternate" hreflang="ca" href="https://ceduoda.com/angles/ca" />
+    <link rel="alternate" hreflang="es" href="https://ceduoda.com/angles/es" />
+    <link rel="alternate" hreflang="en" href="https://ceduoda.com/angles/en" />
+
+    <style>
+        .hero-angles {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.92), rgba(27, 38, 59, 0.95)), url('/static/images/superficie_backg.jpg');
+            background-size: cover;
+            color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 4px solid #f39c12;
+        }
+
+        .cta-button-whatsapp {
+            display: inline-block;
+            background-color: #25D366;
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.15rem;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button-whatsapp:hover {
+            transform: scale(1.04);
+            background-color: #20ba5a;
+        }
+
+        .cta-button-phone {
+            display: inline-block;
+            background-color: #3498db;
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.15rem;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button-phone:hover {
+            transform: scale(1.04);
+            background-color: #2980b9;
+        }
+
+        .card-angles {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #2c3e50;
+            height: 100%;
+        }
+
+        .card-angles h3 {
+            color: #2c3e50;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        .badge-uk {
+            background-color: #e74c3c;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .lang-switcher-angles {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .lang-switcher-angles a {
+            margin-left: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body data-lang="{{ lang }}">
+
+    <!-- Header amb el logo del centre -->
+    <!-- Header amb el logo del centre i opcions de navegació -->
+    <header
+        style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 0; background-color: #fff; border-bottom: 1px solid #eee;">
+
+        <!-- Botó per tornar a l'Inici -->
+        <div style="position: absolute; left: 20px;">
+            <a href="/{{ lang }}" class="w3-button w3-round"
+                style="background-color: #f8f9fa; border: 1px solid #ccc; color: #2c3e50; font-weight: bold; text-decoration: none; padding: 6px 12px; font-size: 0.9rem;"
+                onclick="enviarVisita('click_tornar_inici')">
+                <i class="bi bi-house-door-fill"></i> {{ content.angles_page.btn_inici }}
+            </a>
+        </div>
+
+        <!-- Logotip central -->
+        <a href="https://g.co/kgs/guiGFC3" target="_blank"
+            style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 40px;">
+            <h1
+                style="font-size: 1.2rem; font-weight: 600; margin: 0; font-family: 'Arial Black', Gadget, sans-serif; color: #2c3e50;">
+                Centre d'Estudis Duoda
+            </h1>
+        </a>
+
+        <!-- Selector d'idioma integrat (a la dreta) -->
+        <div class="lang-switcher-angles">
+            <a href="/angles/ca" class="{% if lang == 'ca' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                    class="fi fi-es-ct"></span></a>
+            <a href="/angles/es" class="{% if lang == 'es' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                    class="fi fi-es"></span></a>
+            <a href="/angles/en" class="{% if lang == 'en' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                    class="fi fi-us"></span></a>
+        </div>
+    </header>
+
+    <!-- Hero amb crida a l'acció principal -->
+    <section class="hero-angles">
+        <span class="badge-uk"><i class="bi bi-globe-americas"></i> {{ content.angles_page.hero_badge }}</span>
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin-top: 15px;">{{ content.angles_page.hero_title }}</h1>
+        <p style="font-size: 1.1rem; max-width: 650px; margin: 15px auto;">
+            {{ content.angles_page.hero_subtitle }}
+        </p>
+
+        <!-- Botons de conversió directa -->
+        <div style="margin-top: 25px;">
+            <a href="https://wa.me/34611648478?text=Hola,%20m'agradaria%20demanar%20informació%20sobre%20les%20classes%20d'anglès"
+                target="_blank" class="cta-button-whatsapp" onclick="enviarVisita('click_whatsapp_hero')">
+                <i class="bi bi-whatsapp"></i> {{ content.angles_page.btn_whatsapp }}
+            </a>
+            <a href="tel:+34611648478" class="cta-button-phone" onclick="enviarVisita('click_trucada_hero')">
+                <i class="bi bi-telephone-fill"></i> {{ content.angles_page.btn_truca }}
+            </a>
+        </div>
+    </section>
+
+    <!-- Secció dels 3 tipus de cursos basat en el Flier -->
+    <section class="w3-content" style="max-width: 1200px; padding: 40px 20px;">
+
+        <h2 class="w3-center" style="font-weight: 700; color: #2c3e50; margin-bottom: 35px;">
+            {{ content.angles_page.section_title }}
+        </h2>
+
+        <div class="w3-row-padding">
+            <!-- 1. Reforç Escolar -->
+            <div class="w3-third" style="margin-bottom: 20px;">
+                <div class="card-angles">
+                    <i class="bi bi-backpack-fill" style="font-size: 2.5rem; color: #3498db;"></i>
+                    <h3>{{ content.angles_page.reforc_title }}</h3>
+                    <p><b>{{ content.angles_page.dirigit_a }}</b> {{ content.angles_page.reforc_target }}</p>
+                    <ul style="padding-left: 18px;">
+                        <li>{{ content.angles_page.reforc_item_1 }}</li>
+                        <li>{{ content.angles_page.reforc_item_2 }}</li>
+                        <li>{{ content.angles_page.reforc_item_3 }}</li>
+                        <li>{{ content.angles_page.reforc_item_4 }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 2. Titulacions Oficials -->
+            <div class="w3-third" style="margin-bottom: 20px;">
+                <div class="card-angles" style="border-top-color: #e74c3c;">
+                    <i class="bi bi-award-fill" style="font-size: 2.5rem; color: #e74c3c;"></i>
+                    <h3>{{ content.angles_page.tituls_title }}</h3>
+                    <p><b>{{ content.angles_page.dirigit_a }}</b> {{ content.angles_page.tituls_target }}</p>
+                    <ul style="padding-left: 18px;">
+                        <li><b>B1 PET</b> {{ content.angles_page.tituls_item_1_desc }}</li>
+                        <li><b>B2 FCE</b> {{ content.angles_page.tituls_item_2_desc }}</li>
+                        <li><b>C1 Advanced</b> {{ content.angles_page.tituls_item_3_desc }}</li>
+                        <li>{{ content.angles_page.tituls_item_4 }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 3. Conversa d'Adults -->
+            <div class="w3-third" style="margin-bottom: 20px;">
+                <div class="card-angles" style="border-top-color: #2ecc71;">
+                    <i class="bi bi-chat-dots-fill" style="font-size: 2.5rem; color: #2ecc71;"></i>
+                    <h3>{{ content.angles_page.conversa_title }}</h3>
+                    <p><b>{{ content.angles_page.dirigit_a }}</b> {{ content.angles_page.conversa_target }}</p>
+                    <ul style="padding-left: 18px;">
+                        <li>{{ content.angles_page.conversa_item_1 }}</li>
+                        <li>{{ content.angles_page.conversa_item_2 }}</li>
+                        <li>{{ content.angles_page.conversa_item_3 }}</li>
+                        <li>{{ content.angles_page.conversa_item_4 }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secció de Contacte i Mapa -->
+        <div class="w3-card w3-round-large"
+            style="background-color: #f8f9fa; padding: 30px; margin-top: 20px; text-align: center;">
+            <h3 style="color: #2c3e50; font-weight: 700;">{{ content.angles_page.contact_title }}</h3>
+            <p><i class="bi bi-geo-alt-fill" style="color: #e74c3c;"></i> <b>Centre d'Estudis Duoda:</b> Carrer Duoda
+                21, 08020 Barcelona (Sant Martí / Verneda)</p>
+            <p><i class="bi bi-envelope-fill"></i> Email: <a href="mailto:ceduoda@gmail.com"
+                    style="color:#2c3e50; font-weight:bold;">ceduoda@gmail.com</a></p>
+            <p><i class="bi bi-telephone-fill"></i> Telèfons: <a href="tel:+34611648478"
+                    style="color:#2c3e50; font-weight:bold;">611 648 478</a> / <a href="tel:+34640669010"
+                    style="color:#2c3e50; font-weight:bold;">640 669 010</a></p>
+
+            <div style="margin-top: 20px;">
+                <a href="https://wa.me/34611648478?text=Hola,%20vull%20reservar%20una%20prova%20de%20nivell%20gratuïta"
+                    target="_blank" class="cta-button-whatsapp" onclick="enviarVisita('click_whatsapp_reserva')">
+                    <i class="bi bi-whatsapp"></i> {{ content.angles_page.btn_reserva }}
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-padding-16" style="background-color: #2c3e50; color: white; margin-top: 40px;">
+        <p style="margin: 0; font-size: 0.9rem;">© 2026 Centre d'Estudis Duoda • Carrer Duoda 21, Barcelona</p>
+    </footer>
+
+    <!-- Els teus scripts de seguiment i clics -->
+    <script>
+        const pagina_nom = "landing_angles";
+    </script>
+    <script src="/static/js/registre_clics.js"></script>
+
+</body>
+
+</html>

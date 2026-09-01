@@ -205,3 +205,11 @@ pandas recents
 matplotlib recents
 
 👉 ja tenen wheels per Python 3.12 → no compilen → no tarden hores → no pete
+
+
+# Executar app
+
+```
+python app.py
+```
+
