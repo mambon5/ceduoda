@@ -81,14 +81,14 @@
     "p2": "El nostre mètode:",
     "steps": [
       "Fer una prova per veure on falla més l'alumne",
-      "Crear un programa a mida, que es centra amb exercicis i problemes relacionats amb la dificultat de l'alumne",
+      "Crear un programa a mida, que es centra en exercicis i problemes relacionats amb la dificultat de l'alumne",
       "Després d'unes 6 classes, mirem si l'alumne pot ara resoldre les dificultats concretes que s'havien observat inicialment",
       "Si no es resol satisfactòriament la dificultat de l'alumne, es torna al pas 3, però amb uns exercicis d'un enfoc diferent. Per exemple, si la dificultat de l'alumna és la suma de fraccions algebraiques, aquest tema es pot encarar de diferents formes en matemàtiques. D'una banda podríem posar fraccions senzilles de denominador primer: \\[ \\frac{1}{2} + \\frac{2}{3} \\]. Si l'alumne progressa podem passar a fraccions que requereixin de trobar el MCM, com ara \\[ \\frac{5}{12} - \\frac{7}{18} \\]. Si l'alumne no se'n surt en cap dels casos, podríem optar per repreguntar la suma primera, però usant dibuixos d'un pastís per exemple. L'objectiu quan l'alumne no entén un tema o exercici, és reformular-lo, no tractar l'alumne de babau.",
       "Aquest mètode s'aplica a totes les assignatures: Català, Matemàtiques, Biologia, etc."
     ],
     "target": {
-      "nom": "Públic Objectiu",
-      "valor": "General"
+      "nom": "Nivells Educatius",
+      "valor": "Primària, ESO, Batxillerat i Universitat"
     },
     "modalitat": {
       "nom": "Modalitat",
@@ -135,8 +135,8 @@
       "total d'hores: 30h"
     ],
     "target": {
-      "nom": "Públic Objectiu",
-      "valor": "General"
+      "nom": "Nivells Educatius",
+      "valor": "Primària, ESO, Batxillerat i Universitat"
     },
     "modalitat": {
       "nom": "Modalitat",
@@ -161,8 +161,8 @@
     "p2": "En quasevol dels nivells que van de 4 anys fins a primers cursos d'universitat. En aquestes classes posem exercicis i problemes exigents, i que es complementen d'explicacions teòriques que l'estudiant desconeix, perquè no li han explicat (encara) a classe.",
     "p3": "Classes dissenyades per a estudiants i pares més exigents que es volen avançar al seu nivell, o preparar aspectes professionals i acadèmics per encarar el mercat laboral amb millors expectatives.",
     "target": {
-      "nom": "Públic objectiu",
-      "valor": "General"
+      "nom": "Nivells Educatius",
+      "valor": "Primària, ESO, Batxillerat i Universitat"
     },
     "modalitat": {
       "nom": "Modalitat",

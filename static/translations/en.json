@@ -87,8 +87,8 @@
       "This method applies to all subjects: Catalan, Mathematics, Biology, etc."
     ],
     "target": {
-      "nom": "Target Audience",
-      "valor": "General"
+      "nom": "Educational Levels",
+      "valor": "Primary, Middle School, High School & University"
     },
     "modalitat": {
       "nom": "Format",
@@ -108,8 +108,8 @@
       "Total hours: 30h"
     ],
     "target": {
-      "nom": "Target Audience",
-      "valor": "General"
+      "nom": "Educational Levels",
+      "valor": "Primary, Middle School, High School & University"
     },
     "modalitat": {
       "nom": "Format",
@@ -134,8 +134,8 @@
     "p2": "At any stage ranging from 4 years old up to the first years of university. In these classes, we offer challenging exercises and problems, complemented by theoretical explanations the student hasn't yet encountered in school.",
     "p3": "Designed for more demanding students and parents who want to get ahead of their level or prepare for academic and professional challenges to improve their career prospects.",
     "target": {
-      "nom": "Target Audience",
-      "valor": "General"
+      "nom": "Educational Levels",
+      "valor": "Primary, Middle School, High School & University"
     },
     "modalitat": {
       "nom": "Format",

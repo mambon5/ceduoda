@@ -145,8 +145,14 @@
             <p style="font-size: 1.1rem; opacity: 0.95; line-height: 1.6;">{{ content.intro_p1 }}</p>
             <p style="font-size: 1rem; opacity: 0.85;">{{ content.intro_p3 }}</p>
 
+            <!-- NIVELLS EDUCATIUS -->
+            <div
+                style="margin-top: 15px; background: rgba(255, 255, 255, 0.15); display: inline-block; padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; font-weight: 500;">
+                <i class="bi bi-mortarboard-fill"></i> Classes per a: <b>Primària · ESO · Batxillerat · Universitat</b>
+            </div>
+
             <!-- Botons ràpids de contacte -->
-            <div style="margin-top: 25px;">
+            <div style="margin-top: 20px;">
                 <a href="https://wa.me/34611648478" target="_blank" class="cta-btn btn-whatsapp"
                     onclick="enviarVisita('click_whatsapp_hero')">
                     <i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp Directe
@@ -165,37 +171,35 @@
 
         <div class="subject-grid">
             <div class="subject-card" onclick="openModal('matematiques-modal')"><i class="bi bi-calculator"
-                    style="color: #2b6cb0;"></i><br>{{ content.subjects.mates.title }}</div>
+                    style="color: #2b6cb0;"></i><br><b>{{ content.subjects.mates.title }}</b></div>
             <div class="subject-card" onclick="openModal('fisica-modal')"><i class="bi bi-gear"
-                    style="color: #3182ce;"></i><br>{{ content.subjects.fisica.title }}</div>
-            <div class="subject-card" onclick="openModal('quimica-modal')"><i class="bi bi-flask"
-                    style="color: #805ad5;"></i><br>{{ content.subjects.quimica.title }}</div>
+                    style="color: #3182ce;"></i><br><b>{{ content.subjects.fisica.title }}</b></div>
+            <div class="subject-card" onclick="openModal('quimica-modal')"><i class="bi bi-capsule"
+                    style="color: #805ad5;"></i><br><b>{{ content.subjects.quimica.title }}</b></div>
             <div class="subject-card" onclick="openModal('catala-modal')"><i class="bi bi-book"
-                    style="color: #c53030;"></i><br>{{ content.subjects.catala.title }}</div>
+                    style="color: #c53030;"></i><br><b>{{ content.subjects.catala.title }}</b></div>
             <div class="subject-card" onclick="openModal('castella-modal')"><i class="bi bi-file-text"
-                    style="color: #dd6b20;"></i><br>{{ content.subjects.castella.title }}</div>
-            <div class="subject-card" onclick="openModal('angles-modal')"
-                style="border: 2px solid #3182ce; background: #ebf8ff;"><i class="bi bi-globe"
+                    style="color: #dd6b20;"></i><br><b>{{ content.subjects.castella.title }}</b></div>
+            <div class="subject-card" onclick="openModal('angles-modal')"><i class="bi bi-globe"
                     style="color: #2b6cb0;"></i><br><b>{{ content.subjects.angles.title }}</b></div>
             <div class="subject-card" onclick="openModal('biologia-modal')"><i class="bi bi-bug"
-                    style="color: #38a169;"></i><br>{{ content.subjects.biologia.title }}</div>
+                    style="color: #38a169;"></i><br><b>{{ content.subjects.biologia.title }}</b></div>
             <div class="subject-card" onclick="openModal('historia-modal')"><i class="bi bi-bank"
-                    style="color: #d69e2e;"></i><br>{{ content.subjects.historia.title }}</div>
+                    style="color: #d69e2e;"></i><br><b>{{ content.subjects.historia.title }}</b></div>
             <div class="subject-card" onclick="openModal('python-modal')"><i class="bi bi-code-slash"
-                    style="color: #dd6b20;"></i><br>{{ content.subjects.python.title }}</div>
+                    style="color: #dd6b20;"></i><br><b>{{ content.subjects.python.title }}</b></div>
             <div class="subject-card" onclick="openModal('cpp-modal')"><i class="bi bi-code"
-                    style="color: #319795;"></i><br>{{ content.subjects.cpp.title }}</div>
+                    style="color: #319795;"></i><br><b>{{ content.subjects.cpp.title }}</b></div>
             <div class="subject-card" onclick="openModal('trading-modal')"><i class="bi bi-graph-up-arrow"
-                    style="color: #38a169;"></i><br>{{ content.subjects.trading.title }}</div>
+                    style="color: #38a169;"></i><br><b>{{ content.subjects.trading.title }}</b></div>
             <div class="subject-card" onclick="openModal('estadistica-modal')"><i class="bi bi-bar-chart"
-                    style="color: #805ad5;"></i><br>{{ content.subjects.estadistica.title }}</div>
+                    style="color: #805ad5;"></i><br><b>{{ content.subjects.estadistica.title }}</b></div>
             <div class="subject-card" onclick="openModal('probabilitat-modal')"><i class="bi bi-dice-3"
-                    style="color: #b83280;"></i><br>{{ content.subjects.probabilitat.title }}</div>
+                    style="color: #b83280;"></i><br><b>{{ content.subjects.probabilitat.title }}</b></div>
             <div class="subject-card" onclick="openModal('apps-modal')"><i class="bi bi-phone"
-                    style="color: #319795;"></i><br>{{ content.subjects.apps.title }}</div>
+                    style="color: #319795;"></i><br><b>{{ content.subjects.apps.title }}</b></div>
         </div>
     </section>
-
     <!-- MODALS -->
     <div id="matematiques-modal" class="custom-modal">
         <div class="modal-content"><span class="close" onclick="closeModal('matematiques-modal')">&times;</span>
@@ -211,7 +215,7 @@
     </div>
     <div id="quimica-modal" class="custom-modal">
         <div class="modal-content"><span class="close" onclick="closeModal('quimica-modal')">&times;</span>
-            <h3>{{ content.subjects.quimica.title }} <i class="bi bi-flask" style="color: darkmagenta;"></i></h3>
+            <h3>{{ content.subjects.quimica.title }} <i class="bi bi-capsule" style="color: darkmagenta;"></i></h3>
             <p>{{ content.subjects.quimica.desc }}</p>
         </div>
     </div>

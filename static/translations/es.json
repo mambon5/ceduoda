@@ -87,8 +87,8 @@
       "Este método se aplica a todas las asignaturas: Lengua Catalana, Matemáticas, Biología, etc."
     ],
     "target": {
-      "nom": "Público Objetivo",
-      "valor": "General"
+      "nom": "Niveles Educativos",
+      "valor": "Primaria, Secundaria (ESO), Bachillerato y Universidad"
     },
     "modalitat": {
       "nom": "Modalidad",
@@ -135,8 +135,8 @@
       "Total de horas: 30h"
     ],
     "target": {
-      "nom": "Público Objetivo",
-      "valor": "General"
+      "nom": "Niveles Educativos",
+      "valor": "Primaria, Secundaria (ESO), Bachillerato y Universidad"
     },
     "modalitat": {
       "nom": "Modalidad",
@@ -161,8 +161,8 @@
     "p2": "De cualquier nivel desde 4 años hasta primeros cursos de universidad. En estas clases trabajamos con ejercicios exigentes y explicaciones teóricas que el estudiante aún no ha visto en clase.",
     "p3": "Clases diseñadas para estudiantes y familias exigentes que quieren adelantarse a su nivel o prepararse para el futuro académico o laboral.",
     "target": {
-      "nom": "Público Objetivo",
-      "valor": "General"
+      "nom": "Niveles Educativos",
+      "valor": "Primaria, Secundaria (ESO), Bachillerato y Universidad"
     },
     "modalitat": {
       "nom": "Modalidad",
