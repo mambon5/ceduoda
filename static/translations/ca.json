@@ -21,6 +21,7 @@
   "hero_levels_list": "Primària · ESO · Batxillerat · Universitat",
   "btn_whatsapp": "WhatsApp Directe",
   "btn_phone": "Truca'ns ara",
+  "whatsapp_message": "Hola, m'agradaria demanar informació sobre les vostres classes i serveis.",
   "title_subjects": "Explora les nostres matèries:",
   "subjects": {
     "mates": {
@@ -361,14 +362,16 @@
     "conversa_item_1": "Practica el teu anglès sense vergonya.",
     "conversa_item_2": "Anglès pràctic per a feina o viatges.",
     "conversa_item_3": "Grups reduïts per participar al màxim.",
-    "conversa_item_4": "Horaris adaptats."
+    "conversa_item_4": "Horaris adaptats.",
+    "whatsapp_message": "Hola, m'agradaria demanar informació sobre les classes d'anglès."
   },
   "python_page": {
     "btn_inici": "Inici",
-    "hero_badge": "Programació & Tecnologies de Futurs",
+    "hero_badge": "Programació del Futur",
     "hero_title": "Cursos i Classes de Python a Barcelona",
     "hero_subtitle": "Aprendre a programar obre les portes al futur professional. D'iniciació a desenvolupament web, aplicacions i anàlisi de dades.",
     "btn_whatsapp": "Demana Informació per WhatsApp",
+    "whatsapp_message": "Hola, m'agradaria demanar informació sobre les classes de Python.",
     "btn_truca": "Truca'ns ara",
     "section_title": "Tria el teu itinerari de programació",
     "dirigit_a": "Dirigit a:",
@@ -399,6 +402,7 @@
     "hero_title": "Curs de Trading i Inversions a eToro a Barcelona",
     "hero_subtitle": "Aprèn a operar en borsa, anàlisi tècnica, gestió del risc i domina la fiscalitat de l'IRPF a Espanya de forma pràctica.",
     "btn_whatsapp": "Demana informació per WhatsApp",
+    "whatsapp_message": "Hola, m'agradaria demanar informació sobre el curs de Trading i eToro.",
     "btn_truca": "Truca'ns directament",
     "section_title": "Pla d'Estudis Complet de Trading",
     "objectiu_label": "Objectiu",

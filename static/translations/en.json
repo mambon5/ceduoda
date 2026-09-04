@@ -21,6 +21,7 @@
   "hero_levels_list": "Primary · Middle School · High School · University",
   "btn_whatsapp": "Direct WhatsApp",
   "btn_phone": "Call us now",
+  "whatsapp_message": "Hello, I would like to ask for information about your classes and services.",
   "title_subjects": "Explore our subjects:",
   "subjects": {
     "mates": {
@@ -322,14 +323,16 @@
     "conversa_item_1": "Practice your English with confidence.",
     "conversa_item_2": "Practical English for work or travel.",
     "conversa_item_3": "Small groups to maximize participation.",
-    "conversa_item_4": "Flexible schedules."
+    "conversa_item_4": "Flexible schedules.",
+    "whatsapp_message": "Hello, I would like to ask for information about English classes."
   },
   "python_page": {
     "btn_inici": "Home",
-    "hero_badge": "Programming & Future Tech",
-    "hero_title": "Python Programming Courses in Barcelona",
+    "hero_badge": "Future coding",
+    "hero_title": "Python coding Courses in Barcelona",
     "hero_subtitle": "Learning to code opens doors to the future. From absolute beginners to web development, apps, and data analysis.",
     "btn_whatsapp": "Request Info via WhatsApp",
+    "whatsapp_message": "Hello, I would like to ask for information about Python classes.",
     "btn_truca": "Call us now",
     "section_title": "Choose your programming track",
     "dirigit_a": "Target Audience:",
@@ -360,6 +363,7 @@
     "hero_title": "Trading & eToro Investment Course in Barcelona",
     "hero_subtitle": "Learn stock trading, technical analysis, risk management, and master Spanish IRPF tax compliance practically.",
     "btn_whatsapp": "Request Info on WhatsApp",
+    "whatsapp_message": "Hello, I would like to ask for information about the Trading and eToro course.",
     "btn_truca": "Call us directly",
     "section_title": "Full Trading Curriculum",
     "objectiu_label": "Objective",

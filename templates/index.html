@@ -88,14 +88,40 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         }
+
+        /* --- REGLES PER A HEADER STICKY I MÒBIL --- */
+        header.sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header.sticky-header {
+                padding: 10px 15px;
+                justify-content: space-between !important;
+            }
+
+            header.sticky-header h1 {
+                font-size: 0.95rem !important;
+            }
+
+            header.sticky-header small {
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 
 <body data-lang="{{ lang }}">
 
     <!-- Header NAVEGACIÓ -->
-    <header
-        style="display: flex; align-items: center; justify-content: center; padding: 12px 24px; background-color: #ffffff; border-bottom: 1px solid #edf2f7;">
+    <!-- Header NAVEGACIÓ -->
+    <header class="sticky-header"
+        style="display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background-color: #ffffff; border-bottom: 1px solid #edf2f7;">
+
+        <!-- Logotip central/esquerra -->
         <a href="https://g.co/kgs/guiGFC3" target="_blank"
             style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
             <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 42px;">
@@ -107,8 +133,9 @@
             </div>
         </a>
 
+        <!-- Botó hamburguesa per al menú lateral -->
         <button class="menu-toggle" onclick="toggleMenu()"
-            style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">&#9776;</button>
+            style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #2c3e50;">&#9776;</button>
     </header>
 
     <nav class="side-menu">
@@ -154,8 +181,8 @@
 
             <!-- Botons ràpids de contacte -->
             <div style="margin-top: 20px;">
-                <a href="https://wa.me/34611648478" target="_blank" class="cta-btn btn-whatsapp"
-                    onclick="enviarVisita('click_whatsapp_hero')">
+                <a href="https://wa.me/34611648478?text={{ content.whatsapp_message | urlencode }}" target="_blank"
+                    class="cta-btn btn-whatsapp" onclick="enviarVisita('click_whatsapp_hero')">
                     <i class="bi bi-whatsapp" style="font-size: 1.2rem;"></i> {{ content.btn_whatsapp }}
                 </a>
                 <a href="tel:+34611648478" class="cta-btn btn-phone" onclick="enviarVisita('click_trucada_hero')">

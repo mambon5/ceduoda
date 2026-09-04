@@ -22,6 +22,39 @@
     <link rel="alternate" hreflang="en" href="https://ceduoda.com/trading/en" />
 
     <style>
+        /* Header fix a la part superior */
+        header.sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ajusts específics per a mòbils */
+        @media (max-width: 768px) {
+            header.sticky-header {
+                flex-direction: column;
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .lang-switcher-trading {
+                position: static !important;
+                margin-top: 5px;
+            }
+
+            .btn-inici-header {
+                position: static !important;
+            }
+
+            .header-content-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+
         .hero-trading {
             background: linear-gradient(135deg, rgba(13, 59, 102, 0.95), rgba(0, 119, 182, 0.95)), url('/static/images/superficie_backg.jpg');
             background-size: cover;
@@ -136,16 +169,29 @@
 <body data-lang="{{ lang }}">
 
     <!-- Header amb el logo del centre i opcions de navegació -->
-    <header
-        style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 0; background-color: #fff; border-bottom: 1px solid #eee;">
+    <!-- Header amb el logo del centre i opcions de navegació -->
+    <header class="sticky-header"
+        style="display: flex; align-items: center; justify-content: center; gap: 15px; padding: 12px 20px; background-color: #fff; border-bottom: 1px solid #eee;">
 
-        <!-- Botó per tornar a l'Inici -->
-        <div style="position: absolute; left: 20px;">
-            <a href="/{{ lang }}" class="w3-button w3-round"
-                style="background-color: #f8f9fa; border: 1px solid #ccc; color: #2c3e50; font-weight: bold; text-decoration: none; padding: 6px 12px; font-size: 0.9rem;"
-                onclick="enviarVisita('click_tornar_inici')">
-                <i class="bi bi-house-door-fill"></i> {{ content.trading_page.btn_inici }}
-            </a>
+        <div class="header-content-wrapper">
+            <!-- Botó per tornar a l'Inici -->
+            <div class="btn-inici-header" style="position: absolute; left: 20px;">
+                <a href="/{{ lang }}" class="w3-button w3-round"
+                    style="background-color: #f8f9fa; border: 1px solid #ccc; color: #2c3e50; font-weight: bold; text-decoration: none; padding: 6px 12px; font-size: 0.9rem;"
+                    onclick="enviarVisita('click_tornar_inici')">
+                    <i class="bi bi-house-door-fill"></i> {{ content.trading_page.btn_inici }}
+                </a>
+            </div>
+
+            <!-- Selector d'idioma integrat -->
+            <div class="lang-switcher-trading" style="position: absolute; right: 20px;">
+                <a href="/trading/ca" class="{% if lang == 'ca' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                        class="fi fi-es-ct"></span></a>
+                <a href="/trading/es" class="{% if lang == 'es' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                        class="fi fi-es"></span></a>
+                <a href="/trading/en" class="{% if lang == 'en' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                        class="fi fi-us"></span></a>
+            </div>
         </div>
 
         <!-- Logotip central -->
@@ -157,16 +203,6 @@
                 Centre d'Estudis Duoda
             </h1>
         </a>
-
-        <!-- Selector d'idioma integrat (a la dreta) -->
-        <div class="lang-switcher-trading">
-            <a href="/trading/ca" class="{% if lang == 'ca' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
-                    class="fi fi-es-ct"></span></a>
-            <a href="/trading/es" class="{% if lang == 'es' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
-                    class="fi fi-es"></span></a>
-            <a href="/trading/en" class="{% if lang == 'en' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
-                    class="fi fi-us"></span></a>
-        </div>
     </header>
 
     <!-- Hero amb crida a l'acció principal -->
@@ -179,7 +215,7 @@
 
         <!-- Botons de conversió directa -->
         <div style="margin-top: 25px;">
-            <a href="https://wa.me/34611648478?text=Hola,%20m'agradaria%20demanar%20informació%20sobre%20el%20curs%20de%20Trading%20i%20eToro"
+            <a href="https://wa.me/34611648478?text={{ content.trading_page.whatsapp_message | urlencode }}"
                 target="_blank" class="cta-button-whatsapp" onclick="enviarVisita('click_whatsapp_hero')">
                 <i class="bi bi-whatsapp"></i> {{ content.trading_page.btn_whatsapp }}
             </a>
