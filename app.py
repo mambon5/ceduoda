@@ -191,6 +191,29 @@ def angles(lang_code='ca'):
     
     return render_template('angles.html', lang=lang_code, content=content)
 
+@app.route('/python')
+@app.route('/python/<lang_code>')
+def python(lang_code='ca'):
+    if lang_code not in ['ca', 'es', 'en']:
+        lang_code = 'ca'
+    
+    content = load_translation(lang_code)
+    content["lang_code"] = lang_code
+    
+    return render_template('curs_python.html', lang=lang_code, content=content)
+
+# --- RUTA TRADING ---
+@app.route('/trading')
+@app.route('/trading/<lang_code>')
+def trading(lang_code='ca'):
+    if lang_code not in ['ca', 'es', 'en']:
+        lang_code = 'ca'
+    
+    content = load_translation(lang_code)
+    content["lang_code"] = lang_code
+    
+    return render_template('trading.html', lang=lang_code, content=content)
+
 @app.route('/descarrega_visites')
 def descarrega_visites():
     sessio = Session()

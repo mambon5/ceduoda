@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cursos i formació de Trading i eToro a Barcelona i online. Aprèn anàlisi tècnica, gestió del risc, CopyTrader i fiscalitat de l'IRPF a Espanya. Centre d'Estudis Duoda.">
+    <title>Curs de Trading & eToro - Centre d'Estudis Duoda</title>
+
+    <!-- Llibreries i estils del projecte -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/logo_10.png" type="image/png">
+
+    <!-- Enllaços hreflang per a SEO -->
+    <link rel="alternate" hreflang="ca" href="https://ceduoda.com/trading/ca" />
+    <link rel="alternate" hreflang="es" href="https://ceduoda.com/trading/es" />
+    <link rel="alternate" hreflang="en" href="https://ceduoda.com/trading/en" />
+
+    <style>
+        .hero-trading {
+            background: linear-gradient(135deg, rgba(13, 59, 102, 0.95), rgba(0, 119, 182, 0.95)), url('/static/images/superficie_backg.jpg');
+            background-size: cover;
+            color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 4px solid #2ec4b6;
+        }
+
+        .cta-button-whatsapp {
+            display: inline-block;
+            background-color: #25D366;
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.15rem;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button-whatsapp:hover {
+            transform: scale(1.04);
+            background-color: #20ba5a;
+        }
+
+        .cta-button-phone {
+            display: inline-block;
+            background-color: #3498db;
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.15rem;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button-phone:hover {
+            transform: scale(1.04);
+            background-color: #2980b9;
+        }
+
+        .card-trading {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #0077b6;
+        }
+
+        .card-trading h3,
+        .card-trading h2 {
+            color: #0d3b66;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        .badge-trading {
+            background-color: #2ec4b6;
+            color: #0d3b66;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .module-subtitle {
+            font-weight: bold;
+            color: #0d3b66;
+            margin-top: 18px;
+            font-size: 1.05rem;
+        }
+
+        .lang-switcher-trading {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .lang-switcher-trading a {
+            margin-left: 5px;
+            text-decoration: none;
+        }
+
+        .tax-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tax-table th,
+        .tax-table td {
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .tax-table th {
+            background-color: #f8fafc;
+            color: #0d3b66;
+        }
+    </style>
+</head>
+
+<body data-lang="{{ lang }}">
+
+    <!-- Header amb el logo del centre i opcions de navegació -->
+    <header
+        style="position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 0; background-color: #fff; border-bottom: 1px solid #eee;">
+
+        <!-- Botó per tornar a l'Inici -->
+        <div style="position: absolute; left: 20px;">
+            <a href="/{{ lang }}" class="w3-button w3-round"
+                style="background-color: #f8f9fa; border: 1px solid #ccc; color: #2c3e50; font-weight: bold; text-decoration: none; padding: 6px 12px; font-size: 0.9rem;"
+                onclick="enviarVisita('click_tornar_inici')">
+                <i class="bi bi-house-door-fill"></i> {{ content.trading_page.btn_inici }}
+            </a>
+        </div>
+
+        <!-- Logotip central -->
+        <a href="https://g.co/kgs/guiGFC3" target="_blank"
+            style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+            <img src="/static/images/logo_9.png" alt="Logo CE Duoda" style="height: 40px;">
+            <h1
+                style="font-size: 1.2rem; font-weight: 600; margin: 0; font-family: 'Arial Black', Gadget, sans-serif; color: #2c3e50;">
+                Centre d'Estudis Duoda
+            </h1>
+        </a>
+
+        <!-- Selector d'idioma integrat (a la dreta) -->
+        <div class="lang-switcher-trading">
+            <a href="/trading/ca" class="{% if lang == 'ca' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                    class="fi fi-es-ct"></span></a>
+            <a href="/trading/es" class="{% if lang == 'es' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                    class="fi fi-es"></span></a>
+            <a href="/trading/en" class="{% if lang == 'en' %}w3-opacity-off{% else %}w3-opacity{% endif %}"><span
+                    class="fi fi-us"></span></a>
+        </div>
+    </header>
+
+    <!-- Hero amb crida a l'acció principal -->
+    <section class="hero-trading">
+        <span class="badge-trading"><i class="bi bi-graph-up-arrow"></i> {{ content.trading_page.hero_badge }}</span>
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin-top: 15px;">{{ content.trading_page.hero_title }}</h1>
+        <p style="font-size: 1.1rem; max-width: 750px; margin: 15px auto;">
+            {{ content.trading_page.hero_subtitle }}
+        </p>
+
+        <!-- Botons de conversió directa -->
+        <div style="margin-top: 25px;">
+            <a href="https://wa.me/34611648478?text=Hola,%20m'agradaria%20demanar%20informació%20sobre%20el%20curs%20de%20Trading%20i%20eToro"
+                target="_blank" class="cta-button-whatsapp" onclick="enviarVisita('click_whatsapp_hero')">
+                <i class="bi bi-whatsapp"></i> {{ content.trading_page.btn_whatsapp }}
+            </a>
+            <a href="tel:+34611648478" class="cta-button-phone" onclick="enviarVisita('click_trucada_hero')">
+                <i class="bi bi-telephone-fill"></i> {{ content.trading_page.btn_truca }}
+            </a>
+        </div>
+    </section>
+
+    <!-- Contingut principal del curs -->
+    <section class="w3-content" style="max-width: 1100px; padding: 40px 20px;">
+
+        <h2 class="w3-center" style="font-weight: 700; color: #2c3e50; margin-bottom: 35px;">
+            {{ content.trading_page.section_title }}
+        </h2>
+
+        <!-- NIVELL 1: PRINCIPIANTS -->
+        <div class="card-trading">
+            <span class="badge-trading"><i class="bi bi-shield-check"></i> {{ content.trading_page.lvl1_badge }}</span>
+            <h3>{{ content.trading_page.lvl1_title }}</h3>
+            <p><b>{{ content.trading_page.objectiu_label }}:</b> {{ content.trading_page.lvl1_objective }}</p>
+            <hr>
+
+            <div class="module-subtitle"><i class="bi bi-1-circle-fill"></i> {{ content.trading_page.lvl1_m1_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl1_m1_i1 }}</li>
+                <li>{{ content.trading_page.lvl1_m1_i2 }}</li>
+                <li>{{ content.trading_page.lvl1_m1_i3 }}</li>
+            </ul>
+
+            <div class="module-subtitle"><i class="bi bi-2-circle-fill"></i> {{ content.trading_page.lvl1_m2_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl1_m2_i1 }}</li>
+                <li>{{ content.trading_page.lvl1_m2_i2 }}</li>
+                <li>{{ content.trading_page.lvl1_m2_i3 }}</li>
+            </ul>
+
+            <div class="module-subtitle"><i class="bi bi-3-circle-fill"></i> {{ content.trading_page.lvl1_m3_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl1_m3_i1 }}</li>
+                <li>{{ content.trading_page.lvl1_m3_i2 }}</li>
+            </ul>
+
+            <div class="module-subtitle"><i class="bi bi-4-circle-fill"></i> {{ content.trading_page.lvl1_m4_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl1_m4_i1 }}</li>
+                <li>{{ content.trading_page.lvl1_m4_i2 }}</li>
+            </ul>
+        </div>
+
+        <!-- NIVELL 2: INTERMEDI / AVANÇAT -->
+        <div class="card-trading" style="border-top-color: #2a9d8f;">
+            <span class="badge-trading" style="background-color: #2a9d8f; color: white;"><i class="bi bi-sliders"></i>
+                {{ content.trading_page.lvl2_badge }}</span>
+            <h3>{{ content.trading_page.lvl2_title }}</h3>
+            <p><b>{{ content.trading_page.objectiu_label }}:</b> {{ content.trading_page.lvl2_objective }}</p>
+            <hr>
+
+            <div class="module-subtitle"><i class="bi bi-1-circle-fill"></i> {{ content.trading_page.lvl2_m1_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl2_m1_i1 }}</li>
+                <li>{{ content.trading_page.lvl2_m1_i2 }}</li>
+            </ul>
+
+            <div class="module-subtitle"><i class="bi bi-2-circle-fill"></i> {{ content.trading_page.lvl2_m2_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl2_m2_i1 }}</li>
+                <li>{{ content.trading_page.lvl2_m2_i2 }}</li>
+            </ul>
+
+            <div class="module-subtitle"><i class="bi bi-3-circle-fill"></i> {{ content.trading_page.lvl2_m3_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl2_m3_i1 }}</li>
+                <li>{{ content.trading_page.lvl2_m3_i2 }}</li>
+                <li>{{ content.trading_page.lvl2_m3_i3 }}</li>
+                <li>{{ content.trading_page.lvl2_m3_i4 }}</li>
+            </ul>
+
+            <div class="module-subtitle"><i class="bi bi-4-circle-fill"></i> {{ content.trading_page.lvl2_m4_title }}
+            </div>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.lvl2_m4_i1 }}</li>
+                <li>{{ content.trading_page.lvl2_m4_i2 }}</li>
+            </ul>
+        </div>
+
+        <!-- MÒDUL TRANSVERSAL: FISCALITAT -->
+        <div class="card-trading" style="border-top-color: #e76f51;">
+            <span class="badge-trading" style="background-color: #e76f51; color: white;"><i class="bi bi-receipt"></i>
+                {{ content.trading_page.tax_badge }}</span>
+            <h3>{{ content.trading_page.tax_title }}</h3>
+            <p><b>{{ content.trading_page.objectiu_label }}:</b> {{ content.trading_page.tax_objective }}</p>
+            <hr>
+
+            <h4 style="color: #0d3b66; font-weight: 600;">{{ content.trading_page.tax_sec1_title }}</h4>
+            <p>{{ content.trading_page.tax_sec1_desc1 }}</p>
+            <p>{{ content.trading_page.tax_sec1_desc2 }}</p>
+
+            <h4 style="color: #0d3b66; font-weight: 600;">{{ content.trading_page.tax_sec2_title }}</h4>
+            <table class="tax-table">
+                <thead>
+                    <tr>
+                        <th>{{ content.trading_page.tax_th_profit }}</th>
+                        <th>{{ content.trading_page.tax_th_rate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fins a 6.000 €</td>
+                        <td><strong>19%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>De 6.000 € a 50.000 €</td>
+                        <td><strong>21%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>De 50.000 € a 200.000 €</td>
+                        <td><strong>23%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>De 200.000 € a 300.000 €</td>
+                        <td><strong>27%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Més de 300.000 €</td>
+                        <td><strong>28%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: #0d3b66; font-weight: 600;">{{ content.trading_page.tax_sec3_title }}</h4>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.tax_sec3_i1 }}</li>
+                <li>{{ content.trading_page.tax_sec3_i2 }}</li>
+                <li>{{ content.trading_page.tax_sec3_i3 }}</li>
+                <li>{{ content.trading_page.tax_sec3_i4 }}</li>
+            </ul>
+
+            <h4 style="color: #0d3b66; font-weight: 600;">{{ content.trading_page.tax_sec4_title }}</h4>
+            <p>{{ content.trading_page.tax_sec4_desc }}</p>
+
+            <h4 style="color: #0d3b66; font-weight: 600;">{{ content.trading_page.tax_sec5_title }}</h4>
+            <ul style="padding-left: 20px;">
+                <li>{{ content.trading_page.tax_sec5_i1 }}</li>
+                <li>{{ content.trading_page.tax_sec5_i2 }}</li>
+                <li>{{ content.trading_page.tax_sec5_i3 }}</li>
+            </ul>
+        </div>
+
+        <!-- Secció de Contacte (Igual que a python.html) -->
+        <div class="w3-card w3-round-large"
+            style="background-color: #f8f9fa; padding: 30px; margin-top: 20px; text-align: center;">
+            <h3 style="color: #2c3e50; font-weight: 700;">{{ content.trading_page.contact_title }}</h3>
+            <p><i class="bi bi-geo-alt-fill" style="color: #e74c3c;"></i> <b>Centre d'Estudis Duoda:</b> Carrer Duoda
+                21, 08020 Barcelona (Sant Martí / Verneda)</p>
+            <p><i class="bi bi-envelope-fill"></i> Email: <a href="mailto:ceduoda@gmail.com"
+                    style="color:#2c3e50; font-weight:bold;">ceduoda@gmail.com</a></p>
+            <p><i class="bi bi-telephone-fill"></i> Telèfons: <a href="tel:+34611648478"
+                    style="color:#2c3e50; font-weight:bold;">611 648 478</a> / <a href="tel:+34640669010"
+                    style="color:#2c3e50; font-weight:bold;">640 669 010</a></p>
+
+            <div style="margin-top: 20px;">
+                <a href="https://wa.me/34611648478?text=Hola,%20vull%20informació%20sobre%20els%20cursos%20de%20Trading"
+                    target="_blank" class="cta-button-whatsapp" onclick="enviarVisita('click_whatsapp_reserva')">
+                    <i class="bi bi-whatsapp"></i> {{ content.trading_page.btn_reserva }}
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-padding-16" style="background-color: #2c3e50; color: white; margin-top: 40px;">
+        <p style="margin: 0; font-size: 0.9rem;">© 2026 Centre d'Estudis Duoda • Carrer Duoda 21, Barcelona</p>
+    </footer>
+
+    <!-- Scripts de seguiment -->
+    <script>
+        const pagina_nom = "landing_trading";
+    </script>
+    <script src="/static/js/registre_clics.js"></script>
+
+</body>
+
+</html>
