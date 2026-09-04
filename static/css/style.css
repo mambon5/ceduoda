@@ -1,46 +1,47 @@
 body {
-    font-family: sans-serif;
-    /* background: #f2f2f2; */
-    font-size: 16px; /* mida base */
-    color: #333;
-    text-align: center;
-    padding: 2rem;
+  font-family: sans-serif;
+  /* background: #f2f2f2; */
+  font-size: 16px;
+  /* mida base */
+  color: #333;
+  text-align: center;
+  padding: 2rem;
 
   background-color: #fdfdfd;
-  background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 1.5rem;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
 }
 
 button {
-    font-size: 1.3rem;
-    padding: 0.7rem 1.2rem;
-    margin: 0.5rem;
-    border: none;
-    border-radius: 8px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+  font-size: 1.3rem;
+  padding: 0.7rem 1.2rem;
+  margin: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
 }
 
 .descripcio {
-  color:#5a0c7b
+  color: #5a0c7b
 }
 
 button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 .buttons {
@@ -63,43 +64,48 @@ button:hover {
 }
 
 .insta-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
+
 .titol-guai {
-            font-family: 'Bitcount Grid Double';
-            font-size: 3em;
-            text-align: center;
-            margin-top: 40px;
-            animation: fadeIn 2s ease-out;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+  font-family: 'Bitcount Grid Double';
+  font-size: 3em;
+  text-align: center;
+  margin-top: 40px;
+  animation: fadeIn 2s ease-out;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
 .titol-guai .paraula1 {
-    color: var(--vividcolor); /* taronja */
+  color: var(--vividcolor);
+  /* taronja */
 }
 
 .titol-guai .paraula2 {
-    color: var(--darkest); /* verd */
+  color: var(--darkest);
+  /* verd */
 }
 
 .titol-guai .exclamacio {
-    color: var(--faintcolor); /* blau */
+  color: var(--faintcolor);
+  /* blau */
 }
 
 
 /* Animació */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .source-code-pro {
@@ -111,13 +117,13 @@ button:hover {
 
 
 .titol-typewriter {
-    font-family: 'Bitcount Grid Double', cursive;
-    font-size: 3em;
-    text-align: center;
-    margin-top: 40px;
-    color: var(--vividcolor); 
-    white-space: nowrap;
-    overflow: hidden;
+  font-family: 'Bitcount Grid Double', cursive;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 40px;
+  color: var(--faintcolor);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 
@@ -138,55 +144,70 @@ button:hover {
 
 
 .titol-typewriter:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-    cursor: default;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  cursor: default;
 }
 
 .cursor {
-    display: inline-block;
-    animation: blink 1s infinite;
-    color: var(--darkest); 
+  display: inline-block;
+  animation: blink 1s infinite;
+  color: var(--darkest);
 }
 
 @keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
 .footer-info {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    opacity: 0.6; /* semi transparent, visible però dissimulat */
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    color: #333;
-    background: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
-  }
-  .footer-info:hover {
-    opacity: 1; /* Quan passis el ratolí es fa més visible */
-  }
-  .footer-info img {
-    height: 24px;
-    margin-right: 8px;
-  }
-  .footer-info a {
-    color: #333;
-    text-decoration: none;
-    margin-left: 5px;
-  }
-  .footer-info a:hover {
-    text-decoration: underline;
-  }
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  /* semi transparent, visible però dissimulat */
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #333;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
 
-  .custom-modal {
+.footer-info:hover {
+  opacity: 1;
+  /* Quan passis el ratolí es fa més visible */
+}
+
+.footer-info img {
+  height: 24px;
+  margin-right: 8px;
+}
+
+.footer-info a {
+  color: #333;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+.custom-modal {
   display: none;
   position: fixed;
   z-index: 1001;
@@ -195,7 +216,7 @@ button:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -206,7 +227,7 @@ button:hover {
   width: 80%;
   max-width: 400px;
   text-align: left;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .close {
@@ -229,12 +250,14 @@ button:hover {
     transform: rotate(90deg);
     opacity: 0;
   }
+
   to {
     transform: rotate(0deg);
     opacity: 1;
   }
 
 }
+
 .side-menu {
   position: fixed;
   top: 10%;
@@ -243,7 +266,7 @@ button:hover {
   background-color: rgb(120, 144, 128);
   opacity: 0.9;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   padding: 10px;
   z-index: 1000;
 }
@@ -256,7 +279,7 @@ button:hover {
 
 .side-menu li {
   margin: 8px 0;
-    font-size: 20px;
+  font-size: 20px;
 
 }
 
@@ -272,17 +295,32 @@ button:hover {
 }
 
 @keyframes jelly {
-  0%   { transform: scale(1,1); }
-  25%  { transform: scale(1.1, 0.9); }
-  50%  { transform: scale(0.9, 1.1); }
-  75%  { transform: scale(1.05, 0.95); }
-  100% { transform: scale(1,1); }
+  0% {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(1.1, 0.9);
+  }
+
+  50% {
+    transform: scale(0.9, 1.1);
+  }
+
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
-.side-menu a:hover  {
+.side-menu a:hover {
   color: rgb(188, 233, 207);
   animation: jelly 0.4s ease-in-out;
-  display: inline-block; /* necessari per animació transform */
+  display: inline-block;
+  /* necessari per animació transform */
 }
 
 .side-menu:hover {
@@ -293,7 +331,8 @@ button:hover {
 .side-menu a.active {
   color: rgb(188, 233, 207);
   animation: jelly 0.4s ease-in-out;
-  display: inline-block; /* necessari per animació transform */
+  display: inline-block;
+  /* necessari per animació transform */
 }
 
 a.active .fi {
@@ -304,7 +343,8 @@ a.active .fi {
 }
 
 
-.examples:hover, .examples.active {
+.examples:hover,
+.examples.active {
   color: seagreen;
   animation: jelly 0.4s ease-in-out;
 }
@@ -320,19 +360,27 @@ a.active .fi {
   cursor: pointer;
 }
 
-#h2estiu:hover, .estiu{
-  color:orange;
+#h2estiu:hover,
+.estiu {
+  color: orange;
 }
 
 
 
-ul, ol {
-  max-width: 600px; /* o la mida que vulguis */
-  margin: 0 auto;   /* centra el bloc */
-  font-size: 1.1rem; /* o un tamany llegible */
-  line-height: 1.5;  /* millora l’espaiat vertical */
-  padding-left: 1.2rem; /* per separar les vinyetes del text */
-  word-wrap: break-word; /* que faci salt de línia dins paraules llargues */
+ul,
+ol {
+  max-width: 600px;
+  /* o la mida que vulguis */
+  margin: 0 auto;
+  /* centra el bloc */
+  font-size: 1.1rem;
+  /* o un tamany llegible */
+  line-height: 1.5;
+  /* millora l’espaiat vertical */
+  padding-left: 1.2rem;
+  /* per separar les vinyetes del text */
+  word-wrap: break-word;
+  /* que faci salt de línia dins paraules llargues */
 }
 
 ol {
@@ -346,8 +394,9 @@ ol {
 
 #curs_juliol {
   font-family: "Source Code Pro", monospace;
-  font-size: 1.1em; /* 10% més gran que la mida base (16px * 1.1 = 17.6px) */
-  color:orange;
+  font-size: 1.1em;
+  /* 10% més gran que la mida base (16px * 1.1 = 17.6px) */
+  color: orange;
 }
 
 /* Botó toggle per mòbil */
@@ -361,9 +410,10 @@ ol {
   font-size: 1.5rem;
   padding: 5px 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  display: none; /* per defecte amagat */
+  display: none;
+  /* per defecte amagat */
 }
 
 /* Menú lateral per defecte */
@@ -393,27 +443,29 @@ ol {
 
 
 .btn-descargar {
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
+
 .btn-descargar:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .btn-estadistic {
-    display: inline-block;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #8c00ff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #8c00ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
+
 .btn-estadistic:hover {
-    background-color: #49039e;
+  background-color: #49039e;
 }

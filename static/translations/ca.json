@@ -17,6 +17,11 @@
   "intro_p1": "Ens enfoquem en l'alumne, perquè creiem que el més important és aprendre de veritat.",
   "intro_p2": "Qüestionem el sistema educatiu formal i apostem per una educació alumne-cèntrica. El teu èxit comença aquí.",
   "intro_p3": "Tant per a joves com per a grans!",
+  "hero_levels_prefix": "Classes per a:",
+  "hero_levels_list": "Primària · ESO · Batxillerat · Universitat",
+  "btn_whatsapp": "WhatsApp Directe",
+  "btn_phone": "Truca'ns ara",
+  "title_subjects": "Explora les nostres matèries:",
   "subjects": {
     "mates": {
       "title": "Matemàtiques",
@@ -264,7 +269,12 @@
       "text": "ceduoda@gmail.com",
       "href": "mailto:ceduoda@gmail.com",
       "icona": "bi bi-envelope-fill"
-    }
+    },
+    "contact_title": "Contacte Directe",
+    "contact_subtitle": "Consulta'ns qualsevol dubte per a classes de reforç o ampliació.",
+    "btn_send_whatsapp": "Envia un WhatsApp",
+    "btn_call": "Trucar al",
+    "instagram_title": "Segueix-nos a Instagram"
   },
   "follow": {
     "titol": "Segueix-nos a Instagram",
@@ -352,5 +362,35 @@
     "conversa_item_2": "Anglès pràctic per a feina o viatges.",
     "conversa_item_3": "Grups reduïts per participar al màxim.",
     "conversa_item_4": "Horaris adaptats."
+  },
+  "python_page": {
+    "btn_inici": "Inici",
+    "hero_badge": "Programació & Tecnologies de Futurs",
+    "hero_title": "Cursos i Classes de Python a Barcelona",
+    "hero_subtitle": "Aprendre a programar obre les portes al futur professional. D'iniciació a desenvolupament web, aplicacions i anàlisi de dades.",
+    "btn_whatsapp": "Demana Informació per WhatsApp",
+    "btn_truca": "Truca'ns ara",
+    "section_title": "Tria el teu itinerari de programació",
+    "dirigit_a": "Dirigit a:",
+    "initiation_title": "1. Fonaments de Python",
+    "initiation_target": "Estudiants de Secundària, Batxillerat i Principiants.",
+    "initiation_item_1": "Sintaxi bàsica, variables, condicionals i bucles.",
+    "initiation_item_2": "Lògica de programació i resolució de problemes.",
+    "initiation_item_3": "Estructures de dades: llistes, diccionaris i tuples.",
+    "initiation_item_4": "Creació de petits jocs i projectes pràctics.",
+    "web_title": "2. Desenvolupament Web i Apps",
+    "web_target": "Universitaris, Batxillerat i desenvolupadors juniors.",
+    "web_item_1_desc": "Creació d'APIs i webs dinàmiques.",
+    "web_item_2_desc": "Connexió i gestió de bases de dades.",
+    "web_item_3_desc": "Creació d'interfícies gràfiques (GUI).",
+    "web_item_4": "Projecte final: Publicació d'una aplicació real.",
+    "data_title": "3. Data Science i Big Data",
+    "data_target": "Estudiants de Ciències, Enginyeries i Universitats.",
+    "data_item_1": "Manipulació i neteja de dades amb Pandas i NumPy.",
+    "data_item_2": "Visualització gràfica amb Matplotlib i Seaborn.",
+    "data_item_3": "Automatització de tasques i Scraping Web.",
+    "data_item_4": "Introducció al Machine Learning i models predictius.",
+    "contact_title": "Reserva la teva classe o prova de nivell",
+    "btn_reserva": "Reservar classe o informació"
   }
 }

@@ -17,6 +17,11 @@
   "intro_p1": "Nos enfocamos en el alumno, porque creemos que lo más importante es aprender de verdad.",
   "intro_p2": "Cuestionamos el sistema educativo formal y apostamos por una educación centrada en el alumno. Tu éxito empieza aquí.",
   "intro_p3": "¡Tanto para jóvenes como para mayores!",
+  "hero_levels_prefix": "Clases para:",
+  "hero_levels_list": "Primaria · ESO · Bachillerato · Universidad",
+  "btn_whatsapp": "WhatsApp Directo",
+  "btn_phone": "Llámanos ahora",
+  "title_subjects": "Explora nuestras materias:",
   "subjects": {
     "mates": {
       "title": "Matemáticas",
@@ -264,7 +269,12 @@
       "text": "ceduoda@gmail.com",
       "href": "mailto:ceduoda@gmail.com",
       "icona": "bi bi-envelope-fill"
-    }
+    },
+    "contact_title": "Contacto Directo",
+    "contact_subtitle": "Consúltanos cualquier duda para clases de refuerzo o ampliación.",
+    "btn_send_whatsapp": "Envia un WhatsApp",
+    "btn_call": "Llamar al",
+    "instagram_title": "Síguenos en Instagram"
   },
   "follow": {
     "titol": "Síguenos en Instagram",
@@ -340,5 +350,35 @@
     "conversa_item_2": "Inglés práctico para trabajo o viajes.",
     "conversa_item_3": "Grupos reducidos para participar al máximo.",
     "conversa_item_4": "Horarios adaptados."
+  },
+  "python_page": {
+    "btn_inici": "Inicio",
+    "hero_badge": "Programación y Tecnologías del Futuro",
+    "hero_title": "Cursos y Clases de Python en Barcelona",
+    "hero_subtitle": "Aprender a programar abre las puertas al futuro profesional. Desde iniciación hasta desarrollo web, aplicaciones y análisis de datos.",
+    "btn_whatsapp": "Pide Información por WhatsApp",
+    "btn_truca": "Llámanos ahora",
+    "section_title": "Elige tu itinerario de programación",
+    "dirigit_a": "Dirigido a:",
+    "initiation_title": "1. Fundamentos de Python",
+    "initiation_target": "Estudiantes de Secundaria, Bachillerato y Principiantes.",
+    "initiation_item_1": "Sintaxis básica, variables, condicionales y bucles.",
+    "initiation_item_2": "Lógica de programación y resolución de problemas.",
+    "initiation_item_3": "Estructuras de datos: listas, diccionarios y tuplas.",
+    "initiation_item_4": "Creación de pequeños juegos y proyectos prácticos.",
+    "web_title": "2. Desarrollo Web y Apps",
+    "web_target": "Universitarios, Bachillerato y desarrolladores juniors.",
+    "web_item_1_desc": "Creación de APIs y webs dinámicas.",
+    "web_item_2_desc": "Conexión y gestión de bases de datos.",
+    "web_item_3_desc": "Creación de interfaces gráficas (GUI).",
+    "web_item_4": "Proyecto final: Publicación de una aplicación real.",
+    "data_title": "3. Data Science y Big Data",
+    "data_target": "Estudiantes de Ciencias, Ingenierías y Universidad.",
+    "data_item_1": "Manipulación y limpieza de datos con Pandas y NumPy.",
+    "data_item_2": "Visualización gráfica con Matplotlib y Seaborn.",
+    "data_item_3": "Automatización de tareas y Scraping Web.",
+    "data_item_4": "Introducción al Machine Learning y modelos predictivos.",
+    "contact_title": "Reserva tu clase o prueba de nivel",
+    "btn_reserva": "Reservar clase o información"
   }
 }
