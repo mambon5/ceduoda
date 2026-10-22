@@ -189,6 +189,8 @@ pip install --upgrade pip setuptools wheel
 
 pip3 install "numpy<2.0,>=1.26.0"
 
+pip install "matplotlib<=3.8.4" --no-deps
+
 pip3 install pandas matplotlib flask gunicorn
 
 
