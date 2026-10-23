@@ -234,26 +234,26 @@
         "linkedin": "#"
       },
       {
-        "nom": "Elena Pareja",
-        "rol": "Profe de Bio",
-        "imatge": "static/images/elenap.jpeg",
+        "nom": "Lluís Herranz",
+        "rol": "Head of Maintenance",
+        "imatge": "static/images/lluis.jpeg",
         "descripcio": [
-          "PhD en el IRB de Barcelona",
-          "Especialista en bioinformática",
-          "Amplia experiencia formando estudiantes",
-          "Investigadora en IA y nuevos medicamentos"
+          "Maintenance specialist",
+          "Auxiliary medical technician",
+          "Vast experience in patient care",
+          ""
         ],
         "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
       },
       {
-        "nom": "Marc Sitges",
-        "rol": "Profe de inglés",
-        "imatge": "static/images/marcs.jpg",
+        "nom": "Laura Fernández",
+        "rol": "English teacher",
+        "imatge": "static/images/laura.jpg",
         "descripcio": [
-          "Graduado en Historia",
-          "Gran trayectoria adaptando clases al alumno",
-          "Experto en comunicación, cultura y lenguaje",
-          "Entusiasta del conocimiento libre"
+          "Teacher since 2023",
+          "Extensive experience adapting to each student's needs",
+          "Expert in communication, culture, and language",
+          "Enthusiastic about free and creative knowledge"
         ],
         "linkedin": "#"
       }
