@@ -235,25 +235,25 @@
       },
       {
         "nom": "Lluís Herranz",
-        "rol": "Jefe de mantenimiento",
+        "rol": "Cap de manteniment",
         "imatge": "static/images/lluis.jpeg",
         "descripcio": [
-          "Especialista en mantenimiento",
-          "Técnico auxiliar en medicina",
-          "Amplia experiencia en el trato a pacientes",
+          "Especialista en manteniment",
+          "Tècnic auxiliar en medicina",
+          "Vasta experiència en el tracte a pacients",
           ""
         ],
         "linkedin": "https://www.linkedin.com/in/elena-pareja-lorente-864745194/"
       },
       {
         "nom": "Laura Fernández",
-        "rol": "Profe de inglés",
+        "rol": "Profe d'anglès",
         "imatge": "static/images/laura.jpg",
         "descripcio": [
-          "Docente desde 2023",
-          "Gran trayectoria adaptándose a las necesidades de cada alumna",
-          "Experta en comunicación, cultura y lenguaje",
-          "Entusiasta del conocimiento libre y creativo"
+          "Docent des del 2023",
+          "Gran trajectòria adaptant-se a les necessitats de cada alumna",
+          "Experta en comunicació, cultura i llenguatge",
+          "Entusiasta del coneixement lliure i creatiu"
         ],
         "linkedin": "#"
       }
